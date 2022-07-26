@@ -5,53 +5,53 @@
 <title>Main</title>
 	<link rel = "stylesheet" href = "Main.css" />
 </head>
-<body>
-	<div class="bg">
-		<video muted autoplay loop>
-		  <source src="https://webstatic.hoyoverse.com/upload/contentweb/2020/09/18/3e78e808a274ec2caf5dce50012d62ad_7563349690040869218.mp4" type="video/mp4">
-		</video>  	
-		<div class="bgimg">
-			<img src = "https://webstatic.hoyoverse.com/upload/contentweb/2022/05/19/40c708e06ca86645eb3e00e5f818a57b_1448932081055382861.png">
-		</div>
-	</div>
-	
-	<div class="menu">
+<body>		
+	<div class="menu_top">
 	   <ul>
       	<li>
-    	    <a href="main.html">홈</a>
+    	    <a href="Main.html">홈</a>
    	    </li>
   	  	<li>
-    	    <a href="https://genshin.hoyoverse.com/ko/news">소식</a>
+    	    <a href="Main.html">소식</a>
     	</li>
     	<li>
-    		<a href="https://genshin.hoyoverse.com/ko/character/liyue?char=0">캐릭터</a>
+    		<a href="Main.html">캐릭터</a>
    		</li>
    		<li>
-   			<a href="../board/listArticles.do">게시판</a>
+   			<a href="Main.html">게시판</a>
    		</li>
       </ul>
+	      <div>
+	      	      <input type="text">
+	      </div>
 	</div>
 	
-     <div class="login">  
-      	<h1>계정 로그인</h1>
-      	
-      	<form name="login" method="post" action="main_login.jsp">
-			<div class="logintextbox">
-		  		<input type="text" placeholder="아이디" name="userid">
-			</div>
-		
-			<div class="logintextbox">
-		  		<input type="password" placeholder="비밀번호" name="userpw">
-			</div>
-		
-			<div class="logininput">
-				<input type = "submit" value="로그인">
-			</div>
-		</form>
-		
-		<div class="logininput">
-			<button onclick="location.href='register.html'">회원가입</button>
-		</div>
-  	 </div>
+	<div class="menu_left">
+		<ul>
+			<li>
+			    <img src="../98_Image/MenuIcon_1.jpg">
+				<a href="Main.html">인기차트</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_1.jpg">
+				<a href="Main.html">최신음악</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_1.jpg">
+				<a href="Main.html">장르</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="Weekend_Music">
+		<ul>
+			<li>
+				전체     국내     해외 
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+		</ul>
+	</div>
 </body>
 </html>
