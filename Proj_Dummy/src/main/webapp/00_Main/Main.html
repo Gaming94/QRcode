@@ -3,6 +3,37 @@
 <head>
 <meta charset="UTF-8" content="no-cache"/>
 <title>QR Music</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">로그인 창</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <table>
+	    		<tr>
+	       			<td><p>아이디</td>
+	       			<td><input type="text" name="id"></td>
+	    		</tr>
+	    		<tr>
+	       			<td><p>비밀번호</td>
+	       			<td><input type="text" name="pwd"></td>
+	       		</tr>
+	       	</table>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary">로그인</button>
+	        <a href="../01_Regist/signUp.jsp"><button type="button" class="btn btn-primary">회원가입</button></a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	<style>
 		body {
 		  padding: 0px;
@@ -156,6 +187,7 @@
 			text-decoration:none;
 		}
 	</style>
+	
 </head>
 <body>		
 	<div class="logo">
@@ -185,7 +217,7 @@
 	<div class="menu_right">
 		<ul>
 	    	<li>
-	    		<a href="../01_Regist/signUp.jsp">로그인/회원가입</a>
+	    		<a data-toggle="modal" data-target="#exampleModal">로그인/회원가입</a>
 	   		</li>
 		</ul>
 	</div>
