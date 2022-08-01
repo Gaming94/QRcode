@@ -105,7 +105,7 @@
 </script>
 <body>
 <form method="post"   action="${contextPath}/user/userJoin.do">
-<img class="mainLogo" src="../image/QRMusic_MainLogo.jpg" >
+<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg" >
 <h1  style="text-align:center">회원 가입창</h1>
 <table>
     <tr>
