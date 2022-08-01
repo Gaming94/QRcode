@@ -11,21 +11,21 @@ request.setCharacterEncoding("UTF-8");
 <html>
 <head>
 <c:choose>
-   <c:when test='${msg=="addMember"}'>
+   <c:when test='${msg=="userJoined"}'>
       <script>
          window.onload=function(){
             alert("회원을 등록했습니다.");
          }
       </script>
    </c:when>
-   <c:when test='${msg=="modified"}'>
+   <c:when test='${msg=="userModified"}'>
       <script>
         window.onload=function(){
           alert("회원 정보를 수정했습니다.");
         }
       </script>
    </c:when>
-   <c:when test= '${msg=="deleted"}'>
+   <c:when test= '${msg=="userDropout"}'>
       <script>
          window.onload=function(){
             alert("회원 정보를 삭제했습니다.");
@@ -60,35 +60,32 @@ request.setCharacterEncoding("UTF-8");
          <td width="7%"><b>전화번호</b></td>
          <td width="7%" ><b>가입일</b></td>
          <td width="7%" ><b>수정</b></td>
-		 <td width="7%" ><b>삭제</b></td>
-         
+		 <td width="7%" ><b>삭제</b></td>         
    </tr>
-
 <c:choose>
-    <c:when test="${empty  membersList}" >
+    <c:when test="${empty  userList}" >
       <tr>
         <td colspan=5>
           <b>등록된 회원이 없습니다.</b>
        </td>  
       </tr>
    </c:when>  
-   <c:when test="${!empty membersList}" >
-      <c:forEach  var="mem" items="${membersList}" >
+   <c:when test="${!empty userList}" >
+      <c:forEach  var="user" items="${userList}" >
         <tr align="center">
-          <td>${mem.id}</td>
-          <td>${mem.pwd}</td>
-          <td>${mem.name}</td>     
-          <td>${mem.email}</td>    
-          <td>${mem.tel}</td>    
-          <td>${mem.regdate}</td>
-          <td><a href="${contextPath}/member/memberEditForm.do?id=${mem.id}">수정</a></td>
-		   <td><a href="${contextPath}/member/delMember.do?id=${mem.id}">삭제</a></td>
-               
+          <td>${user.id}</td>
+          <td>${user.pwd}</td>
+          <td>${user.name}</td>     
+          <td>${user.email}</td>    
+          <td>${user.tel}</td>    
+          <td>${user.regdate}</td>
+          <td><a href="${contextPath}/user/userEdit.do?id=${user.id}">수정</a></td>
+		  <td><a href="${contextPath}/user/dropOut.do?id=${user.id}">삭제</a></td>               
        </tr>
      </c:forEach>
 </c:when>
 </c:choose>
    </table>  
- <a href="${contextPath}/member/memberForm.do"><p class="cls2">회원 가입하기</p></a>
+ <a href="${contextPath}/user/signUp.do"><p class="cls2">회원 가입하기</p></a>
 </body>
 </html>

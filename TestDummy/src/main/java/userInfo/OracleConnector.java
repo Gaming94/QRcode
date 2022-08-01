@@ -1,4 +1,4 @@
-package members;
+package userInfo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -57,7 +57,7 @@ public class OracleConnector {
 		}
 	}
 
-	public static void main(String[] args) {
+	public void Connect() {
 		System.out.println(">>> Oracle Connection DBTest <<<");
 
 		try {
@@ -90,7 +90,6 @@ public class OracleConnector {
 		}
 		catch(SQLException e) {
 			System.out.println("[main] SQLException: " + e.toString());
-			System.out.println("SQL오류: LOL이 생성되어 있는지 확인하세요.");
 		}
 		catch(Exception e) {
 			System.out.println("[main] Exception: " + e.toString());

@@ -1,11 +1,11 @@
 /*
  * MemberVO Value Object
  */
-package members;
+package userInfo;
 
 import java.sql.Date;
 
-public class MemberVO {
+public class UserVO {
 	private String id;
 	private String name;
 	private String pwd;
@@ -21,9 +21,9 @@ public class MemberVO {
 	}
 	private Date regdate;
 
-	public MemberVO() {}
+	public UserVO() {}
 	
-	public MemberVO(String id, String name, String pwd,  String email, String tel) {
+	public UserVO(String id, String name, String pwd,  String email, String tel) {
 		this.id = id;
 		this.name = name;
 		this.pwd = pwd;

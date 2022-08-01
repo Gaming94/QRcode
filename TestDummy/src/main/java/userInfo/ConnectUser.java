@@ -1,5 +1,5 @@
 
-package members;
+package userInfo;
 
 
 import java.io.IOException;
@@ -14,13 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/member/*")
-public class MemberController extends HttpServlet {
+@WebServlet("/user/*")
+public class ConnectUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	MemberDAO memberDAO;
+	UserDAO userDAO;
+	OracleConnector oraConn;
 
 	public void init() throws ServletException {
-		memberDAO = new MemberDAO();
+		userDAO = new UserDAO();
+		oraConn = new OracleConnector();
 	}
 
 	/**
@@ -49,52 +51,53 @@ public class MemberController extends HttpServlet {
 		
 		System.out.println("@@ action:" + action);
 		
-		if (action == null || action.equals("/memberList.do")) {
-			List<MemberVO> membersList = memberDAO.getMembers();
-			request.setAttribute("membersList", membersList);
-			nextPage = "/members/memberList.jsp";
+		if (action == null || action.equals("/userInfo.do")) {
+			List<UserVO> userList = userDAO.loadUser();
+			request.setAttribute("userList", userList);
+			nextPage = "/userInfo/userInfo.jsp";
 		} 
-		else if (action.equals("/addMember.do")) {
+		else if (action.equals("/userJoin.do")) {
 			String id = request.getParameter("id");
 			String name = request.getParameter("name");
 			String pwd = request.getParameter("pwd");
 			String email = request.getParameter("email");
 			String tel = request.getParameter("tel");
-			MemberVO memberVO = new MemberVO(id, name, pwd, email, tel);
-			memberDAO.addMember(memberVO);
-			request.setAttribute("msg", "addMember");
-			nextPage = "/member/memberList.do";
+			UserVO userVO = new UserVO(id, name, pwd, email, tel);
+			oraConn.Connect();
+			userDAO.userJoin(userVO);			
+			request.setAttribute("msg", "userJoined");
+			nextPage = "/user/userInfo.do";
 		} 
-		else if (action.equals("/memberForm.do")) {
-			nextPage = "/members/memberForm.jsp";
+		else if (action.equals("/signUp.do")) {
+			nextPage = "/userInfo/signUp.jsp";
 		}
-		else if(action.equals("/memberEditForm.do")){
+		else if(action.equals("/userEdit.do")){
 		     String id = request.getParameter("id");
-		     MemberVO memInfo = memberDAO.getMember(id);
-		     request.setAttribute("memInfo", memInfo);
-		     nextPage="/members/memberEditForm.jsp";
+		     UserVO Info = userDAO.joinInfo(id);
+		     request.setAttribute("Info", Info);
+		     nextPage="/userInfo/userEdit.jsp";
 		}
-		else if(action.equals("/editMember.do")){
+		else if(action.equals("/userModify.do")){
 		     String id = request.getParameter("id");
 		     String name = request.getParameter("name");
 		     String pwd = request.getParameter("pwd");
 	         String email = request.getParameter("email");
 	         String tel = request.getParameter("tel");
-		     MemberVO memberVO = new MemberVO(id, name, pwd, email, tel);
-		     memberDAO.updateMember(memberVO);
-		     request.setAttribute("msg", "modified");
-		     nextPage="/member/memberList.do";
+		     UserVO userVO = new UserVO(id, name, pwd, email, tel);
+		     userDAO.modifyUser(userVO);
+		     request.setAttribute("msg", "userModified");
+		     nextPage="/user/userInfo.do";
 		}
-		else if(action.equals("/delMember.do")){
+		else if(action.equals("/dropOut.do")){
 		     String id=request.getParameter("id");
-		     memberDAO.delMember(id);
-		     request.setAttribute("msg", "deleted");
-		     nextPage="/member/memberList.do";
+		     userDAO.dropUser(id);
+		     request.setAttribute("msg", "userDropout");
+		     nextPage="/user/userInfo.do";
 		}
 		else {
-			List<MemberVO> membersList = memberDAO.getMembers();
-			request.setAttribute("membersList", membersList);
-			nextPage = "/members/memberList.jsp";
+			List<UserVO> userList = userDAO.loadUser();
+			request.setAttribute("userList", userList);
+			nextPage = "/userInfo/userInfo.jsp";
 		}
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);

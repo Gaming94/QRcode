@@ -1,4 +1,4 @@
-package members;
+package userInfo;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,12 +12,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class MemberDAO {
+public class UserDAO {
 	private DataSource datasource = null;
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
 	
-	public MemberDAO() {
+	public UserDAO() {
 		try {
 			Context ctx = new InitialContext();
 			Context env = (Context)ctx.lookup("java:/comp/env");
@@ -28,18 +28,18 @@ public class MemberDAO {
 		}
 	}
 	
-	public void addMember(MemberVO memberVO) {
+	public void userJoin(UserVO userVo) {
 		String sql = "insert into qrmember (id, name, pwd, email, tel) values (?, ?, ?, ?, ?)";
 		
 		try {
 			conn = datasource.getConnection();
 			stmt = conn.prepareStatement(sql);
 			
-			stmt.setString(1, memberVO.getId());
-			stmt.setString(2, memberVO.getName());
-			stmt.setString(3, memberVO.getPwd());
-			stmt.setString(4, memberVO.getEmail());
-			stmt.setString(5, memberVO.getTel());
+			stmt.setString(1, userVo.getId());
+			stmt.setString(2, userVo.getName());
+			stmt.setString(3, userVo.getPwd());
+			stmt.setString(4, userVo.getEmail());
+			stmt.setString(5, userVo.getTel());
 
 			stmt.executeUpdate();
 			stmt.close();
@@ -49,8 +49,8 @@ public class MemberDAO {
 		}
 	}
 	
-	public List<MemberVO> getMembers() {
-		List<MemberVO> listMembers = new ArrayList<MemberVO>();
+	public List<UserVO> loadUser() {
+		List<UserVO> listUser = new ArrayList<UserVO>();
 		
 		ResultSet rs = null;
 		
@@ -71,19 +71,19 @@ public class MemberDAO {
 				String tel = rs.getString("tel");
 				Date regdate = rs.getDate("regdate");
 				
-				MemberVO member = new MemberVO();
-				member.setId(id);
-				member.setName(name);
-				member.setPwd(pwd);
-				member.setEmail(email);
-				member.setTel(tel);
-				member.setRegdate(regdate);
+				UserVO user = new UserVO();
+				user.setId(id);
+				user.setName(name);
+				user.setPwd(pwd);
+				user.setEmail(email);
+				user.setTel(tel);
+				user.setRegdate(regdate);
 				
-				listMembers.add(member);
+				listUser.add(user);
 			}
 		}
 		catch(SQLException e) {
-			System.out.println("[getMembers] SQLException: " + e.toString());
+			System.out.println("[loadUser] SQLException: " + e.toString());
 		}
 		finally {
 			try {
@@ -97,16 +97,16 @@ public class MemberDAO {
 				conn.close();
 			}
 			catch(Exception e) {
-				System.out.println("[getMembers] finally SQLException: " + e.toString());
+				System.out.println("[loadUser] finally SQLException: " + e.toString());
 			}
 			
 			// OracleConnector.closeConnection();
 			
 		}	
-		return listMembers;
+		return listUser;
 	}
 	
-	public void delMember(String id) {
+	public void dropUser(String id) {
 		String sql = "delete from qrmember where id = ?";
 		
 		try {
@@ -121,18 +121,18 @@ public class MemberDAO {
 		}
 	}
 
-	public void updateMember(MemberVO memberVO) {
+	public void modifyUser(UserVO userVo) {
 		String sql = "update qrmember set name=?, pwd=?, email=?, tel=? where id=?";
 		
 		try {
 			conn = datasource.getConnection();
 			stmt = conn.prepareStatement(sql);
 			
-			stmt.setString(1, memberVO.getName());
-			stmt.setString(2, memberVO.getPwd());
-			stmt.setString(3, memberVO.getEmail());
-			stmt.setString(4, memberVO.getTel());
-			stmt.setString(5, memberVO.getId());
+			stmt.setString(1, userVo.getName());
+			stmt.setString(2, userVo.getPwd());
+			stmt.setString(3, userVo.getEmail());
+			stmt.setString(4, userVo.getTel());
+			stmt.setString(5, userVo.getId());
 
 			stmt.executeUpdate();
 			stmt.close();
@@ -142,10 +142,10 @@ public class MemberDAO {
 		}
 	}
 
-	public MemberVO getMember(String Id) {
+	public UserVO joinInfo(String Id) {
 		String sql = "select * from qrmember where id=? order by id";
 		ResultSet rs = null;
-		MemberVO member = new MemberVO();
+		UserVO user = new UserVO();
 		
 		try {
 			conn = datasource.getConnection();
@@ -163,16 +163,16 @@ public class MemberDAO {
 				String tel = rs.getString("tel");
 				Date regdate = rs.getDate("regdate");
 				
-				member.setId(id);
-				member.setName(name);
-				member.setPwd(pwd);
-				member.setEmail(email);
-				member.setTel(tel);
-				member.setRegdate(regdate);
+				user.setId(id);
+				user.setName(name);
+				user.setPwd(pwd);
+				user.setEmail(email);
+				user.setTel(tel);
+				user.setRegdate(regdate);
 			}
 		}
 		catch(SQLException e) {
-			System.out.println("[getMembers] SQLException: " + e.toString());
+			System.out.println("[joinInfo] SQLException: " + e.toString());
 		}
 		finally {
 			try {
@@ -186,16 +186,16 @@ public class MemberDAO {
 				conn.close();
 			}
 			catch(Exception e) {
-				System.out.println("[getMembers] finally SQLException: " + e.toString());
+				System.out.println("[joinInfo] finally SQLException: " + e.toString());
 			}
 		}	
-		return member;
+		return user;
 	}
 	
-	public boolean isMember(String id, String pwd) {
+	public boolean checkUser(String id, String pwd) {
 		String sql = "select decode(count(*),1,'true','false') as membered from qrmember where id=? and pwd=?";
 
-		boolean membered = false;
+		boolean joined = false;
 		
 		try {
 			conn = datasource.getConnection();
@@ -205,13 +205,13 @@ public class MemberDAO {
 			
 			ResultSet rs = stmt.executeQuery();
 			if(rs.next()) {
-				membered = Boolean.parseBoolean(rs.getString("membered"));
+				joined = Boolean.parseBoolean(rs.getString("joined"));
 			}
-			System.out.println("membered=" + membered);
+			System.out.println("joined=" + joined);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		return membered;
+		return joined;
 	}	
 }
