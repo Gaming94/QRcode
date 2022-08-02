@@ -137,6 +137,11 @@
 	       <input class="custom-btn btn-5" width=400 type="submit" value="가입하기">
        </td>
     </tr>
+    <tr>
+		<td colspan="2" align=center>
+			 <a href="../00_Main/Main.html"><button type="button" class="custom-btn btn-5" width=400>가입취소</button></a>
+		</td>
+    </tr>
 </table>
 </form>
 </body>

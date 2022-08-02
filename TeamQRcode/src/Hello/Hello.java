@@ -6,6 +6,11 @@ public class Hello {
 		// TODO Auto-generated method stub
 		System.out.println("Let me introduce my team member");
 		System.out.println("가민석 가민석 가민석 가민석 가민석");
+		
+		String a1;
+		a1 = "asdf";
+		
+		System.out.println(a1);
 	}
 
 }
