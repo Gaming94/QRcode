@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" content="no-cache"/>
-<title>Main</title>
+<title>QR Music</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -15,7 +15,8 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body">
+	      <form action="../01_Regist/login.jsp" method="post">
+	      <div class="modal-body">	       
 	        <table>
 	    		<tr>
 	       			<td><p>아이디</td>
@@ -25,16 +26,170 @@
 	       			<td><p>비밀번호</td>
 	       			<td><input type="text" name="pwd"></td>
 	       		</tr>
-	       	</table>
+	       	</table>	       	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary">로그인</button>
-	        <a href="signUp.jsp"><button type="button" class="btn btn-primary">회원가입</button></a>
+	        <button type="submit">로그인</button>
+	        <a href="../01_Regist/signUp.jsp"><button type="button">회원가입</button></a>	        
 	      </div>
+	      </form>
 	    </div>
 	  </div>
 	</div>
-	<link rel = "stylesheet" href = "Main.css" />
+	<style>
+		body {
+		  padding: 0px;
+		  margin: 0px;
+		}
+		
+		.LPImg {
+			position:absolute;
+			top : 500px;
+			left : 550px;
+			width  : 100px;
+			height : 100px;
+		}
+		
+		.LPImg img:hover {
+			transition : transform 7s;
+			transform:rotate(360deg);
+		}
+		
+		.logo{
+			position: fixed;
+			top : 20px;
+			left : 50px;
+		}
+		
+		.menu_top{
+			position: fixed;
+			z-index : 99;
+			top : 0px;
+			left : 200px;
+			width: 100%;
+			height: 100px;
+			color : white;
+			overflow:hidden;
+			
+			padding-top : 20px;
+			
+			background-color : white;
+			
+			border: 1px solid;
+			border-color : rgb(255, 255, 255);
+		}
+		
+		li{list-style:none}
+		
+		.menu_top li {
+			top : 50px;
+			width: 90PX;
+			float: left;
+			text-align: center;
+			line-height: 25px;
+		}
+		
+		.menu_top input {
+			top : 20px;
+			width: 350px;
+			height: 40px;
+			font-size: 15px;
+			outline: none;
+			padding-left: 10px;
+			
+			background-image: url('../98_Image/Search.jpg');
+			background-repeat: no-repeat;
+			background-size : 35px;
+			background-position: right;
+			
+			border-radius: 20px;
+			border : 2px solid;
+			border-color: rgb(255, 0, 0);
+		}
+		
+		.menu_left{
+			position: fixed;
+			z-index : 99;
+			top: 100px;
+			width: 200px;
+			height: 100%;
+			overflow:hidden;
+			
+			background-color : white;
+		}
+		
+		.menu_left li {
+			height: 60PX;
+			text-align: left;
+		}
+		
+		.menu_right{
+			position : fixed;
+			z-index : 99;
+			top : 10px;
+			right : 30px;
+			width : 200px;		
+		}
+		
+		.menu_right li {
+			top : 0px;
+			width: 130PX;
+			float: left;
+			text-align: center;
+			line-height: 25px;
+		}
+		
+		.Weekend_Music{
+			position: absolute;
+			z-index : 1;
+			top : 110px;
+			left : 202px;
+			width : 100%;
+			height : 600px;
+			background: rgb(223, 229, 232);
+		}
+		
+		.Weekend_Music li{
+			padding-left: 10px;
+			padding-right: 60px;
+			display: inline-block;
+		}
+		
+		.MusicChart{
+			position : absolute;
+			z-index : 1;
+			top : 720;
+			left : 202px;
+			width : 100%;
+			height : 600px;
+			background: rgb(223, 229, 232);
+		}
+		
+		.text{
+			padding-top : 15px;
+			padding-left : 30px;
+		}
+		
+		h2{
+			display: inline-block;
+		}
+		
+		.text p{
+			display: inline-block;
+			padding-left: 20px;
+		}
+		
+		a:link {
+			color : Black;
+			text-decoration:none;
+		}
+		
+		a:visited {
+			color : Black;
+			text-decoration:none;
+		}
+	</style>
+	
 </head>
 <body>		
 	<div class="logo">
@@ -43,23 +198,30 @@
 		</a>
 	</div>
 
-	<div class="menu_top">	
-	  	<ul>
-  	  	<li>
-    	    <a data-target="#exampleModal">로그인</a>
-    	</li>
-    	<li>
-    		<a href="Main.html">회원가입</a>
-   		</li>
-   		<li>
-   			<a href="Main.html">게시판</a>
-   		</li>
-      </ul>
-	      <div>
-		      <form>
+	<div class="menu_top">
+		
+      <div>
+	      <form>
 		      	<input type="text">
-		      </form>
-	      </div>
+	      </form>
+      </div>
+      
+	  	<ul>
+   			<li>
+   				<a href="Main.html">공지사항</a>
+   			</li>
+   			<li>
+   				<a href="Main.html">음악요청</a>
+   			</li>
+   		</ul>
+	</div>
+	
+	<div class="menu_right">
+		<ul>
+	    	<li>
+	    		<a data-toggle="modal" data-target="#exampleModal">로그인/회원가입</a>
+	   		</li>
+		</ul>
 	</div>
 	
 	<div class="menu_left">
@@ -69,15 +231,15 @@
 				<a href="Main.html">인기차트</a>
 			</li>
 			<li>
-				<img src="../98_Image/MenuIcon_1.jpg">
+				<img src="../98_Image/MenuIcon_2.JPG">
 				<a href="Main.html">최신음악</a>
 			</li>	
 			<li>
-				<img src="../98_Image/MenuIcon_1.jpg">
+				<img src="../98_Image/MenuIcon_3.JPG">
 				<a href="Main.html">장르</a>
 			</li>
 			<li>
-				<img src="../98_Image/MenuIcon_1.jpg">
+				<img src="../98_Image/MenuIcon_3.JPG">
 				<a href="Main.html">내 음악</a>
 			</li>
 			<li>
@@ -88,9 +250,9 @@
 	</div>
 	
 	<div class="Weekend_Music">
-		<div>
-			<h2> 최신 음악</h2>
-			<p>국내 해외 전체</p>
+		<div class="text">
+			<h2>최신 음악</h2>
+			<p>전체</p> <p>해외</p> <p>국내</p>
 		</div>
 		
 		<ul>
@@ -143,7 +305,9 @@
 	</div>
 	
 	<div class = "MusicChart">
-		<h3>DummyText</h3>
+		<div class = "text">
+			<h3>DummyText1</h3>
+		</div>
 	</div>
 	
 </body>

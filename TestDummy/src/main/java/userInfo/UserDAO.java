@@ -12,6 +12,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+
 public class UserDAO {
 	private DataSource datasource = null;
 	private Connection conn = null;
@@ -27,7 +28,51 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	/*
+	public int loginCheck(UserVO userVO) {		
+		int x = -1;
+		try {
+			StringBuffer query = new StringBuffer();
+			query.append("select pwd from qrmember where id=?");
+			
+			Connection conn = OracleConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query.toString());
+			pstmt.setString(1, "id");
+			ResultSet rs = pstmt.executeQuery();
+			
+			conn = datasource.getConnection();
+			stmt = conn.prepareStatement(sql);
+		
+			stmt.setString(1, userVO.getId());
+			ResultSet rs = stmt.executeQuery();
+			String password;
+			rs.next();
+			password = rs.getString("pwd");
+			
+			OracleConnector.closeConnection();
+			String password;
+			if(rs.next()){
+				password = rs.getString("pwd");
+				if (password.equals("pwd")) {
+					System.out.print("인증성공");
+					x = 1;
+				}					
+				else{
+					System.out.print("비밀번호 다름");
+					x = 0;
+				}				
+			}else{
+				System.out.println("아이디 없음");
+				x = -1;
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return x;
+	}
+	*/
 	public void userJoin(UserVO userVo) {
 		String sql = "insert into qrmember (id, name, pwd, email, tel) values (?, ?, ?, ?, ?)";
 		
