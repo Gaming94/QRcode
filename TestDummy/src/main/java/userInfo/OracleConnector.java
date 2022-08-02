@@ -67,10 +67,10 @@ public class OracleConnector {
 			System.out.println("[main] Connection: success: " + (conn != null));
 			
 			String sql = "CREATE TABLE QRMEMBER (";
-				sql += "id VARCHAR2(20) PRIMARY KEY,";
-				sql += "name VARCHAR2(30),";
-				sql += "pwd VARCHAR2(30),";
-				sql += "email VARCHAR2(50),";
+				sql += "id VARCHAR2(20) CONSTRAINT qr_id_pk PRIMARY KEY,";
+				sql += "name VARCHAR2(30) CONSTRAINT qr_name_uqnn UNIQUE NOT NULL,";
+				sql += "pwd VARCHAR2(30) CONSTRAINT qr_pwd_ch CHECK (LENGTH(pwd) >= 4),";
+				sql += "email VARCHAR2(50) CONSTRAINT qr_email_uq UNIQUE,";
 				sql += "tel VARCHAR2(20),";
 				sql += "REGDATE DATE DEFAULT SYSDATE)";
 			
