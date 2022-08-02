@@ -57,16 +57,21 @@ public class ConnectUser extends HttpServlet {
 			nextPage = "/userInfo/userInfo.jsp";
 		} 
 		else if (action.equals("/userJoin.do")) {
-			String id = request.getParameter("id");
-			String name = request.getParameter("name");
-			String pwd = request.getParameter("pwd");
-			String email = request.getParameter("email");
-			String tel = request.getParameter("tel");
-			UserVO userVO = new UserVO(id, name, pwd, email, tel);
-			oraConn.Connect();
-			userDAO.userJoin(userVO);			
-			request.setAttribute("msg", "userJoined");
-			nextPage = "/user/userInfo.do";
+			try {
+				String id = request.getParameter("id");
+				String name = request.getParameter("name");
+				String pwd = request.getParameter("pwd");
+				String email = request.getParameter("email");
+				String tel = request.getParameter("tel");
+				UserVO userVO = new UserVO(id, name, pwd, email, tel);
+				oraConn.Connect();
+				userDAO.userJoin(userVO);			
+				request.setAttribute("msg", "userJoined");
+				nextPage = "/user/userInfo.do";
+			}
+			catch(Exception e) {
+				nextPage = "../00_Main.html/Main.html";
+			}			
 		} 
 		else if (action.equals("/signUp.do")) {
 			nextPage = "/userInfo/signUp.jsp";

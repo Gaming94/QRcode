@@ -1,4 +1,4 @@
-<%@page import="members.OracleConnector"%>
+<%@page import="userInfo.OracleConnector"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="oracle.jdbc.OracleConnection"%>
 <%@page import="java.sql.Connection"%> 		  <!-- 추가 -->
