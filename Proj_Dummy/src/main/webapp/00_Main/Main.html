@@ -113,6 +113,8 @@
 			height: 100%;
 			overflow:hidden;
 			
+			padding-top: 30px;
+			
 			background-color : white;
 		}
 		
@@ -153,6 +155,11 @@
 			display: inline-block;
 		}
 		
+		.Weekend_Music button{
+			border : 0px;
+			outline : 0px;
+		}
+		
 		.MusicChart{
 			position : absolute;
 			z-index : 1;
@@ -177,6 +184,12 @@
 			padding-left: 20px;
 		}
 		
+		a{
+			color : Black;
+			font-size : 15px;
+			text-decoration:none;
+		}
+		
 		a:link {
 			color : Black;
 			text-decoration:none;
@@ -186,6 +199,12 @@
 			color : Black;
 			text-decoration:none;
 		}
+		
+		a:hover{
+			color : Gray;
+			text-decoration:none;
+		}
+		
 	</style>
 	
 </head>
@@ -217,7 +236,7 @@
 	<div class="menu_right">
 		<ul>
 	    	<li>
-	    		<a data-toggle="modal" data-target="#exampleModal">로그인/회원가입</a>
+	    		<a data-toggle="modal" data-target="#exampleModal" style="cursor:hand;">로그인/회원가입</a>
 	   		</li>
 		</ul>
 	</div>
@@ -279,10 +298,10 @@
 		
 		<ul>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/DummyAlbum.jpg" alt="">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('Main.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
 			</li>
 			<li>
 				<img src="../98_Image/DummyAlbum.jpg">
