@@ -54,7 +54,7 @@ public class ConnectUser extends HttpServlet {
 		if (action == null || action.equals("/userInfo.do")) {
 			List<UserVO> userList = userDAO.loadUser();
 			request.setAttribute("userList", userList);
-			nextPage = "/userInfo/userInfo.jsp";
+			nextPage = "/01_Regist/userInfo.jsp";
 		} 
 		else if (action.equals("/userJoin.do")) {
 			try {
@@ -74,7 +74,7 @@ public class ConnectUser extends HttpServlet {
 			}			
 		} 
 		else if (action.equals("/signUp.do")) {
-			nextPage = "/userInfo/signUp.jsp";
+			nextPage = "/01_Regist/signUp.jsp";
 		}
 		else if(action.equals("/userEdit.do")){
 		     String id = request.getParameter("id");
@@ -102,7 +102,7 @@ public class ConnectUser extends HttpServlet {
 		else {
 			List<UserVO> userList = userDAO.loadUser();
 			request.setAttribute("userList", userList);
-			nextPage = "/userInfo/userInfo.jsp";
+			nextPage = "/01_Regist/userInfo.jsp";
 		}
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
