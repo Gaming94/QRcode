@@ -23,31 +23,49 @@
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pwd");
 		
-		Connection conn = OracleConnector.getConnection();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		String sql = "select * from qrmember where id = ?";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
-		pstmt.setString(1, id);
-		ResultSet rs = pstmt.executeQuery();
-		String password;
-		rs.next();
-		password = rs.getString("pwd");
-		
-		OracleConnector.closeConnection();
-		
-		String mg = "";
-		if(password.equals(pass))
-		{
-			out.println("<script>");
-			out.println("alert('로그인 되었습니다. 환영합니다.')");
-			out.println("location.href='../user/Main.do'");
-			out.println("</script>");
-		}else{
-			out.println("<script>");
-			out.println("alert('정보가 틀렸습니다!')");
-			out.println("location.href='../user/Main.do'");
-			out.println("</script>");
+		try{
+			conn = OracleConnector.getConnection();			
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();			
+			
+			// OracleConnector.closeConnection();
+			
+			if(rs.next())
+			{
+				String password;
+				password = rs.getString("pwd");
+				
+				if(password.equals(pass))
+				{
+					out.println("<script>");
+					out.println("alert('로그인 되었습니다. 환영합니다.')");
+					out.println("location.href='../user/Main.do'");
+					out.println("</script>");
+				} else{
+					out.println("<script>");
+					out.println("alert('비밀번호를 확인해주세요')");
+					out.println("location.href='../user/Main.do'");
+					out.println("</script>");
+				}
+			} else{
+				out.println("<script>");
+				out.println("alert('ID를 확인해주세요')");
+				out.println("location.href='../user/Main.do'");
+				out.println("</script>");
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			response.sendRedirect("login.jsp");
 		}
 	%>
 </body>
