@@ -28,6 +28,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
+	
 	/*
 	public int loginCheck(UserVO userVO) {		
 		int x = -1;

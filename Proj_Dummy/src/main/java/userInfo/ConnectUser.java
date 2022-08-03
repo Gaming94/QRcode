@@ -52,7 +52,10 @@ public class ConnectUser extends HttpServlet {
 		System.out.println("@@ action:" + action);
 		
 		if (action == null || action.equals("/Main.do")) {
-			nextPage = "/00_Main/Main.html";
+			nextPage = "/00_Main/Main.jsp";
+		}
+		else if (action.equals("/loginCheck.do")) {			
+			nextPage = "/00_Main/Main.jsp";
 		}
 		else if (action.equals("/userInfo.do")) {
 			List<UserVO> userList = userDAO.loadUser();
@@ -60,22 +63,16 @@ public class ConnectUser extends HttpServlet {
 			nextPage = "/01_Regist/userInfo.jsp";
 		} 
 		else if (action.equals("/userJoin.do")) {
-			try {
-				String id = request.getParameter("id");
-				String name = request.getParameter("name");
-				String pwd = request.getParameter("pwd");
-				String email = request.getParameter("email");
-				String tel = request.getParameter("tel");
-				UserVO userVO = new UserVO(id, name, pwd, email, tel);
-				int x = 0;
-				oraConn.Connect();
-				userDAO.userJoin(userVO);			
-				request.setAttribute("msg", "userJoined");
-				nextPage = "/user/Main.do";
-			}
-			catch(Exception e) {
-				nextPage = "../00_Main.html/Main.html";
-			}			
+			String id = request.getParameter("id");
+			String name = request.getParameter("name");
+			String pwd = request.getParameter("pwd");
+			String email = request.getParameter("email");
+			String tel = request.getParameter("tel");
+			UserVO userVO = new UserVO(id, name, pwd, email, tel);
+			oraConn.Connect();
+			userDAO.userJoin(userVO);			
+			request.setAttribute("msg", "userJoined");
+			nextPage = "/user/Main.do";
 		} 
 		else if (action.equals("/signUp.do")) {
 			nextPage = "/01_Regist/signUp.jsp";
@@ -84,7 +81,7 @@ public class ConnectUser extends HttpServlet {
 		     String id = request.getParameter("id");
 		     UserVO Info = userDAO.joinInfo(id);
 		     request.setAttribute("Info", Info);
-		     nextPage="/userInfo/userEdit.jsp";
+		     nextPage="/01_Regist/userEdit.jsp";
 		}
 		else if(action.equals("/userModify.do")){
 		     String id = request.getParameter("id");
@@ -104,9 +101,7 @@ public class ConnectUser extends HttpServlet {
 		     nextPage="/user/userInfo.do";
 		}
 		else {
-			List<UserVO> userList = userDAO.loadUser();
-			request.setAttribute("userList", userList);
-			nextPage = "/01_Regist/userInfo.jsp";
+			nextPage = "/user/Main.do";
 		}
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);

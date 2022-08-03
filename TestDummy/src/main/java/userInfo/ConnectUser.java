@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
 
 
 @WebServlet("/user/*")
@@ -55,17 +56,11 @@ public class ConnectUser extends HttpServlet {
 		System.out.println("@@ action:" + action);
 		
 		if (action == null || action.equals("/Main.do")) {
-			nextPage = "/00_Main/Main.html";
+			nextPage = "/00_Main/Main.jsp";
 		}
-		/*
-		else if(action.equals("/userLogin.do")) {
-			String id = request.getParameter("id");
-			String pwd = request.getParameter("pwd");
-			UserVO userVO = new UserVO(id,pwd);
-			userDAO.loginCheck(userVO);
-			nextPage = "/user/Main.do";
+		else if (action.equals("/loginCheck.do")) {			
+			nextPage = "/00_Main/Main.jsp";
 		}
-		*/
 		else if (action.equals("/userInfo.do")) {
 			List<UserVO> userList = userDAO.loadUser();
 			request.setAttribute("userList", userList);
@@ -110,9 +105,7 @@ public class ConnectUser extends HttpServlet {
 		     nextPage="/user/userInfo.do";
 		}
 		else {
-			List<UserVO> userList = userDAO.loadUser();
-			request.setAttribute("userList", userList);
-			nextPage = "/01_Regist/userInfo.jsp";
+			nextPage = "/user/Main.do";
 		}
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);

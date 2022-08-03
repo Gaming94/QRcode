@@ -23,6 +23,8 @@
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pwd");
 		
+		System.out.println(id);
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -46,10 +48,17 @@
 				
 				if(password.equals(pass))
 				{
+					id = rs.getString("id");
+					
+					session.setAttribute("user_id", id);
+					
+					String _id = (String)session.getAttribute("user_id");
+					
+					System.out.println(_id);
 					out.println("<script>");
 					out.println("alert('로그인 되었습니다. 환영합니다.')");
-					out.println("location.href='../user/Main.do'");
-					out.println("</script>");
+					out.println("location.href='../user/loginCheck.do'");
+					out.println("</script>");					
 				} else{
 					out.println("<script>");
 					out.println("alert('비밀번호를 확인해주세요')");

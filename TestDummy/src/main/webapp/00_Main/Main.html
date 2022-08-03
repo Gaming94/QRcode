@@ -115,6 +115,8 @@
 			height: 100%;
 			overflow:hidden;
 			
+			padding-top: 30px;
+			
 			background-color : white;
 		}
 		
@@ -155,14 +157,51 @@
 			display: inline-block;
 		}
 		
+		.Weekend_Music button{
+			border : 0px;
+			outline : 0px;
+		}
+		
 		.MusicChart{
 			position : absolute;
 			z-index : 1;
 			top : 720;
 			left : 202px;
-			width : 100%;
+			width : 40%;
 			height : 600px;
-			background: rgb(223, 229, 232);
+			background: #fff;
+		}
+		
+		.MusicChart ul{
+			position: relative;
+			background: #fff;
+		}
+		
+		.MusicChart ul li{
+			list-style : none;
+			padding : 10px;
+			widows: 80%;
+			background: #fff;
+			box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+			transition : transform 0.5s;
+		}
+		
+		.MusicChart ul li:hover{
+			transform : scale(1.05);
+			z-index: 100;
+			background: #25bcff;
+			box-shadow: 0 5px 25px rgba(0, 0, 0, .2); 
+			color : #fff;
+		}
+		
+		.MusicChart ul li span{
+			width : 20px;
+			height: 20px;
+			text-align: cneter;
+			line-height: 20px;
+			background: #25bcff;
+			color : #fff;
+			display : inline-block;
 		}
 		
 		.text{
@@ -179,6 +218,12 @@
 			padding-left: 20px;
 		}
 		
+		a{
+			color : Black;
+			font-size : 15px;
+			text-decoration:none;
+		}
+		
 		a:link {
 			color : Black;
 			text-decoration:none;
@@ -188,6 +233,16 @@
 			color : Black;
 			text-decoration:none;
 		}
+		
+		a:hover{
+			color : Gray;
+			text-decoration:none;
+		}
+		
+		#jstext {
+		  font-size: 15px;
+		}
+		
 	</style>
 	
 </head>
@@ -217,9 +272,16 @@
 	</div>
 	
 	<div class="menu_right">
-		<ul>
-	    	<li>
-	    		<a data-toggle="modal" data-target="#exampleModal">로그인/회원가입</a>
+		<ul onclick="var id = sessionStorage.getItem('user_Id');
+					 if (id == null)">
+	    	<li >
+	    		<a data-toggle="modal" data-target="#exampleModal" style="cursor:hand;">로그인/회원가입</a>
+	   		</li>
+		</ul>
+		<ul onclick="var id = sessionStorage.getItem('user_Id');
+					 if (id != null)">
+	    	<li >
+	    		<a data-toggle="modal" data-target="#exampleModal" style="cursor:hand;">로그아웃</a>
 	   		</li>
 		</ul>
 	</div>
@@ -281,10 +343,10 @@
 		
 		<ul>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/DummyAlbum.jpg" alt="">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
 			</li>
 			<li>
 				<img src="../98_Image/DummyAlbum.jpg">
@@ -306,9 +368,29 @@
 	
 	<div class = "MusicChart">
 		<div class = "text">
-			<h3>DummyText1</h3>
-		</div>
-	</div>
+		<h2>실시간 곡 차트</h2>
+		<script>
+			let today = new Date();   
 	
+			let year = today.getFullYear(); // 년도
+			let month = today.getMonth() + 1;  // 월
+			let date = today.getDate();  // 날짜
+			let day = today.getDay();  // 요일
+	
+			document.write('<p id = "jstext">' + year + '년' + month + '월 ' + date + '일' + '</p>')
+		</script>
+		</div>
+		<ul>
+			<li><span>1</span>연애소설</li>
+			<li><span>2</span>1분1초</li>
+			<li><span>3</span>발레리노</li>
+			<li><span>4</span>에픽하이</li>
+			<li><span>6</span>리쌍</li>
+			<li><span>7</span>리쌍</li>
+			<li><span>8</span>리쌍</li>
+			<li><span>9</span>리쌍</li>
+			<li><span>10</span>리쌍</li>
+		</ul>
+	</div>	
 </body>
 </html>
