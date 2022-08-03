@@ -163,9 +163,10 @@
 			display: inline-block;
 		}
 		
-		.Weekend_Music button{
+		.Weekend_Music a{
 			border : 0px;
 			outline : 0px;
+			padding-right: 10px;
 		}
 		
 		.MusicChart{
@@ -335,56 +336,57 @@
 	<div class="Weekend_Music">
 		<div class="text">
 			<h2>최신 음악</h2>
-			<p>전체</p> <p>해외</p> <p>국내</p>
+			<a data-value="ex1">전체</a>
+			<a data-value="ex2">해외</a>
+			<a data-value="ex3">국내</a>
 		</div>
-		
-		<ul>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-		</ul>
-		
-		<ul>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg" alt="">
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-		</ul>
+			<ul>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+			</ul>
+			
+			<ul>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg" alt="">
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+				<li>
+					<img src="../98_Image/DummyAlbum.jpg">
+				</li>
+			</ul>	    			
 	</div>
 	
 	<div class = "MusicChart">
