@@ -411,7 +411,7 @@
 			<li><span>7</span>리쌍</li>
 			<li><span>8</span>리쌍</li>
 			<li><span>9</span>리쌍</li>
-			<li><span>10</span>리쌍</li>
+			<li><span>10</span>다듀</li>
 		</ul>
 	</div>	
 	
@@ -420,6 +420,6 @@
 			<h2>뮤직 비디오</h2>
 		</div>
 	</div>
-	
+
 </body>
 </html>

@@ -257,7 +257,10 @@
 		a:hover{
 			color : Gray;
 			text-decoration:none;
+<<<<<<< HEAD
+=======
 			cursor : pointer;
+>>>>>>> branch 'main' of https://github.com/Gaming94/QRcode.git
 		}
 		
 		#jstext {
