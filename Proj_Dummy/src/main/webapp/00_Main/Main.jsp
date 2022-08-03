@@ -5,6 +5,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+
+<c:set var="data-value" value="${ex1}" scope="page" />
+
 <html>
 <head>
 <meta charset="UTF-8" content="no-cache"/>
@@ -336,57 +339,59 @@
 	<div class="Weekend_Music">
 		<div class="text">
 			<h2>최신 음악</h2>
-			<a data-value="ex1">전체</a>
-			<a data-value="ex2">해외</a>
-			<a data-value="ex3">국내</a>
+			<a>전체</a>
+			<a>해외</a>
+			<a>국내</a>
 		</div>
-			<ul>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-			</ul>
-			
-			<ul>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg" alt="">
-				</li>
-				<li>
-					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-				<li>
-					<img src="../98_Image/DummyAlbum.jpg">
-				</li>
-			</ul>	    			
+
+		<ul>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+		</ul>
+		
+		<ul>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg" alt="">
+			</li>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+			<li>
+				<img src="../98_Image/DummyAlbum.jpg">
+			</li>
+		</ul>
+		
 	</div>
 	
 	<div class = "MusicChart">
@@ -421,6 +426,10 @@
 		<div class = "text">
 			<h2>뮤직 비디오</h2>
 		</div>
+		<iframe width="360" height="210" src="https://www.youtube.com/embed/Jh4QFaPmdss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="360" height="210" src="https://www.youtube.com/embed/pTD9Jysi3_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="360" height="210" src="https://www.youtube.com/embed/dYIT_jeUBKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="360" height="210" src="https://www.youtube.com/embed/8dJyRm2jJ-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 
 </body>
