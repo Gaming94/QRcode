@@ -83,6 +83,8 @@
 		top : 150px;
 		left : 50px;
 	}
+	
+	
 </style>
    <meta charset="UTF-8">
    <title>회원 가입창</title>

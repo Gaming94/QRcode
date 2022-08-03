@@ -171,10 +171,16 @@
 		display: inline-block;
 	}
 	
-	.Weekend_Music a{
-		border : 0px;
-		outline : 0px;
-		padding-right: 10px;
+	.Weekend_Music button{
+		border : none;
+		outline: none;
+  		box-shadow: none;
+	}
+	
+	.weekend_Music button:focus,
+	button:active {
+  		outline: none;
+  		box-shadow: none;
 	}
 	
 	.MusicChart{
@@ -272,6 +278,21 @@
 	#jstext {
 	  	font-size: 15px;
 	}
+	
+	@font-face{
+		font-family: 'CookieRun';
+		src: url('../99_Other/00_Font/CookieRun-Regular.woff') format('woff');
+	}
+	
+	@font-face {
+	    font-family: 'CookieRun';
+	    src: url('../99_Other/00_Font/CookieRun-Regular.ttf') format('truetype');
+	}
+	
+	@font-face {
+	    font-family: 'CookieRun';
+	    src: url('../99_Other/00_Font/CookieRun-Regular.ttf') format('openetype');
+	}
 		
 	</style>
 </head>
@@ -359,49 +380,49 @@
 
 		<ul>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_2.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_3.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 		</ul>
 		
 		<ul>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg" alt="">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/Music_2.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_2.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_3.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<img src="../98_Image/Music_1.jpg">
 			</li>
 		</ul>
 		
