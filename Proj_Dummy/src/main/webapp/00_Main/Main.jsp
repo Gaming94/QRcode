@@ -1,4 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
+	isELIgnored="false" %>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" content="no-cache"/>
@@ -165,7 +171,7 @@
 		.MusicChart{
 			position : absolute;
 			z-index : 1;
-			top : 720;
+			top : 720px;
 			left : 202px;
 			width : 40%;
 			height : 600px;
@@ -211,7 +217,7 @@
 		.MusicVideo{
 			position : absolute;
 			z-index : 1;
-			top : 720;
+			top : 720px;
 			left : 1120px;
 			width : 40%;
 			height : 600px;
