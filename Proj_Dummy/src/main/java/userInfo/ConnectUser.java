@@ -51,7 +51,10 @@ public class ConnectUser extends HttpServlet {
 		
 		System.out.println("@@ action:" + action);
 		
-		if (action == null || action.equals("/userInfo.do")) {
+		if (action == null || action.equals("/Main.do")) {
+			nextPage = "/00_Main/Main.html";
+		}
+		else if (action.equals("/userInfo.do")) {
 			List<UserVO> userList = userDAO.loadUser();
 			request.setAttribute("userList", userList);
 			nextPage = "/01_Regist/userInfo.jsp";
@@ -67,7 +70,7 @@ public class ConnectUser extends HttpServlet {
 				oraConn.Connect();
 				userDAO.userJoin(userVO);			
 				request.setAttribute("msg", "userJoined");
-				nextPage = "/user/userInfo.do";
+				nextPage = "/user/Main.do";
 			}
 			catch(Exception e) {
 				nextPage = "../00_Main.html/Main.html";

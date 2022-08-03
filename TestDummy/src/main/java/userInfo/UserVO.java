@@ -23,6 +23,11 @@ public class UserVO {
 
 	public UserVO() {}
 	
+	public UserVO(String id,String pwd) {
+		this.id = id;
+		this.pwd = pwd;
+	}
+	
 	public UserVO(String id, String name, String pwd,  String email, String tel) {
 		this.id = id;
 		this.name = name;

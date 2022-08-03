@@ -72,7 +72,7 @@
 	  bottom:0;
 	}
 	.btn-5:hover:before,
-	.btn-5:hover:after{
+	.btn-5:hover:afterr{
 	  width:100%;
 	  transition:800ms ease all;
 	}
@@ -105,7 +105,7 @@
 </script>
 <body>
 <form method="post"   action="${contextPath}/user/userJoin.do">
-<img class="mainLogo" src="../image/QRMusic_MainLogo.jpg" >
+<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg" >
 <h1  style="text-align:center">회원 가입창</h1>
 <table>
     <tr>
@@ -135,7 +135,12 @@
     <tr>
        <td colspan="2" align=center>
 	       <input class="custom-btn btn-5" width=400 type="submit" value="가입하기">
-       </td>
+	   </td>
+	</tr>
+    <tr>
+		<td colspan="2" align=center>
+			 <a href="../00_Main/Main.html"><button type="button" class="custom-btn btn-5" width=400>가입취소</button></a>
+		</td>
     </tr>
 </table>
 </form>

@@ -3,6 +3,9 @@ package userInfo;
 
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 
@@ -51,10 +54,22 @@ public class ConnectUser extends HttpServlet {
 		
 		System.out.println("@@ action:" + action);
 		
-		if (action == null || action.equals("/userInfo.do")) {
+		if (action == null || action.equals("/Main.do")) {
+			nextPage = "/00_Main/Main.html";
+		}
+		/*
+		else if(action.equals("/userLogin.do")) {
+			String id = request.getParameter("id");
+			String pwd = request.getParameter("pwd");
+			UserVO userVO = new UserVO(id,pwd);
+			userDAO.loginCheck(userVO);
+			nextPage = "/user/Main.do";
+		}
+		*/
+		else if (action.equals("/userInfo.do")) {
 			List<UserVO> userList = userDAO.loadUser();
 			request.setAttribute("userList", userList);
-			nextPage = "/userInfo/userInfo.jsp";
+			nextPage = "/01_Regist/userInfo.jsp";
 		} 
 		else if (action.equals("/userJoin.do")) {
 			String id = request.getParameter("id");
@@ -66,16 +81,16 @@ public class ConnectUser extends HttpServlet {
 			oraConn.Connect();
 			userDAO.userJoin(userVO);			
 			request.setAttribute("msg", "userJoined");
-			nextPage = "/user/userInfo.do";
+			nextPage = "/user/Main.do";
 		} 
 		else if (action.equals("/signUp.do")) {
-			nextPage = "/userInfo/signUp.jsp";
+			nextPage = "/01_Regist/signUp.jsp";
 		}
 		else if(action.equals("/userEdit.do")){
 		     String id = request.getParameter("id");
 		     UserVO Info = userDAO.joinInfo(id);
 		     request.setAttribute("Info", Info);
-		     nextPage="/userInfo/userEdit.jsp";
+		     nextPage="/01_Regist/userEdit.jsp";
 		}
 		else if(action.equals("/userModify.do")){
 		     String id = request.getParameter("id");
@@ -97,7 +112,7 @@ public class ConnectUser extends HttpServlet {
 		else {
 			List<UserVO> userList = userDAO.loadUser();
 			request.setAttribute("userList", userList);
-			nextPage = "/userInfo/userInfo.jsp";
+			nextPage = "/01_Regist/userInfo.jsp";
 		}
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);

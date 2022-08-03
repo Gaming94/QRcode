@@ -74,10 +74,16 @@ public class OracleConnector {
 				sql += "tel VARCHAR2(20),";
 				sql += "REGDATE DATE DEFAULT SYSDATE)";
 			
+			String sqlAdm = "INSERT INTO QRMEMBER VALUES ('QRCODE', 'QRCODE', 'QRCODE',";
+				sqlAdm += "'QRCODE@naver.com', '010-1111-1111', SYSDATE)";
+				
 			Statement stmt = conn.createStatement();
 			
 			boolean resultset = stmt.execute(sql);
 			System.out.println("return 성공? = " + resultset);
+			
+			boolean resultset2 = stmt.execute(sqlAdm);
+			System.out.println("return 성공2? = " + resultset2);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);
