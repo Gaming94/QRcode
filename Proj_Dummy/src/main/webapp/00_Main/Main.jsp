@@ -295,7 +295,14 @@
 	<div class="menu_right">
 		<ul>
 	    	<li>
-	    		<a data-toggle="modal" data-target="#exampleModal" style="cursor:hand;">로그인/회원가입</a>
+	    		<c:choose>
+	    			<c:when test="${false}">
+	    				<a data-toggle="modal" data-target="#exampleModal" style="cursor:hand;">로그인/회원가입</a>
+	    			</c:when>
+	    			<c:when test="${true}">
+	    				<a data-toggle="modal" data-target="#exampleModal" style="cursor:hand;">회원정보수정</a>
+	    			</c:when>
+	    		</c:choose>
 	   		</li>
 		</ul>
 	</div>
