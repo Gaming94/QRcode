@@ -257,6 +257,7 @@
 		a:hover{
 			color : Gray;
 			text-decoration:none;
+			cursor : pointer;
 		}
 		
 		#jstext {
