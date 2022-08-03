@@ -17,7 +17,7 @@ public class OracleConnector {
 		try {
 			if(_stconn != null) {
 				return _stconn;	
-				}
+			}
 			
 			Class.forName(driver);
 			
@@ -59,7 +59,7 @@ public class OracleConnector {
 
 	public void Connect() {
 		System.out.println(">>> Oracle Connection DBTest <<<");
-
+		
 		try {
 			Class.forName(driver);
 			
