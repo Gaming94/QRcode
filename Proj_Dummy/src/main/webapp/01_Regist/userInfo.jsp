@@ -85,7 +85,6 @@ request.setCharacterEncoding("UTF-8");
      </c:forEach>
 </c:when>
 </c:choose>
-   </table>  
- <a href="${contextPath}/user/signUp.do"><p class="cls2">회원 가입하기</p></a>
+</table>
 </body>
 </html>
