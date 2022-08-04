@@ -51,7 +51,7 @@
 		if(check == 1) {
 	%>
 	<div class="writebtn">
-		<a href="/user/Main.do"><button>글쓰기</button></a>
+		<a href="writeNotice.jsp"><button>글쓰기</button></a>
 	</div>
 	<%} %>
 <div>
