@@ -177,6 +177,12 @@
   		box-shadow: none;
 	}
 	
+	.Weekend_Music img:hover{
+		transform : scale(1.1);
+		z-index: 100;
+		transition: transform.1s
+	}
+	
 	.weekend_Music button:focus,
 	button:active {
   		outline: none;
