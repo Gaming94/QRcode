@@ -398,10 +398,10 @@
 				<img src="../98_Image/Music_1.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<img src="../98_Image/Music_2.jpg">
 			</li>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<img src="../98_Image/Music_3.jpg">
 			</li>
 			<li>
 				<img src="../98_Image/Music_1.jpg">
