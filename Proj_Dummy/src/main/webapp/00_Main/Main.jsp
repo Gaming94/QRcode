@@ -317,7 +317,7 @@
       </div>
   		<ul>
    			<li>
-   				<a href="Main.html">공지사항</a>
+   				<a href="../03_Notice/notice.jsp">공지사항</a>
    			</li>
    			<li>
    				<a href="Main.html">음악요청</a>
