@@ -1,5 +1,7 @@
 package notice;
 
-public class NoticeDAO {
+import userInfo.OracleConnector;
 
+public class NoticeDAO {
+	
 }
