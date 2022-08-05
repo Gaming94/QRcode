@@ -76,7 +76,7 @@
 		z-index : 99;
 		top : 0px;
 		left : 200px;
-		width: 100%;
+		width: 90%;
 		height: 100px;
 		color : white;
 		overflow:hidden;
@@ -160,8 +160,8 @@
 		position: absolute;
 		z-index : 1;
 		top : 110px;
-		left : 202px;
-		width : 100%;
+		left : 198px;
+		width : 90%;
 		height : 600px;
 		background: rgb(223, 229, 232);
 	}
