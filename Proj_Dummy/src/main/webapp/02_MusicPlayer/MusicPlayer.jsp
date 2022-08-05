@@ -391,11 +391,11 @@
 	
 	<div id="content">
 	  <div id="range">
-	    <input type="range" id="range-val" value="46" min="0" max="143">
+	    <input type="range" id="range-val" value="0" min="0" max="143">
 	    <div id='tip'>Some tip</div>
 	  </div>
 	  <div id="time">
-	    <p>0:46</p>
+	    <p>0:00</p>
 	  </div>
 	  <div id="buttons">
 	    <i class="fa fa-step-backward fa-3x"></i>
