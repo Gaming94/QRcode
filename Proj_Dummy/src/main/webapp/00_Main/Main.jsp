@@ -107,10 +107,10 @@
 		top : 30px;
 		width: 350px;
 		height: 40px;
-		font-size: 15px;
+		font-size: 13px;
 		color : Black;
 		outline: none;
-		padding-left: 10px;
+		padding-left: 17px;
 		
 		background-image: url('../98_Image/Search.jpg');
 		background-repeat: no-repeat;
@@ -168,7 +168,7 @@
 	
 	.Weekend_Music li{
 		padding-left: 10px;
-		padding-right: 60px;
+		padding-right: 50px;
 		display: inline-block;
 	}
 	
@@ -176,6 +176,7 @@
 		border : none;
 		outline: none;
   		box-shadow: none;
+  		background-color: rgb(223, 229, 232);
 	}
 	
 	.Weekend_Music img:hover{
@@ -305,7 +306,7 @@
 </head>
 <body>		
 	<div class="logo">
-		<a href="Main.html">
+		<a href="Main.jsp">
 			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
 		</a>
 	</div>
@@ -321,7 +322,7 @@
    				<a href="../03_Notice/notice.jsp">공지사항</a>
    			</li>
    			<li>
-   				<a href="Main.html">음악요청</a>
+   				<a href="Main.jsp">음악요청</a>
    			</li>
    		</ul>
    		<hr>
@@ -372,23 +373,23 @@
 		<ul>
 			<li>
 			    <img src="../98_Image/MenuIcon_1.jpg">
-				<a href="Main.html">인기차트</a>
+				<a href="Main.jsp">인기차트</a>
 			</li>
 			<li>
 				<img src="../98_Image/MenuIcon_2.JPG">
-				<a href="Main.html">최신음악</a>
+				<a href="Main.jsp">최신음악</a>
 			</li>	
 			<li>
 				<img src="../98_Image/MenuIcon_3.JPG">
-				<a href="Main.html">장르</a>
+				<a href="Main.jsp">장르</a>
 			</li>
 			<li>
 				<img src="../98_Image/MenuIcon_3.JPG">
-				<a href="Main.html">내 음악</a>
+				<a href="Main.jsp">내 음악</a>
 			</li>
 			<li>
 				<img src="../98_Image/MenuIcon_1.jpg">
-				<a href="Main.html">테마</a>
+				<a href="Main.jsp">테마</a>
 			</li>
 		</ul>
 	</div>
@@ -403,49 +404,49 @@
 
 		<ul>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_2.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_3.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_4.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_2.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_3.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
 			</li>
 		</ul>
 		
 		<ul>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
 			</li>
 			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/Music_2.jpg"></button>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_2.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_3.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/Music_1.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_4.jpg"></button>
 			</li>
 		</ul>
 		
@@ -456,7 +457,6 @@
 		<h2>실시간 곡 차트</h2>
 		<script>
 			let today = new Date();   
-	
 			let year = today.getFullYear(); // 년도
 			let month = today.getMonth() + 1;  // 월
 			let date = today.getDate();  // 날짜
@@ -471,7 +471,7 @@
 			<li><span>2</span>1분1초</li>
 			<li><span>3</span>발레리노</li>
 			<li><span>4</span>에픽하이</li>
-			<li><span>6</span>리쌍</li>
+			<li><span>6</span>TomBoy</li>
 			<li><span>7</span>리쌍</li>
 			<li><span>8</span>리쌍</li>
 			<li><span>9</span>리쌍</li>
