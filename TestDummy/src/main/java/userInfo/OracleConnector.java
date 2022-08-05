@@ -77,22 +77,32 @@ public class OracleConnector {
 			String sqlAdm = "INSERT INTO QRMEMBER VALUES ('QRCODE', 'QRCODE', 'QRCODE',";
 				sqlAdm += "'QRCODE@naver.com', '010-1111-1111', SYSDATE)";
 			
+			String sqlSeq = "CREATE SEQUENCE noseq";
+			
 			String sqlNotice = "CREATE TABLE QRNOTICE (";
-			sqlNotice += "no NUMBER(5),";
+			sqlNotice += "no number(5) CONSTRAINT no_no_pk PRIMARY KEY,";
 			sqlNotice += "title VARCHAR2(50) CONSTRAINT no_title_nn NOT NULL,";
 			sqlNotice += "content VARCHAR2(200) CONSTRAINT no_content_nn NOT NULL,";
 			sqlNotice += "regdates DATE DEFAULT SYSDATE)";
 			
-			Statement stmt = conn.createStatement();
+			String sqlAddNotice = "INSERT INTO QRNOTICE VALUES(noseq.nextval,'가나다라', '마바사아', sysdate)";
 			
+			Statement stmt = conn.createStatement();
+			/*
 			boolean resultset = stmt.execute(sql);
 			System.out.println("return 성공? = " + resultset);
 			
 			boolean resultset2 = stmt.execute(sqlAdm);
 			System.out.println("return 성공2? = " + resultset2);
 			
-			boolean resultset3 = stmt.execute(sqlNotice);
-			System.out.println("return 성공2? = " + resultset3);
+			boolean resultset3 = stmt.execute(sqlSeq);
+			System.out.println("return 성공3? = " + resultset3);
+			
+			boolean resultset4 = stmt.execute(sqlNotice);
+			System.out.println("return 성공4? = " + resultset4);
+			*/
+			boolean resultset5 = stmt.execute(sqlAddNotice);
+			System.out.println("return 성공5? = " + resultset5);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);
