@@ -88,7 +88,7 @@ public class OracleConnector {
 			String sqlAddNotice = "INSERT INTO QRNOTICE VALUES(noseq.nextval,'가나다라', '마바사아', sysdate)";
 			
 			Statement stmt = conn.createStatement();
-			/*
+			
 			boolean resultset = stmt.execute(sql);
 			System.out.println("return 성공? = " + resultset);
 			
@@ -100,7 +100,7 @@ public class OracleConnector {
 			
 			boolean resultset4 = stmt.execute(sqlNotice);
 			System.out.println("return 성공4? = " + resultset4);
-			*/
+			
 			boolean resultset5 = stmt.execute(sqlAddNotice);
 			System.out.println("return 성공5? = " + resultset5);
 			
