@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="notice.NoticeDAO" %>
+<%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="noti" class="notice.NoticeVO" scope="page" />
+<jsp:setProperty name="noti" property="title" />
+<jsp:setProperty name="noti" property="content" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,24 +43,21 @@
 		margin-left: 540px;
 	}
 </style>
-<title>공지사항 작성</title>
+<title>공지글</title>
 </head>
 <body>
-	<h2>공지사항 작성</h2>
-	<form action="write.jsp" method="post">
 	<table>
 		<tr class="tit">
 			<td style="width:10%">제목</td>
-			<td><input type="text" name="title" class="intit"></td>
+			<td></td>
 		</tr>
 		<tr class="cont">
 			<td>내용</td>
-			<td><input type="text" name="content" class="incont"></td>
+			<td></td>
 		</tr>
 	</table>
 	<div style="line-height: 45px">
-		<input class="sub" type="submit" value="글쓰기">
+		<a href="notice.jsp">목록</a>
 	</div>
-	</form>
 </body>
 </html>

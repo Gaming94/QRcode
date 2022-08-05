@@ -73,7 +73,6 @@ public class ConnectUser extends HttpServlet {
 			String email = request.getParameter("email");
 			String tel = request.getParameter("tel");
 			UserVO userVO = new UserVO(id, name, pwd, email, tel);
-			oraConn.Connect();
 			userDAO.userJoin(userVO);			
 			request.setAttribute("msg", "userJoined");
 			nextPage = "/user/Main.do";

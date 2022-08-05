@@ -11,6 +11,11 @@ public class NoticeVO {
 	public NoticeVO() {
 	}
 	
+	public NoticeVO(String title, String content) {
+		this.title = title;
+		this.content = content;
+	}
+	
 	public NoticeVO(int no, String title, String content, Date regdates) {
 		super();
 		this.no = no;

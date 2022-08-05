@@ -63,10 +63,6 @@ public class NoticeDAO {
 				nvos.add(nvo);
 			}
 			
-			for(NoticeVO x : nvos) {
-				System.out.println(x.getNo() + " " + x.getTitle() + " "  + x.getContent());
-			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} /* finally {			
@@ -81,6 +77,26 @@ public class NoticeDAO {
 			} 
 		} */
 		return nvos;
+	}
+	
+	public NoticeVO getNotice(int no) {
+		String SQL = "select * from qrnotice where no = ?";
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setInt(1, no);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				NoticeVO noti = new NoticeVO();
+				noti.setNo(rs.getInt(1));
+				noti.setTitle(rs.getString(2));	
+				noti.setRegdates(rs.getDate(3));
+				noti.setContent(rs.getString(4));
+				return noti;
+			}			
+		} catch( Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public void addNotice(NoticeVO noticeVo) {
