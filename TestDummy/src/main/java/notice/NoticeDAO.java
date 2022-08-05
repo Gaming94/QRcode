@@ -4,53 +4,47 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 import userInfo.OracleConnector;
 
 
 public class NoticeDAO {
-	// private DataSource ds = null;
-	Connection conn;
-	PreparedStatement ps;
+	// private DataSource datasource = null;
+	private Connection conn = null;
+	private PreparedStatement ps = null;
 	
 	/*
 	public NoticeDAO() {
 		try {
 			Context initctx = new InitialContext();
 			Context envContext = (Context)initctx.lookup("java:/comp/env");
-			ds = (DataSource)envContext.lookup("jdbc/oracle");
+			datasource = (DataSource)envContext.lookup("jdbc/oracle");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}		
 	}
-	/*
+	
 	public static NoticeDAO instance = new NoticeDAO();
 	
 	public static NoticeDAO getInstance() {
 		return instance;
 	}
+	
+	public Connection getConnection() {
+		
+		try {
+			Context initContext = new InitialContext();
+			Context envContext = (Context)initContext.lookup("java:/comp/env");
+			DataSource datasource = (DataSource)envContext.lookup("jdbc/oracle");
+			
+			conn = datasource.getConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
 	*/
-	
-	
-//	public Connection getConnection() {
-//		
-//		try {
-//			Context initContext = new InitialContext();
-//			Context envContext = (Context)initContext.lookup("java:/comp/env");
-//			DataSource datasource = (DataSource)envContext.lookup("jdbc/oracle");
-//			
-//			conn = datasource.getConnection();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return conn;
-//	}
 	
 	public ArrayList<NoticeVO> loadNotice() {
 		ArrayList<NoticeVO> nvos = new ArrayList<NoticeVO>();
@@ -67,13 +61,16 @@ public class NoticeDAO {
 				nvo.setContent(rs.getString("content"));
 				nvo.setRegdates(rs.getDate("regdates"));
 				nvos.add(nvo);
-				System.out.println("내부" + nvo.getNo());
 			}
-						
+			
+			for(NoticeVO x : nvos) {
+				System.out.println(x.getNo() + " " + x.getTitle() + " "  + x.getContent());
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {			
-			try {
+		} /* finally {			
+			try { 
 				ps = conn.prepareStatement(sql);
 				ResultSet rs = ps.executeQuery();
 				rs.close();
@@ -81,8 +78,8 @@ public class NoticeDAO {
 				conn.close();
 			}catch(Exception e) {
 				e.printStackTrace();
-			}
-		}		
+			} 
+		} */
 		return nvos;
 	}
 	
