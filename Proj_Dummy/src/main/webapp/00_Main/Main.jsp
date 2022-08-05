@@ -108,6 +108,7 @@
 		width: 350px;
 		height: 40px;
 		font-size: 15px;
+		color : Black;
 		outline: none;
 		padding-left: 10px;
 		
