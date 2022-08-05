@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	isELIgnored="false" %>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>QR Music Player</title>
+	<script src="MusicPlayer.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<style>
 	/* ROBOTO */
@@ -318,57 +323,6 @@
 	}
 	
 	</style>
-	<script>
-	$(document).ready(function() {
-	  $('#range-val').on("change mousemove", function() {
-	    //Lets change it in time mode
-	    var original_time = $(this).val();
-	    var new_time = formatSeconds(original_time);
-	    $("#time p").text(new_time);
-	  });
-
-	 
-	  var r = document.getElementById('range-val');
-	  var max = r.getAttribute('max');
-	  var min = r.getAttribute('min');
-	  var w = r.clientWidth;
-	  //w += r.offsetLeft;
-	  var isDragging = false;
-
-	  var moveTip = (function(e) {
-	    if (isDragging) {
-	      var posPerc = (r.value / max) * 100;
-	      var pixPos = (posPerc / 100) * w - 40;
-	      /* pixPos += r.offsetLeft;*/
-
-	      document.getElementById('tip').style.display = 'block';
-	      document.getElementById('tip').style.left = pixPos + 'px';
-	    }
-	  });
-
-	  $("#range-val").mousemove(function() {
-	    isDragging = true;
-	    var range_val = document.getElementById("range-val").value;
-	    document.getElementById('tip').innerHTML = formatSeconds(range_val);
-	    r.addEventListener('mousemove', moveTip, false);
-	  });
-
-	  $("body").mouseup(function(e) {
-	    isDragging = false;
-	    r.removeEventListener('mousemove', moveTip);
-	    document.getElementById('tip').style.display = 'none';
-	  });
-	});
-	/*
-	FUNCTIONS (I just modify it)
-	http://stackoverflow.com/a/17781037
-	*/
-	function formatSeconds(seconds) {
-	  var date = new Date(1970, 0, 1);
-	  date.setSeconds(seconds);
-	  return date.toTimeString().replace(/.*(\d{2}:\d{2}).*/, "$1");
-	}
-	</script>
 </head>
 <body>
 	<div id="overlay"></div>

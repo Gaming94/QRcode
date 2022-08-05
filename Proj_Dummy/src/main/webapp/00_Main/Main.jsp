@@ -6,8 +6,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
-<c:set var="data-value" value="${ex1}" scope="page" />
-
 <html>
 <head>
 <meta charset="UTF-8" content="no-cache"/>
@@ -400,6 +398,7 @@
 			<a>전체</a>
 			<a>해외</a>
 			<a>국내</a>
+		 
 		</div>
 
 		<ul>
