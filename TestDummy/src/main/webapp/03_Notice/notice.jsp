@@ -42,6 +42,10 @@
 		width: 70px;
 		text-align: center;
 	}
+	.sub{
+		text-align: center;
+		line-height: 45px;
+	}
 </style>
 <title>공지사항</title>
 </head>
@@ -101,7 +105,10 @@
 	 	</tr>
 	 	<% } %>
 	 </tbody>
-	</table>
+	</table>	
+</div>
+<div class="sub">
+		<button type="button" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
 </div>
 </body>
 </html>

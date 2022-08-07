@@ -368,12 +368,31 @@
 	<div class="Weekend_Music">
 		<div class="text">
 			<h2>최신 음악</h2>
-			<a>전체</a>
-			<a>해외</a>
-			<a>국내</a>
+			<p id="all">전체</p>
+			<p id="os">해외</p>
+			<p id="kor">국내</p>
 		</div>
-
+		<script>		
+			document.getElementById("all").onclick = function() {select('all')}
+			document.getElementById("os").onclick = function() {select('os')}
+			document.getElementById("kor").onclick = function() {select('kor')}
+			function select(co) {
+				<%String select = null;%>
+				if(co == 'all'){
+					<%select = "All";%>
+				}
+				else if(co == 'os'){
+					<%select = "Os";%>
+				}
+				else if(co == 'kor'){
+					<%select = "Kor";%>			
+				}
+				alert(select);
+				location.href="../user/Main.do";
+			}
+		</script>	
 		<ul>
+		<% if(select == "All") {%>
 			<li>
 				<img src="../98_Image/DummyAlbum.jpg">
 			</li>
@@ -395,9 +414,7 @@
 			<li>
 				<img src="../98_Image/DummyAlbum.jpg">
 			</li>
-		</ul>
-		
-		<ul>
+		<% } else if (select == "Os") {%>	
 			<li>
 				<img src="../98_Image/DummyAlbum.jpg" alt="">
 			</li>
@@ -419,8 +436,12 @@
 			<li>
 				<img src="../98_Image/DummyAlbum.jpg">
 			</li>
+		<% } else if (select == "Kor") {%>	
+			<li>
+				국내
+			</li>
 		</ul>
-		
+	<% } %>
 	</div>
 	
 	<div class = "MusicChart">

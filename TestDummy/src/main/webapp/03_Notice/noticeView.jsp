@@ -8,6 +8,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+	body {
+		text-align: center;
+	}
+	table {
+		border: 0.5px solid #E6E6E6;
+		width: 600px;
+		height: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	td{
+		border: 0.5px solid #E6E6E6;
+	}
+	.tit {
+		height: 10%;
+	}
+	.cont{
+		
+	}
+	.intit{
+		width: 500px;
+		height: 25px;
+	}
+	.incont{
+		width: 500px;
+		height: 600px;
+	}
+	.sub{
+		text-align: center;
+		margin-left: 540px;
+	}
+</style>
 <title>공지사항 보기</title>
 </head>
 <body>
@@ -25,23 +58,27 @@
 		}
 		NoticeVO notice = new NoticeDAO().getNotice(notiID);		
 	%>
-<table>
+	<h2><%= notice.getTitle() %></h2>
+	<table>
 		<tr>
-			<td>글 번호</td>
+			<td class="tit">글 번호</td>
 			<td><%= notice.getNo() %></td>
 		</tr>
 		<tr>
-			<td>제목</td>
+			<td class="tit">제목</td>
 			<td><%= notice.getTitle() %></td>
 		</tr>		
 		<tr>
-			<td>작성일자</td>
+			<td class="tit">작성일자</td>
 			<td><%= notice.getRegdates() %></td>
 		</tr>
 		<tr>
 			<td>내용</td>
 			<td><%= notice.getContent() %></td>
 		</tr>
-</table>
+	</table>
+	<div style="line-height: 45px">
+		<button type="button" class="sub" onclick="location.href='notice.jsp';">목록</button>
+	</div>
 </body>
 </html>

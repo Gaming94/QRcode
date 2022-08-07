@@ -82,6 +82,7 @@ public class NoticeDAO {
 	public NoticeVO getNotice(int no) {
 		String SQL = "select * from qrnotice where no = ?";
 		try {
+			conn = OracleConnector.getConnection();
 			ps = conn.prepareStatement(SQL);
 			ps.setInt(1, no);
 			ResultSet rs = ps.executeQuery();
@@ -89,8 +90,8 @@ public class NoticeDAO {
 				NoticeVO noti = new NoticeVO();
 				noti.setNo(rs.getInt(1));
 				noti.setTitle(rs.getString(2));	
-				noti.setRegdates(rs.getDate(3));
-				noti.setContent(rs.getString(4));
+				noti.setContent(rs.getString(3));
+				noti.setRegdates(rs.getDate(4));
 				return noti;
 			}			
 		} catch( Exception e) {
