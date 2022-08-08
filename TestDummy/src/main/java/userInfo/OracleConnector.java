@@ -77,7 +77,8 @@ public class OracleConnector {
 			String sqlAdm = "INSERT INTO QRMEMBER VALUES ('QRCODE', 'QRCODE', 'QRCODE',";
 				sqlAdm += "'QRCODE@naver.com', '010-1111-1111', SYSDATE)";
 			
-			String sqlSeq = "CREATE SEQUENCE noseq";
+			String sqlSeq = "CREATE SEQUENCE noseq INCREMENT BY 1 START WITH 1";
+				sqlSeq += "MINVALUE 1 NOCYCLE ORDER";
 			
 			String sqlNotice = "CREATE TABLE QRNOTICE (";
 			sqlNotice += "no number(5) CONSTRAINT no_no_pk PRIMARY KEY,";
@@ -86,6 +87,16 @@ public class OracleConnector {
 			sqlNotice += "regdates DATE DEFAULT SYSDATE)";
 			
 			String sqlAddNotice = "INSERT INTO QRNOTICE VALUES(noseq.nextval,'가나다라', '마바사아', sysdate)";
+			
+			String sqlSeq2 = "CREATE SEQUENCE boseq INCREMENT BY 1 START WITH 1";
+			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
+			
+			String sqlBoard = "CREATE TABLE QRBOARD (";
+				sqlBoard += "no number(5) CONSTRAINT bo_no_uqnn UNIQUE NOT NULL,";
+				sqlBoard += "title VARCHAR2(50) CONSTRAINT bo_title_nn NOT NULL,";
+				sqlBoard += "id VARCHAR2(20) CONSTRAINT bo_id_pk PRIMARY KEY,";
+				sqlBoard += "content VARCHAR2(200) CONSTRAINT bo_content_nn NOT NULL,";
+				sqlBoard += "regdate DATE DEFAULT SYSDATE)";
 			
 			Statement stmt = conn.createStatement();
 			
@@ -103,6 +114,12 @@ public class OracleConnector {
 			
 			boolean resultset5 = stmt.execute(sqlAddNotice);
 			System.out.println("return 성공5? = " + resultset5);
+			
+			boolean resultset6 = stmt.execute(sqlSeq2);
+			System.out.println("return 성공6? = " + resultset6);
+			
+			boolean resultset7 = stmt.execute(sqlBoard);
+			System.out.println("return 성공7? = " + resultset7);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);
