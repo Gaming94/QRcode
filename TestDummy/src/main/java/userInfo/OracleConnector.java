@@ -92,9 +92,9 @@ public class OracleConnector {
 			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
 			
 			String sqlBoard = "CREATE TABLE QRBOARD (";
-				sqlBoard += "no number(5) CONSTRAINT bo_no_uqnn UNIQUE NOT NULL,";
+				sqlBoard += "no number(5) CONSTRAINT bo_no_pk PRIMARY KEY,";
 				sqlBoard += "title VARCHAR2(50) CONSTRAINT bo_title_nn NOT NULL,";
-				sqlBoard += "id VARCHAR2(20) CONSTRAINT bo_id_pk PRIMARY KEY,";
+				sqlBoard += "id VARCHAR2(20) CONSTRAINT bo_id_nn NOT NULL,";
 				sqlBoard += "content VARCHAR2(200) CONSTRAINT bo_content_nn NOT NULL,";
 				sqlBoard += "regdate DATE DEFAULT SYSDATE)";
 			
