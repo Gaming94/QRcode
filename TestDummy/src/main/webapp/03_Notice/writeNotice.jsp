@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="notice.NoticeDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,7 @@
 </head>
 <body>
 	<h2>공지사항 작성</h2>
-	<form action="../notice/NoticeDAO" method="post">
+	<form action="write.jsp" method="post">
 	<table>
 		<tr class="tit">
 			<td style="width:10%">제목</td>

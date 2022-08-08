@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="notice.NoticeDAO" %>
+<%@ page import="notice.NoticeVO" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="noti" class="notice.NoticeVO" scope="page" />
+<jsp:setProperty name="noti" property="title" />
+<jsp:setProperty name="noti" property="content" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +35,17 @@
 		background-color: white;
 		text-align: center;
 	}
+	.top {
+		text-align: center;
+	}
+	.mainLogo{
+		width: 70px;
+		text-align: center;
+	}
+	.sub{
+		text-align: center;
+		line-height: 45px;
+	}
 </style>
 <title>공지사항</title>
 </head>
@@ -44,15 +62,15 @@
 	    	check = 0;
 	}
 	else if(session.getAttribute("user_id") == null)
-		id = null;
-	int size = 1;
-%>	
-<h2 style="text-align: center">공지사항</h2>
+		id = null;	
+%>
+	<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg">
+	<h3 class="top">공지사항</h3>
 	<%
 		if(check == 1) {
 	%>
 	<div class="writebtn">
-		<a href="writeNotice,jsp"><button>글쓰기</button></a>
+		<a href="writeNotice.jsp"><button>글쓰기</button></a>
 	</div>
 	<%} %>
 <div>
@@ -67,25 +85,30 @@
 	 </thead>
 	 <tbody>
 	 <%
-	 	if(size == 0) {
+		NoticeDAO nodao = new NoticeDAO();
+		ArrayList<NoticeVO> nvos = nodao.loadNotice();
+	 	if(nvos != null) {
+	 		for(int i=0; i < nvos.size(); i++) {
 	 %>
 	 	<tr>
-	 		<td>등록된 글이 없습니다.</td>
+	 		<td><%= nvos.get(i).getNo()%></td>
+	 		<td><a href="noticeView.jsp?notiID=<%= nvos.get(i).getNo()%>">
+	 			<%= nvos.get(i).getTitle()%></a></td>
+	 		<td>관리자</td>
+	 		<td><%= nvos.get(i).getRegdates()%></td>
 	 	</tr>
 	 <%
-	 	} else {
+	 		}} else {
 	 %>
 	 	<tr>
-	 		<td>1</td>
-	 		<td><a href="">첫번째</a></td>
-	 		<td>관리자</td>
-	 		<td>2022-08-04</td>
+	 		<td colspan="4" align=center>등록된 글이 없습니다.</td>
 	 	</tr>
-	 	<%
-			}
-	 	%>
+	 	<% } %>
 	 </tbody>
-	</table>
+	</table>	
+</div>
+<div class="sub">
+		<button type="button" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
 </div>
 </body>
 </html>

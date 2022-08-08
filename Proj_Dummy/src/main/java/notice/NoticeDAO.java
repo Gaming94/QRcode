@@ -87,12 +87,12 @@ public class NoticeDAO {
 			ps.setInt(1, no);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				NoticeVO nvo = new NoticeVO();
-				nvo.setNo(rs.getInt(1));
-				nvo.setTitle(rs.getString(2));	
-				nvo.setContent(rs.getString(3));
-				nvo.setRegdates(rs.getDate(4));
-				return nvo;
+				NoticeVO noti = new NoticeVO();
+				noti.setNo(rs.getInt(1));
+				noti.setTitle(rs.getString(2));	
+				noti.setContent(rs.getString(3));
+				noti.setRegdates(rs.getDate(4));
+				return noti;
 			}			
 		} catch( Exception e) {
 			e.printStackTrace();
