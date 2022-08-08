@@ -10,6 +10,18 @@ public class BoardVO {
 	private Date regdate;
 	
 	public BoardVO() {}
+	
+	public BoardVO(String title, String id, String content) {
+		this.title = title;
+		this.id = id;
+		this.content = content;
+	}
+	
+	public BoardVO(String title, String content, int no) {
+		this.title = title;
+		this.content = content;
+		this.no = no;
+	}
 
 	public BoardVO(int no, String title, String id, String content, Date regdate) {
 		super();

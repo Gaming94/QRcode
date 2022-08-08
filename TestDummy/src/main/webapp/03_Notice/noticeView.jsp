@@ -41,11 +41,15 @@
 		margin-left: 540px;
 	}
 </style>
+
 <title>공지사항 보기</title>
 </head>
 <body>
 	<%
 		int notiID = 0;
+		String id = null;
+		String admin = "QRCODE";
+		id = (String)session.getAttribute("user_id");
 		if(request.getParameter("notiID") != null) {
 			notiID = Integer.parseInt(request.getParameter("notiID"));
 		}
@@ -77,8 +81,15 @@
 			<td><%= notice.getContent() %></td>
 		</tr>
 	</table>
-	<div style="line-height: 45px">
-		<button type="button" class="sub" onclick="location.href='notice.jsp';">목록</button>
+	
+	<div class="sub" style="line-height: 45px">
+		<%
+		if(id.equals(admin)) {
+		%>
+		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropNotice.jsp?notiID=<%=notiID%>">삭제</a>
+		<a href="modifyNotice.jsp?notiID=<%=notiID%>">수정</a>
+		<%} %>
+		<button type="button" onclick="location.href='notice.jsp';">목록</button>
 	</div>
 </body>
 </html>

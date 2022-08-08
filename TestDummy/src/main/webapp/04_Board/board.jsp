@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="notice.NoticeDAO" %>
-<%@ page import="notice.NoticeVO" %>
+<%@ page import="board.BoardDAO" %>
+<%@ page import="board.BoardVO" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
@@ -47,7 +48,7 @@
 		line-height: 45px;
 	}
 </style>
-<title>공지사항</title>
+<title>음악요청</title>
 </head>
 <body>
 <%
@@ -57,20 +58,26 @@
 	if(session.getAttribute("user_id") != null) {
 	    id = (String)session.getAttribute("user_id");
 	    if(id.equals(admin))
-	    	check = 1;
+	    	check = 2;
 	    else
-	    	check = 0;
+	    	check = 1;
 	}
-	else if(session.getAttribute("user_id") == null)
+	else if(session.getAttribute("user_id") == null) {
 		id = null;	
+		PrintWriter script = response.getWriter();
+    	script.println("<script>");
+    	script.println("alert('회원 권한이 필요합니다.')");
+    	script.println("location.href = '../00_Main/Main.jsp'");
+    	script.println("</script>");
+	}
 %>
 	<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg">
-	<h3 class="top">공지사항</h3>
+	<h3 class="top">음악요청</h3>
 	<%
-		if(check == 1) {
+		if(check == 1 || check == 2) {
 	%>
 	<div class="writebtn">
-		<a href="writeNotice.jsp"><button>글쓰기</button></a>
+		<a href="writeBoard.jsp"><button>글쓰기</button></a>
 	</div>
 	<%} %>
 <div>
@@ -85,17 +92,17 @@
 	 </thead>
 	 <tbody>
 	 <%
-		NoticeDAO nodao = new NoticeDAO();
-		ArrayList<NoticeVO> nvos = nodao.loadNotice();
-	 	if(nvos != null) {
-	 		for(int i=0; i < nvos.size(); i++) {
+	 BoardDAO bodao = new BoardDAO();
+		ArrayList<BoardVO> bvos = bodao.loadBoard();
+	 	if(bvos.size() != 0) {
+	 		for(int i=0; i < bvos.size(); i++) {
 	 %>
 	 	<tr>
-	 		<td><%= nvos.get(i).getNo()%></td>
-	 		<td><a href="noticeView.jsp?notiID=<%= nvos.get(i).getNo()%>">
-	 			<%= nvos.get(i).getTitle()%></a></td>
-	 		<td>관리자</td>
-	 		<td><%= nvos.get(i).getRegdates()%></td>
+	 		<td><%= bvos.get(i).getNo()%></td>
+	 		<td><a href="boardView.jsp?bID=<%= bvos.get(i).getNo()%>">
+	 			<%= bvos.get(i).getTitle()%></a></td>
+	 		<td><%= bvos.get(i).getId()%></td>
+	 		<td><%= bvos.get(i).getRegdate()%></td>
 	 	</tr>
 	 <%
 	 		}} else {

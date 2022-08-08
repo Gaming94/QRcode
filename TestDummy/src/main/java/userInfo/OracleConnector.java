@@ -86,7 +86,7 @@ public class OracleConnector {
 			sqlNotice += "content VARCHAR2(200) CONSTRAINT no_content_nn NOT NULL,";
 			sqlNotice += "regdates DATE DEFAULT SYSDATE)";
 			
-			String sqlAddNotice = "INSERT INTO QRNOTICE VALUES(noseq.nextval,'가나다라', '마바사아', sysdate)";
+			// String sqlAddNotice = "INSERT INTO QRNOTICE VALUES(noseq.nextval,'가나다라', '마바사아', sysdate)";
 			
 			String sqlSeq2 = "CREATE SEQUENCE boseq INCREMENT BY 1 START WITH 1";
 			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
@@ -112,14 +112,14 @@ public class OracleConnector {
 			boolean resultset4 = stmt.execute(sqlNotice);
 			System.out.println("return 성공4? = " + resultset4);
 			
-			boolean resultset5 = stmt.execute(sqlAddNotice);
+			// boolean resultset5 = stmt.execute(sqlAddNotice);
+			// System.out.println("return 성공5? = " + resultset5);
+			
+			boolean resultset5 = stmt.execute(sqlSeq2);
 			System.out.println("return 성공5? = " + resultset5);
 			
-			boolean resultset6 = stmt.execute(sqlSeq2);
+			boolean resultset6 = stmt.execute(sqlBoard);
 			System.out.println("return 성공6? = " + resultset6);
-			
-			boolean resultset7 = stmt.execute(sqlBoard);
-			System.out.println("return 성공7? = " + resultset7);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);

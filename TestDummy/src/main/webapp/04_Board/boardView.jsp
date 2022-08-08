@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="notice.NoticeDAO" %>
-<%@ page import="notice.NoticeVO" %>
+<%@ page import="board.BoardDAO" %>
+<%@ page import="board.BoardVO" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -39,46 +39,79 @@
 	.sub{
 		text-align: center;
 		margin-left: 540px;
+		line-height: 45px
 	}
 </style>
-<title>공지사항 보기</title>
+
+<title>음악요청 보기</title>
 </head>
 <body>
 	<%
-		int notiID = 0;
-		if(request.getParameter("notiID") != null) {
-			notiID = Integer.parseInt(request.getParameter("notiID"));
+		String id = null;
+		String admin = "QRCODE";
+		int check = 0;
+		if(session.getAttribute("user_id") != null) {
+		    id = (String)session.getAttribute("user_id");
+		    if(id.equals(admin))
+		    	check = 2;
+		    else
+		    	check = 1;
 		}
-		if(notiID == 0) {
+		else if(session.getAttribute("user_id") == null) {
+			id = null;	
+			PrintWriter script = response.getWriter();
+	    	script.println("<script>");
+	    	script.println("alert('회원 권한이 필요합니다.')");
+	    	script.println("location.href = '../00_Main/Main.jsp'");
+	    	script.println("</script>");
+		}
+		int bID = 0;
+		if(request.getParameter("bID") != null) {
+			bID = Integer.parseInt(request.getParameter("bID"));
+		}
+		if(bID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'notice.jsp'");
+			script.println("location.href = 'board.jsp'");
 			script.println("</script>");
 		}
-		NoticeVO notice = new NoticeDAO().getNotice(notiID);		
+		BoardVO board = new BoardDAO().getBoard(bID);		
 	%>
-	<h2><%= notice.getTitle() %></h2>
+	<h2><%= board.getTitle() %></h2>
 	<table>
 		<tr>
 			<td class="tit">글 번호</td>
-			<td><%= notice.getNo() %></td>
+			<td><%= board.getNo() %></td>
 		</tr>
 		<tr>
 			<td class="tit">제목</td>
-			<td><%= notice.getTitle() %></td>
-		</tr>		
+			<td><%= board.getTitle() %></td>
+		</tr>	
+		<tr>
+			<td class="tit">작성자</td>
+			<td><%= board.getId() %></td>
+		</tr>	
 		<tr>
 			<td class="tit">작성일자</td>
-			<td><%= notice.getRegdates() %></td>
+			<td><%= board.getRegdate() %></td>
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><%= notice.getContent() %></td>
+			<td><%= board.getContent() %></td>
 		</tr>
 	</table>
-	<div style="line-height: 45px">
-		<button type="button" class="sub" onclick="location.href='notice.jsp';">목록</button>
+	<div class="sub" style="">
+	<% if (check == 2) {%>
+		<button type="button" onclick="location.href='board.jsp';">답글</button>
+	<% } %>
+	<%
+		if(id.equals(board.getId())) {
+		%>
+		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropBoard.jsp?bID=<%=bID%>">삭제</a>
+		<a href="modifyBoard.jsp?bID=<%=bID%>">수정</a>
+		<%} %>
+		<button type="button" onclick="location.href='board.jsp';">목록</button>
 	</div>
 </body>
 </html>

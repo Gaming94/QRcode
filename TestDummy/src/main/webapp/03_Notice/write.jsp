@@ -28,6 +28,7 @@
 	    	nodao.addNotice(novo);
 	    	PrintWriter script = response.getWriter();
 	    	script.println("<script>");
+	    	script.println("alert('작성되었습니다.')");
 	    	script.println("location.href = 'notice.jsp'");
 	    	script.println("</script>");
 	    } else {

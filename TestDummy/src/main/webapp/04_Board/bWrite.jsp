@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="notice.NoticeDAO" %>
-<%@ page import="notice.NoticeVO" %>
+<%@ page import="board.BoardDAO" %>
+<%@ page import="board.BoardVO" %>
 <%@ page import="java.io.PrintWriter" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-<jsp:useBean id="notice" class="notice.NoticeVO" scope="page"/>
-<jsp:setProperty name="notice" property="title"/>
-<jsp:setProperty name="notice" property="content"/>
+<jsp:useBean id="board" class="board.BoardVO" scope="page"/>
+<jsp:setProperty name="board" property="title"/>
+<jsp:setProperty name="board" property="content"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,25 +18,20 @@
 <body>
 <%
 	String id = null;
-	String admin = "QRCODE";
-	int check = 0;
+	PrintWriter script = response.getWriter();
 	if(session.getAttribute("user_id") != null) {
 	    id = (String)session.getAttribute("user_id");
-	    if(id.equals(admin)) {
-	    	NoticeDAO nodao = new NoticeDAO();
-	    	NoticeVO novo = new NoticeVO(notice.getTitle(),notice.getContent());
-	    	nodao.addNotice(novo);
-	    	PrintWriter script = response.getWriter();
-	    	script.println("<script>");
-	    	script.println("location.href = 'notice.jsp'");
-	    	script.println("</script>");
-	    } else {
-	    	PrintWriter script = response.getWriter();
-	    	script.println("<script>");
-	    	script.println("alert('관리자 권한이 필요합니다.')");
-	    	script.println("location.href = 'notice.jsp'");
-	    	script.println("</script>");
-	    }
+    	BoardDAO bodao = new BoardDAO();
+    	BoardVO bovo = new BoardVO(board.getTitle(),id,board.getContent());
+    	bodao.addBoard(bovo);
+    	script.println("<script>");
+    	script.println("location.href = 'board.jsp'");
+    	script.println("</script>");
+	} else {
+    	script.println("<script>");
+    	script.println("alert('회원 권한이 필요합니다.')");
+    	script.println("location.href = '../00_Main/Main.jsp'");
+    	script.println("</script>");
 	}
 %>
 </body>

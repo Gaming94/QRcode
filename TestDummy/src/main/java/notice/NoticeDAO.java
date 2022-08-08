@@ -134,19 +134,16 @@ public class NoticeDAO {
 	}
 	
 	public void modifyNotice(NoticeVO noticeVo) {
-		String sql = "update qrnotice set title=? content=? where no=?";
+		String sql = "update qrnotice set title=?, content=? where no=?";
 		
 		try {
 			conn = OracleConnector.getConnection();
 			ps = conn.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
 			
 			ps.setString(1, noticeVo.getTitle());
 			ps.setString(2, noticeVo.getContent());
 			ps.setInt(3, noticeVo.getNo());
 						
-			int no = rs.getInt(3);
-			System.out.println(no);
 			ps.executeUpdate();
 			ps.close();
 		}
