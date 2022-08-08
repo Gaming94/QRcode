@@ -6,16 +6,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
-<c:set var="data-value" value="${ex1}" scope="page" />
-
 <html>
 <head>
 <meta charset="UTF-8" content="no-cache"/>
 <title>QR Music</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -76,7 +74,7 @@
 		z-index : 99;
 		top : 0px;
 		left : 200px;
-		width: 100%;
+		width: 90%;
 		height: 100px;
 		color : white;
 		overflow:hidden;
@@ -107,9 +105,10 @@
 		top : 30px;
 		width: 350px;
 		height: 40px;
-		font-size: 15px;
+		font-size: 13px;
+		color : Black;
 		outline: none;
-		padding-left: 10px;
+		padding-left: 17px;
 		
 		background-image: url('../98_Image/Search.jpg');
 		background-repeat: no-repeat;
@@ -159,22 +158,35 @@
 		position: absolute;
 		z-index : 1;
 		top : 110px;
-		left : 202px;
-		width : 100%;
+		left : 198px;
+		width : 90%;
 		height : 600px;
 		background: rgb(223, 229, 232);
 	}
 	
 	.Weekend_Music li{
 		padding-left: 10px;
-		padding-right: 60px;
+		padding-right: 50px;
 		display: inline-block;
 	}
 	
-	.Weekend_Music a{
-		border : 0px;
-		outline : 0px;
-		padding-right: 10px;
+	.Weekend_Music button{
+		border : none;
+		outline: none;
+  		box-shadow: none;
+  		background-color: rgb(223, 229, 232);
+	}
+	
+	.Weekend_Music img:hover{
+		transform : scale(1.1);
+		z-index: 100;
+		transition: transform.1s
+	}
+	
+	.weekend_Music button:focus,
+	button:active {
+  		outline: none;
+  		box-shadow: none;
 	}
 	
 	.MusicChart{
@@ -272,12 +284,27 @@
 	#jstext {
 	  	font-size: 15px;
 	}
+	
+	@font-face{
+		font-family: 'CookieRun';
+		src: url('../99_Other/00_Font/CookieRun-Regular.woff') format('woff');
+	}
+	
+	@font-face {
+	    font-family: 'CookieRun';
+	    src: url('../99_Other/00_Font/CookieRun-Regular.ttf') format('truetype');
+	}
+	
+	@font-face {
+	    font-family: 'CookieRun';
+	    src: url('../99_Other/00_Font/CookieRun-Regular.ttf') format('openetype');
+	}
 		
 	</style>
 </head>
 <body>		
 	<div class="logo">
-		<a href="Main.html">
+		<a href="Main.jsp">
 			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
 		</a>
 	</div>
@@ -293,7 +320,7 @@
    				<a href="../03_Notice/notice.jsp">공지사항</a>
    			</li>
    			<li>
-   				<a href="Main.html">음악요청</a>
+   				<a href="Main.jsp">음악요청</a>
    			</li>
    		</ul>
    		<hr>
@@ -344,23 +371,23 @@
 		<ul>
 			<li>
 			    <img src="../98_Image/MenuIcon_1.jpg">
-				<a href="Main.html">인기차트</a>
+				<a href="Main.jsp">인기차트</a>
 			</li>
 			<li>
 				<img src="../98_Image/MenuIcon_2.JPG">
-				<a href="Main.html">최신음악</a>
+				<a href="Main.jsp">최신음악</a>
 			</li>	
 			<li>
 				<img src="../98_Image/MenuIcon_3.JPG">
-				<a href="Main.html">장르</a>
+				<a href="Main.jsp">장르</a>
 			</li>
 			<li>
 				<img src="../98_Image/MenuIcon_3.JPG">
-				<a href="Main.html">내 음악</a>
+				<a href="Main.jsp">내 음악</a>
 			</li>
 			<li>
 				<img src="../98_Image/MenuIcon_1.jpg">
-				<a href="Main.html">테마</a>
+				<a href="Main.jsp">테마</a>
 			</li>
 		</ul>
 	</div>
@@ -368,80 +395,60 @@
 	<div class="Weekend_Music">
 		<div class="text">
 			<h2>최신 음악</h2>
-			<p id="all">전체</p>
-			<p id="os">해외</p>
-			<p id="kor">국내</p>
+			<a>전체</a>
+			<a>해외</a>
+			<a>국내</a>
+		 
 		</div>
-		<script>		
-			document.getElementById("all").onclick = function() {select('all')}
-			document.getElementById("os").onclick = function() {select('os')}
-			document.getElementById("kor").onclick = function() {select('kor')}
-			function select(co) {
-				<%String select = null;%>
-				if(co == 'all'){
-					<%select = "All";%>
-				}
-				else if(co == 'os'){
-					<%select = "Os";%>
-				}
-				else if(co == 'kor'){
-					<%select = "Kor";%>			
-				}
-				alert(select);
-				location.href="../user/Main.do";
-			}
-		</script>	
+
 		<ul>
-		<% if(select == "All") {%>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_4.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
 			</li>
 			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-		<% } else if (select == "Os") {%>	
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg" alt="">
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img  src="../98_Image/NewJeans.jpg"></button>
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-			<li>
-				<img src="../98_Image/DummyAlbum.jpg">
-			</li>
-		<% } else if (select == "Kor") {%>	
-			<li>
-				국내
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
 			</li>
 		</ul>
-	<% } %>
+		
+		<ul>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+			</li>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+			</li>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+			</li>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_4.jpg"></button>
+			</li>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+			</li>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+			</li>
+			<li>
+				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+			</li>
+		</ul>
+		
 	</div>
 	
 	<div class = "MusicChart">
@@ -449,7 +456,6 @@
 		<h2>실시간 곡 차트</h2>
 		<script>
 			let today = new Date();   
-	
 			let year = today.getFullYear(); // 년도
 			let month = today.getMonth() + 1;  // 월
 			let date = today.getDate();  // 날짜
@@ -464,7 +470,7 @@
 			<li><span>2</span>1분1초</li>
 			<li><span>3</span>발레리노</li>
 			<li><span>4</span>에픽하이</li>
-			<li><span>6</span>리쌍</li>
+			<li><span>6</span>TomBoy</li>
 			<li><span>7</span>리쌍</li>
 			<li><span>8</span>리쌍</li>
 			<li><span>9</span>리쌍</li>
