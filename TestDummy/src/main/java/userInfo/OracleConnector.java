@@ -92,7 +92,7 @@ public class OracleConnector {
 			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
 			
 			String sqlSeq3 = "CREATE SEQUENCE reseq INCREMENT BY 1 START WITH 1";
-			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
+			sqlSeq3 += "MINVALUE 1 NOCYCLE ORDER";
 			
 			String sqlBoard = "CREATE TABLE QRBOARD (";
 				sqlBoard += "no number(5) CONSTRAINT bo_no_uk UNIQUE,";
