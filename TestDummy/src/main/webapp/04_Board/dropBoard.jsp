@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 삭제</title>
+<title>음악요청 삭제</title>
 </head>
 <body>
 <% 

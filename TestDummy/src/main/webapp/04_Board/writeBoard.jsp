@@ -41,7 +41,7 @@
 <title>음악요청 작성</title>
 </head>
 <body>
-	<h2>공지사항 작성</h2>
+	<h2>음악요청 작성</h2>
 	<form action="bWrite.jsp" method="post">
 	<table>
 		<tr class="tit">

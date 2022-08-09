@@ -41,7 +41,7 @@
 		margin-left: 540px;
 	}
 </style>
-<title>공지사항 수정</title>
+<title>음악요청 수정</title>
 </head>
 <body>
 <% 

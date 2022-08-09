@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 수정적용</title>
+<title>음악요청 수정적용</title>
 </head>
 <body>
 <% 
