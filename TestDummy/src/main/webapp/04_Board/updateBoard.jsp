@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>음악요청 수정적용</title>
+<title>공지사항 수정적용</title>
 </head>
 <body>
 <% 
@@ -21,24 +21,26 @@
 		if(session.getAttribute("user_id") != null) {
 		    id = (String)session.getAttribute("user_id");
 		}
-		int bID = 0;
-		if(id.equals("QRCODE")){
-			if(request.getParameter("bID") != null) {
-				bID = Integer.parseInt(request.getParameter("bID"));
-				BoardDAO bdao = new BoardDAO();
-				BoardVO bvo = new BoardVO(board.getTitle(),board.getContent(),bID);
-				bdao.modifyBoard(bvo);			
-				script.println("<script>");
-				script.println("alert('수정되었습니다.')");
-				script.println("location.href = 'board.jsp'");
-				script.println("</script>");
-			}
-		} else {
-			script.println("<script>");
-			script.println("alert('권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
-			script.println("</script>");
-		}
+		int bID = 0;	
+    	if(request.getParameter("bID") != null) {
+    		bID = Integer.parseInt(request.getParameter("bID"));
+    		BoardVO bvo = new BoardDAO().getBoard(bID);
+    		BoardDAO bdao = new BoardDAO();
+    		 if((!id.equals(admin)) || (!id.equals(bvo.getId()))) {	
+    		    	script.println("<script>");
+    		    	script.println("alert('관리자거나 본인이 아닙니다.')");
+    		    	script.println("location.href = 'board.jsp'");
+    		    	script.println("</script>");
+    		 }
+    		 else {
+    			BoardVO bvo2 = new BoardVO(board.getTitle(),board.getContent(),bID); 
+    			bdao.modifyBoard(bvo2);			
+ 				script.println("<script>");
+ 				script.println("alert('수정되었습니다.')");
+ 				script.println("location.href = 'board.jsp'");
+ 				script.println("</script>");
+    		 }
+    	}
 %>
 </body>
 </html>

@@ -104,15 +104,13 @@
 	 		<td><%= bvos.get(i).getId()%></td>
 	 		<td><%= bvos.get(i).getRegdate()%></td>
 	 	</tr>
-	 	
-	 	
 	 <%
 	 		}} else {
 	 %>
 	 	<tr>
 	 		<td colspan="4" align=center>등록된 글이 없습니다.</td>
 	 	</tr>
-	 	<% } %>	
+	 	<% } %>
 	 </tbody>
 	</table>	
 </div>

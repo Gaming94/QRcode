@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ page import="notice.NoticeDAO" %>
 <%@ page import="notice.NoticeVO" %>
 <%@ page import="java.io.PrintWriter" %>
@@ -28,7 +29,6 @@
 	    	nodao.addNotice(novo);
 	    	PrintWriter script = response.getWriter();
 	    	script.println("<script>");
-	    	script.println("alert('작성되었습니다.')");
 	    	script.println("location.href = 'notice.jsp'");
 	    	script.println("</script>");
 	    } else {

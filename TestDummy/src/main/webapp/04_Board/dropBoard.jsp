@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>음악요청 삭제</title>
+<title>공지사항 삭제</title>
 </head>
 <body>
 <% 
@@ -19,11 +19,11 @@
 		    id = (String)session.getAttribute("user_id");
 		}
 		int bID = 0;
-		if(id.equals("QRCODE")){
-			if(request.getParameter("bID") != null) {
-				bID = Integer.parseInt(request.getParameter("bID"));
-				BoardVO bvo = new BoardDAO().getBoard(bID);
-				BoardDAO bdao = new BoardDAO();
+		if(request.getParameter("bID") != null) {
+			bID = Integer.parseInt(request.getParameter("bID"));
+			BoardVO bvo = new BoardDAO().getBoard(bID);
+			BoardDAO bdao = new BoardDAO();
+			if((id.equals(admin)) || (id.equals(bvo.getId()))){				
 				bdao.dropBoard(bID);			
 				script.println("<script>");
 				script.println("alert('삭제되었습니다.')");

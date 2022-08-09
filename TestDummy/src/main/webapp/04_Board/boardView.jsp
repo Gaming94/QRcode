@@ -106,7 +106,7 @@
 		<button type="button" onclick="location.href='board.jsp';">답글</button>
 	<% } %>
 	<%
-		if(id.equals(board.getId())) {
+		if((id.equals(admin)) || (id.equals(board.getId()))) {
 		%>
 		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropBoard.jsp?bID=<%=bID%>">삭제</a>
 		<a href="modifyBoard.jsp?bID=<%=bID%>">수정</a>
