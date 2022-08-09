@@ -1,33 +1,35 @@
-package notice;
+package board;
 
 import java.util.Date;
 
-public class NoticeVO {
+public class BoardVO {
 	private int no;
 	private String title;
+	private String id;
 	private String content;
-	private Date regdates;
+	private Date regdate;
 	
-	public NoticeVO() {
-	}
+	public BoardVO() {}
 	
-	public NoticeVO(String title, String content) {
+	public BoardVO(String title, String id, String content) {
 		this.title = title;
+		this.id = id;
 		this.content = content;
 	}
 	
-	public NoticeVO(String title, String content, int no) {
+	public BoardVO(String title, String content, int no) {
 		this.title = title;
 		this.content = content;
 		this.no = no;
 	}
-	
-	public NoticeVO(int no, String title, String content, Date regdates) {
+
+	public BoardVO(int no, String title, String id, String content, Date regdate) {
 		super();
 		this.no = no;
 		this.title = title;
+		this.id = id;
 		this.content = content;
-		this.regdates = regdates;
+		this.regdate = regdate;
 	}
 
 	public int getNo() {
@@ -46,6 +48,14 @@ public class NoticeVO {
 		this.title = title;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -54,12 +64,12 @@ public class NoticeVO {
 		this.content = content;
 	}
 
-	public Date getRegdates() {
-		return regdates;
+	public Date getRegdate() {
+		return regdate;
 	}
 
-	public void setRegdates(Date regdates) {
-		this.regdates = regdates;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
 	
 }
