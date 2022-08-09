@@ -87,12 +87,12 @@ public class NoticeDAO {
 			ps.setInt(1, no);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				NoticeVO noti = new NoticeVO();
-				noti.setNo(rs.getInt(1));
-				noti.setTitle(rs.getString(2));	
-				noti.setContent(rs.getString(3));
-				noti.setRegdates(rs.getDate(4));
-				return noti;
+				NoticeVO nvo = new NoticeVO();
+				nvo.setNo(rs.getInt(1));
+				nvo.setTitle(rs.getString(2));	
+				nvo.setContent(rs.getString(3));
+				nvo.setRegdates(rs.getDate(4));
+				return nvo;
 			}			
 		} catch( Exception e) {
 			e.printStackTrace();
@@ -134,19 +134,16 @@ public class NoticeDAO {
 	}
 	
 	public void modifyNotice(NoticeVO noticeVo) {
-		String sql = "update qrnotice set title=? content=? where no=?";
+		String sql = "update qrnotice set title=?, content=? where no=?";
 		
 		try {
 			conn = OracleConnector.getConnection();
 			ps = conn.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
 			
 			ps.setString(1, noticeVo.getTitle());
 			ps.setString(2, noticeVo.getContent());
 			ps.setInt(3, noticeVo.getNo());
 						
-			int no = rs.getInt(3);
-			System.out.println(no);
 			ps.executeUpdate();
 			ps.close();
 		}

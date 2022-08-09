@@ -17,7 +17,7 @@ public class OracleConnector {
 		try {
 			if(_stconn != null) {
 				return _stconn;	
-				}
+			}
 			
 			Class.forName(driver);
 			
@@ -59,7 +59,7 @@ public class OracleConnector {
 
 	public void Connect() {
 		System.out.println(">>> Oracle Connection DBTest <<<");
-
+		
 		try {
 			Class.forName(driver);
 			
@@ -67,17 +67,59 @@ public class OracleConnector {
 			System.out.println("[main] Connection: success: " + (conn != null));
 			
 			String sql = "CREATE TABLE QRMEMBER (";
-				sql += "id VARCHAR2(20) PRIMARY KEY,";
-				sql += "name VARCHAR2(30),";
-				sql += "pwd VARCHAR2(30),";
-				sql += "email VARCHAR2(50),";
+				sql += "id VARCHAR2(20) CONSTRAINT qr_id_pk PRIMARY KEY,";
+				sql += "name VARCHAR2(30) CONSTRAINT qr_name_uqnn UNIQUE NOT NULL,";
+				sql += "pwd VARCHAR2(30) CONSTRAINT qr_pwd_ch CHECK (LENGTH(pwd) >= 4),";
+				sql += "email VARCHAR2(50) CONSTRAINT qr_email_uq UNIQUE,";
 				sql += "tel VARCHAR2(20),";
 				sql += "REGDATE DATE DEFAULT SYSDATE)";
+			
+			String sqlAdm = "INSERT INTO QRMEMBER VALUES ('QRCODE', 'QRCODE', 'QRCODE',";
+				sqlAdm += "'QRCODE@naver.com', '010-1111-1111', SYSDATE)";
+			
+			String sqlSeq = "CREATE SEQUENCE noseq INCREMENT BY 1 START WITH 1";
+				sqlSeq += "MINVALUE 1 NOCYCLE ORDER";
+			
+			String sqlNotice = "CREATE TABLE QRNOTICE (";
+			sqlNotice += "no number(5) CONSTRAINT no_no_pk PRIMARY KEY,";
+			sqlNotice += "title VARCHAR2(50) CONSTRAINT no_title_nn NOT NULL,";
+			sqlNotice += "content VARCHAR2(200) CONSTRAINT no_content_nn NOT NULL,";
+			sqlNotice += "regdates DATE DEFAULT SYSDATE)";
+			
+			// String sqlAddNotice = "INSERT INTO QRNOTICE VALUES(noseq.nextval,'가나다라', '마바사아', sysdate)";
+			
+			String sqlSeq2 = "CREATE SEQUENCE boseq INCREMENT BY 1 START WITH 1";
+			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
+			
+			String sqlBoard = "CREATE TABLE QRBOARD (";
+				sqlBoard += "no number(5) CONSTRAINT bo_no_pk PRIMARY KEY,";
+				sqlBoard += "title VARCHAR2(50) CONSTRAINT bo_title_nn NOT NULL,";
+				sqlBoard += "id VARCHAR2(20) CONSTRAINT bo_id_nn NOT NULL,";
+				sqlBoard += "content VARCHAR2(200) CONSTRAINT bo_content_nn NOT NULL,";
+				sqlBoard += "regdate DATE DEFAULT SYSDATE)";
 			
 			Statement stmt = conn.createStatement();
 			
 			boolean resultset = stmt.execute(sql);
 			System.out.println("return 성공? = " + resultset);
+			
+			boolean resultset2 = stmt.execute(sqlAdm);
+			System.out.println("return 성공2? = " + resultset2);
+			
+			boolean resultset3 = stmt.execute(sqlSeq);
+			System.out.println("return 성공3? = " + resultset3);
+			
+			boolean resultset4 = stmt.execute(sqlNotice);
+			System.out.println("return 성공4? = " + resultset4);
+			
+			// boolean resultset5 = stmt.execute(sqlAddNotice);
+			// System.out.println("return 성공5? = " + resultset5);
+			
+			boolean resultset5 = stmt.execute(sqlSeq2);
+			System.out.println("return 성공5? = " + resultset5);
+			
+			boolean resultset6 = stmt.execute(sqlBoard);
+			System.out.println("return 성공6? = " + resultset6);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);
