@@ -91,8 +91,11 @@ public class OracleConnector {
 			String sqlSeq2 = "CREATE SEQUENCE boseq INCREMENT BY 1 START WITH 1";
 			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
 			
+			String sqlSeq3 = "CREATE SEQUENCE reseq INCREMENT BY 1 START WITH 1";
+			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
+			
 			String sqlBoard = "CREATE TABLE QRBOARD (";
-				sqlBoard += "no number(5) CONSTRAINT bo_no_pk PRIMARY KEY,";
+				sqlBoard += "no number(5) CONSTRAINT bo_no_uk UNIQUE,";
 				sqlBoard += "pno number(5),";
 				sqlBoard += "title VARCHAR2(50) CONSTRAINT bo_title_nn NOT NULL,";
 				sqlBoard += "id VARCHAR2(20) CONSTRAINT bo_id_nn NOT NULL,";
@@ -101,8 +104,8 @@ public class OracleConnector {
 			
 			Statement stmt = conn.createStatement();
 			
-			boolean resultset = stmt.execute(sql);
-			System.out.println("return 성공? = " + resultset);
+			boolean resultset1 = stmt.execute(sql);
+			System.out.println("return 성공1? = " + resultset1);
 			
 			boolean resultset2 = stmt.execute(sqlAdm);
 			System.out.println("return 성공2? = " + resultset2);
@@ -119,8 +122,11 @@ public class OracleConnector {
 			boolean resultset5 = stmt.execute(sqlSeq2);
 			System.out.println("return 성공5? = " + resultset5);
 			
-			boolean resultset6 = stmt.execute(sqlBoard);
+			boolean resultset6 = stmt.execute(sqlSeq3);
 			System.out.println("return 성공6? = " + resultset6);
+			
+			boolean resultset7 = stmt.execute(sqlBoard);
+			System.out.println("return 성공7? = " + resultset7);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);

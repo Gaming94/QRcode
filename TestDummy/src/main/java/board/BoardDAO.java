@@ -136,4 +136,58 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void addReply(BoardVO boardVo) {
+		String sql = "insert into qrboard (pno, title, id, content) values (reseq.nextval, ?, ?, ?)";
+		
+		try {
+			conn = OracleConnector.getConnection();
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, boardVo.getTitle());
+			ps.setString(2, boardVo.getId());
+			ps.setString(3, boardVo.getContent());
+			
+			ps.executeUpdate();
+			ps.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void dropReply(int pno) {
+		String sql = "delete from qrboard where pno = ?";
+		
+		try {
+			conn = OracleConnector.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, pno);
+			ps.executeUpdate();
+			ps.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void modifyReply(BoardVO boardVo) {
+		String sql = "update qrboard set title=?, content=? where pno=?";
+		
+		try {
+			conn = OracleConnector.getConnection();
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, boardVo.getTitle());
+			ps.setString(2, boardVo.getContent());
+			ps.setInt(3, boardVo.getPno());
+						
+			ps.executeUpdate();
+			ps.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
