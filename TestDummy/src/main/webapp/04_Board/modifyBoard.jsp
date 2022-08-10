@@ -51,24 +51,23 @@
 	int bID = 0;
 	id = (String)session.getAttribute("user_id");
 	PrintWriter script = response.getWriter();
-	if(session.getAttribute("user_id") != null) {	 
-		BoardVO bvo = new BoardDAO().getBoard(bID);
-		String checkID = "";
-		checkID = (String)bvo.getId();
+	if(session.getAttribute("user_id") != null) {		
     	if(request.getParameter("bID") != null) {
     		bID = Integer.parseInt(request.getParameter("bID"));
+    		BoardVO bvo = new BoardDAO().getBoard(bID);
+    		 if((!id.equals(admin)) && (!id.equals(bvo.getId()))) {	
+    		    	script.println("<script>");
+    		    	script.println("alert('관리자거나 본인이 아닙니다.')");
+    		    	script.println("location.href = 'board.jsp'");
+    		    	script.println("</script>");
+    		    }
     	}else {
     		script.println("<script>");
 	    	script.println("alert('유효하지 않은 글입니다.')");
 	    	script.println("location.href = 'board.jsp'");
 	    	script.println("</script>");
     	}
-	    if((!id.equals(admin)) && (!id.equals(checkID))) {	
-	    	script.println("<script>");
-	    	script.println("alert('관리자거나 본인이 아닙니다.')");
-	    	script.println("location.href = 'board.jsp'");
-	    	script.println("</script>");
-	    }
+	   
 	}	
 	BoardVO bvo = new BoardDAO().getBoard(bID);
 %>

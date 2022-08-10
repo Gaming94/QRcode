@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class BoardVO {
 	private int no;
-	private int pno=0;
+	private int pno;
 	private String title;
 	private String id;
 	private String content;
