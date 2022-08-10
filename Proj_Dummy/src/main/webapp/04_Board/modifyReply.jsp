@@ -48,32 +48,39 @@
 	String id = null;
 	String admin = "QRCODE";
 	int check = 0;
-	int bID = 0;
+	int bID = 0, bID2 = 0;
 	id = (String)session.getAttribute("user_id");
 	PrintWriter script = response.getWriter();
 	if(session.getAttribute("user_id") != null) {		
     	if(request.getParameter("bID") != null) {
     		bID = Integer.parseInt(request.getParameter("bID"));
-    		BoardVO bvo = new BoardDAO().getBoard(bID);
+    		bID2 = Integer.parseInt(request.getParameter("bID2"));
+    		BoardVO bvo = new BoardDAO().getReply(bID, bID2);
     		 if((!id.equals(admin)) && (!id.equals(bvo.getId()))) {	
-    		    	script.println("<script>");
-    		    	script.println("alert('관리자거나 본인이 아닙니다.')");
-    		    	script.println("location.href = 'board.jsp'");
-    		    	script.println("</script>");
-    		    }
+   		    	script.println("<script>");
+   		    	script.println("alert('관리자거나 본인이 아닙니다.')");
+   		    	script.println("location.href = 'board.jsp'");
+   		    	script.println("</script>");
+   		    }
     	}else {
     		script.println("<script>");
 	    	script.println("alert('유효하지 않은 글입니다.')");
 	    	script.println("location.href = 'board.jsp'");
 	    	script.println("</script>");
-    	}
-	   
-	}	
-	BoardVO bvo = new BoardDAO().getBoard(bID);
+    }}	
+	BoardVO bvo = new BoardDAO().getReply(bID, bID2);
 %>
 <div>
-	<form method="post" action="updateBoard.jsp?bID=<%=bID %>">
+	<form method="post" action="updateReply.jsp?bID=<%=bID %>">
 		<table>
+			<tr class="tit">
+				<td style="width:10%">글번호</td>
+				<td><input type="text" name="no" class="intit" value="<%=bvo.getNo() %>" readonly></td>
+			</tr>
+			<tr class="tit">
+				<td style="width:10%">답변번호</td>
+				<td><input type="text" name="pno" class="intit" value="<%=bvo.getPno() %>" readonly></td>
+			</tr>
 			<tr class="tit">
 				<td style="width:10%">제목</td>
 				<td><input type="text" name="title" class="intit" value="<%=bvo.getTitle()%>"></td>

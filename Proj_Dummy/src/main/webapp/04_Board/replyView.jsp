@@ -50,39 +50,38 @@
 		String id = null;
 		String admin = "QRCODE";
 		int check = 0;
+		PrintWriter script = response.getWriter();
 		if(session.getAttribute("user_id") != null) {
 		    id = (String)session.getAttribute("user_id");
-		    if(id.equals(admin))
-		    	check = 2;
-		    else
-		    	check = 1;
 		}
 		else if(session.getAttribute("user_id") == null) {
 			id = null;	
-			PrintWriter script = response.getWriter();
 	    	script.println("<script>");
 	    	script.println("alert('회원 권한이 필요합니다.')");
 	    	script.println("location.href = '../00_Main/Main.jsp'");
 	    	script.println("</script>");
 		}
-		int bID = 0, bID2 = 0;
+		int bID = 0, bID2 = 0;		
 		if(request.getParameter("bID") != null) {
 			bID = Integer.parseInt(request.getParameter("bID"));
-		}
-		if(bID == 0) {
-			PrintWriter script = response.getWriter();
+			bID2 = Integer.parseInt(request.getParameter("bID2"));
+		} else{
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
 			script.println("location.href = 'board.jsp'");
 			script.println("</script>");
 		}
-		BoardVO board = new BoardDAO().getBoard(bID);		
+		BoardVO board = new BoardDAO().getReply(bID, bID2);		
 	%>
 	<h2><%= board.getTitle() %></h2>
 	<table>
 		<tr>
 			<td class="tit">글 번호</td>
 			<td><%= board.getNo() %></td>
+		</tr>
+		<tr>
+			<td class="tit">답변 번호</td>
+			<td><%= board.getPno() %></td>
 		</tr>
 		<tr>
 			<td class="tit">제목</td>
@@ -99,13 +98,13 @@
 		<tr>
 			<td>내용</td>
 			<td><%= board.getContent() %></td>
-		</tr>
+		</tr> 
 	</table>
 	<div class="sub" style="">
 	<% if((id.equals(admin)) || (id.equals(board.getId()))) {%>
 		<a href="writeReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">답글</a>
-		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropBoard.jsp?bID=<%=bID%>">삭제</a>
-		<a href="modifyBoard.jsp?bID=<%=bID%>">수정</a>
+		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">삭제</a>
+		<a href="modifyReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">수정</a>
 		<%} %>
 		<button type="button" onclick="location.href='board.jsp';">목록</button>
 	</div>

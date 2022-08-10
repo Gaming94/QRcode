@@ -57,6 +57,7 @@
 	</table>
 	<div style="line-height: 45px">
 		<input class="sub" type="submit" value="글쓰기">
+		<button class="sub" type="button" onclick="location.href='board.jsp';">목록으로</button>
 	</div>
 	</form>
 </body>

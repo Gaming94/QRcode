@@ -6,9 +6,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="noti" class="notice.NoticeVO" scope="page" />
-<jsp:setProperty name="noti" property="title" />
-<jsp:setProperty name="noti" property="content" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,9 +95,15 @@
 	 		for(int i=0; i < bvos.size(); i++) {
 	 %>
 	 	<tr>
-	 		<td><%= bvos.get(i).getNo()%></td>
+	 		<%if (bvos.get(i).getPno() == 0) { %>
+	 		<td><%= bvos.get(i).getNo()%></td>	 		
 	 		<td><a href="boardView.jsp?bID=<%= bvos.get(i).getNo()%>">
 	 			<%= bvos.get(i).getTitle()%></a></td>
+	 		<%} else if((bvos.get(i).getPno() != 0)){ %>
+	 		<td>└<%= bvos.get(i).getPno() %></td>	 
+	 		<td>└<a href="replyView.jsp?bID=<%= bvos.get(i).getNo()%>&bID2=<%= bvos.get(i).getPno()%>">
+	 			<%= bvos.get(i).getTitle()%></a></td>
+	 		<% } %>
 	 		<td><%= bvos.get(i).getId()%></td>
 	 		<td><%= bvos.get(i).getRegdate()%></td>
 	 	</tr>

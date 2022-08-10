@@ -18,10 +18,25 @@ public class BoardVO {
 		this.content = content;
 	}
 	
+	public BoardVO(int no, String title, String id, String content, int pno) {
+		this.no = no;
+		this.title = title;
+		this.id = id;
+		this.content = content;
+		this.pno = pno;
+	}
+	
 	public BoardVO(String title, String content, int no) {
 		this.title = title;
 		this.content = content;
 		this.no = no;
+	}
+	
+	public BoardVO(String title, String content, int no, int pno) {
+		this.title = title;
+		this.content = content;
+		this.no = no;
+		this.pno = pno;
 	}
 	
 	public BoardVO(int no, String title, String id, String content, Date regdate) {

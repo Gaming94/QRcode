@@ -65,7 +65,7 @@
 	    	script.println("location.href = '../00_Main/Main.jsp'");
 	    	script.println("</script>");
 		}
-		int bID = 0;
+		int bID = 0, bID2 = 0;
 		if(request.getParameter("bID") != null) {
 			bID = Integer.parseInt(request.getParameter("bID"));
 		}
@@ -102,12 +102,8 @@
 		</tr>
 	</table>
 	<div class="sub" style="">
-	<% if (check == 2) {%>
-		<button type="button" onclick="location.href='board.jsp';">답글</button>
-	<% } %>
-	<%
-		if((id.equals(admin)) || (id.equals(board.getId()))) {
-		%>
+	<% if((id.equals(admin)) || (id.equals(board.getId()))) {%>
+		<a href="writeReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">답글</a>
 		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropBoard.jsp?bID=<%=bID%>">삭제</a>
 		<a href="modifyBoard.jsp?bID=<%=bID%>">수정</a>
 		<%} %>
