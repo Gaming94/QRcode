@@ -46,6 +46,27 @@
 		text-align: center;
 		line-height: 45px;
 	}
+	a{
+		color : Black;
+		font-size : 15px;
+		text-decoration:none;
+	}
+	
+	a:link {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:visited {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:hover{
+		color : Gray;
+		text-decoration:none;
+		cursor : pointer;
+	}
 </style>
 <title>공지사항</title>
 </head>
@@ -70,7 +91,7 @@
 		if(check == 1) {
 	%>
 	<div class="writebtn">
-		<a href="writeNotice.jsp"><button>글쓰기</button></a>
+		<a href="writeNotice.jsp">글쓰기</a>
 	</div>
 	<%} %>
 <div>
@@ -87,7 +108,7 @@
 	 <%
 		NoticeDAO nodao = new NoticeDAO();
 		ArrayList<NoticeVO> nvos = nodao.loadNotice();
-	 	if(nvos != null) {
+	 	if(nvos.size() != 0) {
 	 		for(int i=0; i < nvos.size(); i++) {
 	 %>
 	 	<tr>
@@ -108,7 +129,7 @@
 	</table>	
 </div>
 <div class="sub">
-		<button type="button" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
+		<a href="../00_Main/Main.jsp">뒤로가기</a>
 </div>
 </body>
 </html>

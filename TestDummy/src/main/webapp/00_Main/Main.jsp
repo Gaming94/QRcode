@@ -320,7 +320,7 @@
    				<a href="../03_Notice/notice.jsp">공지사항</a>
    			</li>
    			<li>
-   				<a href="Main.jsp">음악요청</a>
+   				<a href="../04_Board/board.jsp">음악요청</a>
    			</li>
    		</ul>
    		<hr>

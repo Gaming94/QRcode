@@ -87,7 +87,7 @@
 	 <%
 		NoticeDAO nodao = new NoticeDAO();
 		ArrayList<NoticeVO> nvos = nodao.loadNotice();
-	 	if(nvos != null) {
+	 	if(nvos.size() != 0) {
 	 		for(int i=0; i < nvos.size(); i++) {
 	 %>
 	 	<tr>

@@ -5,7 +5,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="oracle.jdbc.OracleConnection"%> 
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="userInfo.OracleConnector"%>
+<%@page import="oracle.OracleConnector"%>
 <%@page import="java.sql.ResultSet"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -19,7 +19,6 @@
 </head>
 <body>
 	<%
-		
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pwd");
 				
@@ -53,7 +52,7 @@
 					String _id = (String)session.getAttribute("user_id");
 					
 					out.println("<script>");
-					out.println("alert(_id'님 로그인 되었습니다. 환영합니다.')");
+					out.println("alert('로그인 되었습니다. 환영합니다.')");
 					out.println("location.href='../user/loginCheck.do'");
 					out.println("</script>");					
 				} else{

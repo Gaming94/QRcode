@@ -139,7 +139,7 @@
 	</tr>
     <tr>
 		<td colspan="2" align=center>
-			 <a href="../00_Main/Main.html"><button type="button" class="custom-btn btn-5" width=400>가입취소</button></a>
+			 <a href="../00_Main/Main.jsp"><button type="button" class="custom-btn btn-5" width=400>가입취소</button></a>
 		</td>
     </tr>
 </table>

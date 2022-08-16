@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="notice.NoticeDAO" %>
+<% request.setCharacterEncoding("UTF-8"); %>
+<%@ page import="board.BoardDAO" %>
+<%@ page import="board.BoardVO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,11 +40,11 @@
 		margin-left: 540px;
 	}
 </style>
-<title>공지사항 작성</title>
+<title>음악요청 작성</title>
 </head>
 <body>
 	<h2>공지사항 작성</h2>
-	<form action="write.jsp" method="post">
+	<form action="bWrite.jsp" method="post">
 	<table>
 		<tr class="tit">
 			<td style="width:10%">제목</td>
@@ -55,6 +57,7 @@
 	</table>
 	<div style="line-height: 45px">
 		<input class="sub" type="submit" value="글쓰기">
+		<button class="sub" type="button" onclick="location.href='board.jsp';">목록으로</button>
 	</div>
 	</form>
 </body>

@@ -1,6 +1,4 @@
-package notice;
-
-import userInfo.OracleConnector;
+package oracle;
 
 public class OracleStart {
 
