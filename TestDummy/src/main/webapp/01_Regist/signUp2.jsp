@@ -23,7 +23,7 @@
 .joinForm {
   position:absolute;
   width:400px;
-  height:600px;
+  height:700px;
   padding: 30px, 20px;
   background-color:#FFFFFF;
   text-align:center;
