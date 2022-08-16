@@ -1,6 +1,6 @@
-package notice;
+package oracle;
 
-import userInfo.OracleConnector;
+import oracle.OracleConnector;
 
 public class OracleDrop {
 

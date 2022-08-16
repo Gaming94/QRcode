@@ -23,6 +23,7 @@
 		border: 0.5px solid #E6E6E6;
 	}
 	.tit {
+		width: 20%;
 		height: 10%;
 	}
 	.cont{
@@ -39,6 +40,27 @@
 	.sub{
 		text-align: center;
 		margin-left: 540px;
+	}
+	a{
+		color : Black;
+		font-size : 15px;
+		text-decoration:none;
+	}
+	
+	a:link {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:visited {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:hover{
+		color : Gray;
+		text-decoration:none;
+		cursor : pointer;
 	}
 </style>
 
@@ -89,7 +111,7 @@
 		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropNotice.jsp?notiID=<%=notiID%>">삭제</a>
 		<a href="modifyNotice.jsp?notiID=<%=notiID%>">수정</a>
 		<%} %>
-		<button type="button" onclick="location.href='notice.jsp';">목록</button>
+		<a href="notice.jsp">목록</a>
 	</div>
 </body>
 </html>

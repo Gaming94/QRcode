@@ -40,6 +40,7 @@
 		text-align: center;
 		margin-left: 540px;
 	}
+	
 </style>
 <title>공지사항 수정</title>
 </head>

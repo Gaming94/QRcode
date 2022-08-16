@@ -10,7 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import userInfo.OracleConnector;
+import oracle.OracleConnector;
 
 public class BoardDAO {
 	private Connection conn = null;

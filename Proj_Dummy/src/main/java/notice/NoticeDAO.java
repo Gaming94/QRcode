@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import userInfo.OracleConnector;
+import oracle.OracleConnector;
 
 
 public class NoticeDAO {

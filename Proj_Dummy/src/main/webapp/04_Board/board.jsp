@@ -44,6 +44,31 @@
 		text-align: center;
 		line-height: 45px;
 	}
+	a{
+		color : Black;
+		font-size : 15px;
+		text-decoration:none;
+	}
+	
+	a:link {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:visited {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:hover{
+		color : Gray;
+		text-decoration:none;
+		cursor : pointer;
+	}
+	.title{
+		float : left;
+		margin-left : 20%;
+	}
 </style>
 <title>음악요청</title>
 </head>
@@ -74,7 +99,7 @@
 		if(check == 1 || check == 2) {
 	%>
 	<div class="writebtn">
-		<a href="writeBoard.jsp"><button>글쓰기</button></a>
+		<a href="writeBoard.jsp">글쓰기</a>
 	</div>
 	<%} %>
 <div>
@@ -97,11 +122,11 @@
 	 	<tr>
 	 		<%if (bvos.get(i).getPno() == 0) { %>
 	 		<td><%= bvos.get(i).getNo()%></td>	 		
-	 		<td><a href="boardView.jsp?bID=<%= bvos.get(i).getNo()%>">
+	 		<td><a href="boardView.jsp?bID=<%= bvos.get(i).getNo()%>" class="title">
 	 			<%= bvos.get(i).getTitle()%></a></td>
 	 		<%} else if((bvos.get(i).getPno() != 0)){ %>
 	 		<td>└<%= bvos.get(i).getPno() %></td>	 
-	 		<td>└<a href="replyView.jsp?bID=<%= bvos.get(i).getNo()%>&bID2=<%= bvos.get(i).getPno()%>">
+	 		<td><a href="replyView.jsp?bID=<%= bvos.get(i).getNo()%>&bID2=<%= bvos.get(i).getPno()%>" class="title">└
 	 			<%= bvos.get(i).getTitle()%></a></td>
 	 		<% } %>
 	 		<td><%= bvos.get(i).getId()%></td>
@@ -118,7 +143,7 @@
 	</table>	
 </div>
 <div class="sub">
-		<button type="button" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
+		<a href="../00_Main/Main.jsp">뒤로가기</a>
 </div>
 </body>
 </html>

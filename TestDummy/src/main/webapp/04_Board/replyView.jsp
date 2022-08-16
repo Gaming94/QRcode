@@ -41,6 +41,27 @@
 		margin-left: 540px;
 		line-height: 45px
 	}
+	a{
+		color : Black;
+		font-size : 15px;
+		text-decoration:none;
+	}
+	
+	a:link {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:visited {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:hover{
+		color : Gray;
+		text-decoration:none;
+		cursor : pointer;
+	}
 </style>
 
 <title>음악요청 보기</title>
@@ -98,7 +119,7 @@
 		<tr>
 			<td>내용</td>
 			<td><%= board.getContent() %></td>
-		</tr>
+		</tr> 
 	</table>
 	<div class="sub" style="">
 	<% if((id.equals(admin)) || (id.equals(board.getId()))) {%>
@@ -106,7 +127,7 @@
 		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">삭제</a>
 		<a href="modifyReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">수정</a>
 		<%} %>
-		<button type="button" onclick="location.href='board.jsp';">목록</button>
+		<a href="board.jsp">목록</a>
 	</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package userInfo;
+package oracle;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -58,7 +58,7 @@ public class OracleConnector {
 	}
 
 	public void Connect() {
-		System.out.println(">>> Oracle Connection DBTest <<<");
+		System.out.println(">>> Oracle Connection <<<");
 		
 		try {
 			Class.forName(driver);
@@ -92,7 +92,8 @@ public class OracleConnector {
 			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
 			
 			String sqlBoard = "CREATE TABLE QRBOARD (";
-				sqlBoard += "no number(5) CONSTRAINT bo_no_pk PRIMARY KEY,";
+				sqlBoard += "no number(5),";
+				sqlBoard += "pno number(5),";
 				sqlBoard += "title VARCHAR2(50) CONSTRAINT bo_title_nn NOT NULL,";
 				sqlBoard += "id VARCHAR2(20) CONSTRAINT bo_id_nn NOT NULL,";
 				sqlBoard += "content VARCHAR2(200) CONSTRAINT bo_content_nn NOT NULL,";
@@ -100,8 +101,8 @@ public class OracleConnector {
 			
 			Statement stmt = conn.createStatement();
 			
-			boolean resultset = stmt.execute(sql);
-			System.out.println("return 성공? = " + resultset);
+			boolean resultset1 = stmt.execute(sql);
+			System.out.println("return 성공1? = " + resultset1);
 			
 			boolean resultset2 = stmt.execute(sqlAdm);
 			System.out.println("return 성공2? = " + resultset2);
@@ -120,6 +121,55 @@ public class OracleConnector {
 			
 			boolean resultset6 = stmt.execute(sqlBoard);
 			System.out.println("return 성공6? = " + resultset6);
+			
+			boolean dbclosed = conn.isClosed();
+			System.out.println("[main] isClosed: " + dbclosed);
+			
+			conn.close();
+			System.out.println("[main] close: " + conn.isClosed());
+		}
+		catch(ClassNotFoundException e) {
+			System.out.println("[main] ClassNotFoundException: " + e.toString());
+		}
+		catch(SQLException e) {
+			System.out.println("[main] SQLException: " + e.toString());
+		}
+		catch(Exception e) {
+			System.out.println("[main] Exception: " + e.toString());
+		}
+	}
+	
+	public void Drop() {
+		System.out.println(">>> Oracle Drop <<<");
+		
+		try {
+			Class.forName(driver);
+			
+			Connection conn = DriverManager.getConnection(url, userid, password);
+			System.out.println("[main] Connection: success: " + (conn != null));
+			
+			String sql1 = "DROP TABLE qrmember";
+			String sql2 = "DROP TABLE qrnotice";
+			String sql3 = "DROP TABLE qrboard";
+			String sql4 = "DROP SEQUENCE noseq";
+			String sql5 = "DROP SEQUENCE boseq";
+			
+			Statement stmt = conn.createStatement();
+			
+			boolean resultset1 = stmt.execute(sql1);
+			System.out.println("return 성공1? = " + resultset1);
+			
+			boolean resultset2 = stmt.execute(sql2);
+			System.out.println("return 성공2? = " + resultset2);
+			
+			boolean resultset3 = stmt.execute(sql3);
+			System.out.println("return 성공3? = " + resultset3);
+			
+			boolean resultset4 = stmt.execute(sql4);
+			System.out.println("return 성공4? = " + resultset4);
+			
+			boolean resultset5 = stmt.execute(sql5);
+			System.out.println("return 성공5? = " + resultset5);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);

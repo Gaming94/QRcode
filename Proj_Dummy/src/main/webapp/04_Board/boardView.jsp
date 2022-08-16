@@ -23,6 +23,7 @@
 		border: 0.5px solid #E6E6E6;
 	}
 	.tit {
+		width: 20%;
 		height: 10%;
 	}
 	.cont{
@@ -40,6 +41,27 @@
 		text-align: center;
 		margin-left: 540px;
 		line-height: 45px
+	}
+	a{
+		color : Black;
+		font-size : 15px;
+		text-decoration:none;
+	}
+	
+	a:link {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:visited {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:hover{
+		color : Gray;
+		text-decoration:none;
+		cursor : pointer;
 	}
 </style>
 
@@ -101,13 +123,13 @@
 			<td><%= board.getContent() %></td>
 		</tr>
 	</table>
-	<div class="sub" style="">
+	<div class="sub">
 	<% if((id.equals(admin)) || (id.equals(board.getId()))) {%>
 		<a href="writeReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">답글</a>
 		<a onclick="return confirm('정말 삭제하시겠습니까?')" href="dropBoard.jsp?bID=<%=bID%>">삭제</a>
 		<a href="modifyBoard.jsp?bID=<%=bID%>">수정</a>
 		<%} %>
-		<button type="button" onclick="location.href='board.jsp';">목록</button>
+		<a href="board.jsp">목록</a>
 	</div>
 </body>
 </html>
