@@ -33,7 +33,6 @@ request.setCharacterEncoding("UTF-8");
       </script>
 </c:when>
 </c:choose>
-
    <meta  charset="UTF-8">
    <title>회원 정보 출력창</title>
 <style>
@@ -46,10 +45,34 @@ request.setCharacterEncoding("UTF-8");
        font-size:20px;
        text-align:center;
      }
-  </style>
-  
+     
+	.mainLogo {
+	  display : block;
+	  margin : auto;
+	  width: 10%;
+	  top : 150px;
+	  left : 50px;
+	}
+     
+    table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 85%;
+	}
+
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: center;
+	  padding: 8px;
+	}
+
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	} 
+ </style>
 </head>
 <body>
+<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg" >
  <p class="cls1">회원정보</p>
    <table align="center" border="1" >
       <tr align="center" bgcolor="lightgreen">
@@ -63,9 +86,9 @@ request.setCharacterEncoding("UTF-8");
 		 <td width="7%" ><b>삭제</b></td>         
    </tr>
 <c:choose>
-    <c:when test="${empty  userList}" >
+    <c:when test="${empty userList}" >
       <tr>
-        <td colspan=5>
+        <td colspan=8>
           <b>등록된 회원이 없습니다.</b>
        </td>  
       </tr>
@@ -75,7 +98,7 @@ request.setCharacterEncoding("UTF-8");
         <tr align="center">
           <td>${user.id}</td>
           <td>${user.pwd}</td>
-          <td>${user.name}</td>     
+          <td>${user.name}</td>
           <td>${user.email}</td>    
           <td>${user.tel}</td>    
           <td>${user.regdate}</td>
@@ -86,6 +109,10 @@ request.setCharacterEncoding("UTF-8");
 </c:when>
 </c:choose>
    </table>  
- <a href="${contextPath}/user/signUp.do"><p class="cls2">회원 가입하기</p></a>
+ <!--<a href="${contextPath}/user/signUp.do"><p class="cls2">회원 추가하기</p></a> -->
+ <br>
+ <div align="center">
+ 	<input class="cls2" type="button" value="뒤로가기" onclick="history.back();"/>
+ </div>
 </body>
 </html>
