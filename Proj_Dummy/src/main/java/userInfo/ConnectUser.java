@@ -83,6 +83,7 @@ public class ConnectUser extends HttpServlet {
 		     String id = request.getParameter("id");
 		     UserVO Info = userDAO.joinInfo(id);
 		     request.setAttribute("Info", Info);
+		     System.out.println(id + Info);
 		     nextPage="/01_Regist/userEdit.jsp";
 		}
 		else if(action.equals("/userModify.do")){
@@ -94,7 +95,12 @@ public class ConnectUser extends HttpServlet {
 		     UserVO userVO = new UserVO(id, name, pwd, email, tel);
 		     userDAO.modifyUser(userVO);
 		     request.setAttribute("msg", "userModified");
-		     nextPage="/user/userInfo.do";
+		     if(id.equals("QRCODE")) {
+		    	 nextPage="/user/userInfo.do";
+		     }
+		     else {
+		    	 nextPage="../00_Main/Main.do";
+		     }
 		}
 		else if(action.equals("/dropOut.do")){
 		     String id=request.getParameter("id");

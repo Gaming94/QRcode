@@ -4,6 +4,7 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />
 <!DOCTYPE html>
 
 <html>
@@ -352,6 +353,9 @@
 				    <%=id %>님 환영합니다
 				</li>
 				<li>
+				    <a href="../01_Regist/userInfo.jsp">내 정보 관리</a>
+				</li>
+				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>
 				</li>
 			<%} else if(check == 1) {%>
@@ -359,7 +363,7 @@
 				    관리자님 환영합니다
 				</li>
 				<li>
-				    <a href="../user/userInfo.do">회원정보</a>
+				    <a href="../01_Regist/userInfo.jsp">회원정보</a>
 				</li>
 				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>

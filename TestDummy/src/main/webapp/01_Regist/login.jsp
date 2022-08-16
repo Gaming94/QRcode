@@ -53,18 +53,18 @@
 					
 					out.println("<script>");
 					out.println("alert('로그인 되었습니다. 환영합니다.')");
-					out.println("location.href='../user/loginCheck.do'");
+					out.println("location.href='../00_Main/Main.jsp'");
 					out.println("</script>");					
 				} else{
 					out.println("<script>");
 					out.println("alert('비밀번호를 확인해주세요')");
-					out.println("location.href='../user/Main.do'");
+					out.println("location.href='../00_Main/Main.jsp'");
 					out.println("</script>");
 				}
 			} else{
 				out.println("<script>");
 				out.println("alert('ID를 확인해주세요')");
-				out.println("location.href='../user/Main.do'");
+				out.println("location.href='../00_Main/Main.jsp'");
 				out.println("</script>");
 			}
 		}
