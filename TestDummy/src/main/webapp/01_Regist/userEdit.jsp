@@ -8,14 +8,59 @@
 <meta charset="UTF-8">
 <title>회원 정보 수정창</title>
 <style>
-  .cls1 {
-     font-size:40px;
-     text-align:center;
-   }
-   table {
-   		margin-left: auto;
-    	margin-right: auto;
-   	}
+  * {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family:sans-serif;
+  }
+  
+  .mainLogo {
+  display : block;
+  margin : auto;
+  width: 40%;
+  top : 150px;
+  left : 50px;
+  }
+
+  body {
+  background-image:#34495e;
+  }
+
+  .joinForm {
+  position:absolute;
+  width:400px;
+  height:700px;
+  padding: 30px, 20px;
+  background-color:#FFFFFF;
+  text-align:center;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+  }
+
+  h2 {
+  text-align: center;
+  margin: 30px;
+  }
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  }
+
+  .id .pwd .pwd2 .name .email .tel {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  }
+
 </style>
 </head>
 <body>
@@ -33,18 +78,19 @@
 	}
 	UserVO uvo = new UserDAO().loadUserinfo(id);
 %>
- <h1 class="cls1">회원 정보 수정창</h1>
+<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg" >
+
+ <h2>회원 정보 수정</h2>
 <form  method="post" action="../01_Regist/userModify.jsp?id=<%=id%>">
  <table>
    <tr>
      <td width="200"><p align="right" >아이디</td>
      <td width="400"><input   type="text" name="id" value="<%=uvo.getId() %>" disabled ></td>
-     
    </tr>
- <tr>
+   <tr>
      <td width="200"><p align="right" >비밀번호</td>
      <td width="400"><input   type="password" name="pwd" value="<%=uvo.getPwd() %>" >
-     </td>
+   </td>
    </tr>
    <tr>
      <td width="200"><p align="right" >이름</td>

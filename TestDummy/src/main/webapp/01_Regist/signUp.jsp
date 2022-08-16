@@ -40,7 +40,6 @@
   padding: 10px 10px;
 }
 
-
 .id {
   width: 100%;
   border:none;
@@ -117,7 +116,6 @@
   cursor:pointer;
   transition: 0s;
   display:inline-block;
-  
 }
 
 .btn:hover {
@@ -130,7 +128,7 @@
   width: 40%;
   top : 150px;
   left : 50px;
-	}
+  }
 
 </style>
    <meta charset="UTF-8">
@@ -150,7 +148,6 @@ function check_pwd(){
          else{
         	 ch.innerHTML='비밀번호가 일치하지 않습니다.';
         	 ch.style.color='red';
-        	
         }
     }
 }
@@ -159,7 +156,6 @@ function check_pwd(){
 <form method="post" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;" action="userJoin.jsp">
 <img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg" >
 
-       
        <h2>회원가입</h2>
       <div class="textForm">
         <input name="loginId" type="text" class="id" placeholder="아이디">

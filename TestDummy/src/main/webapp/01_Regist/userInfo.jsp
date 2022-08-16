@@ -51,7 +51,7 @@
 			
 		}
 	}	
-</script>  
+</script>
 </head>
 <body>
 <img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg" >
