@@ -176,7 +176,7 @@ function check_pwd(){
         <input name="tel" type="tel" class="cellphoneNo" placeholder="전화번호">
       </div>
       <input type="submit" class="btn" value="회원가입"/>
-      <input type="submit" class="btn" value="취소하기" onclick="location.href='../00_Main/Main.jsp'"/>
+      <input type="button" class="btn" value="취소하기" onclick="location.href='../00_Main/Main.jsp'"/>
     </form>
 </body>
 </html>
