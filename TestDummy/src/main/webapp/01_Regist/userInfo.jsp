@@ -88,7 +88,7 @@
           <td><%=uvo.getTel() %></td>    
           <td><%=uvo.getRegdate() %></td>
           <td><button type="button" class="btn btn-primary btn-sm"  onclick="location.href='userEdit.jsp?id=<%=id%>';">수정</button></td>
-		  <td><a class="btn btn-danger btn-sm" role="button" onclick="return confirm('정말 삭제하시겠습니까?')" href="dropUser.jsp?id=<%=id%>">삭제</a></td>               
+		  <td><a class="btn btn-danger btn-sm" role="button" onclick="return confirm('정말 삭제하시겠습니까?')" href="dropUser.jsp?id=<%=id%>">탈퇴</a></td>               
        </tr>
      <%} %>
    </table>
