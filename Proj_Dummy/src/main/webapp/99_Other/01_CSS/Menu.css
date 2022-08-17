@@ -19,9 +19,9 @@
 	
 	background-color : white;
 	
-	border: 1px solid;
-	border-color : rgb(255, 255, 255);
-}	
+	border-bottom :1px solid; 
+	border-color : rgb(233, 229, 232);
+}		
 .menu_top ul{
 	display : inline-block;
 	list-style: none;
@@ -55,15 +55,19 @@
 }
 .menu_left{
 	position: fixed;
-	z-index : 99;
-	top: 100px;
+	z-index : 98;
+	top: 99px;
 	width: 200px;
 	height: 100%;
 	overflow:hidden;
 	
 	padding-top: 30px;
-	
+
 	background-color : white;
+	
+	border-top :1px solid;
+	border-right :1px solid; 
+	border-color : rgb(233, 229, 232);
 }
 .menu_left li {
 	height: 60PX;

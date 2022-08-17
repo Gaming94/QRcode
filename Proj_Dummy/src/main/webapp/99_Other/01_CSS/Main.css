@@ -38,8 +38,8 @@
 		
 		background-color : white;
 		
-		border: 1px solid;
-		border-color : rgb(255, 255, 255);
+		border-bottom :1px solid; 
+		border-color : rgb(233, 229, 232);
 	}
 	
 	li{list-style:none}
@@ -87,6 +87,10 @@
 		padding-top: 30px;
 		
 		background-color : white;
+		
+		border-top :1px solid;
+		border-right :1px solid; 
+		border-color : rgb(233, 229, 232);
 	}
 	
 	.menu_left li {
@@ -113,7 +117,7 @@
 	.Weekend_Music{
 		position: absolute;
 		z-index : 1;
-		top : 110px;
+		top : 101px;
 		left : 198px;
 		width : 90%;
 		height : 600px;
