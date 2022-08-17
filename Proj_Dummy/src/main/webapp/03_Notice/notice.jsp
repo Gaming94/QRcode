@@ -24,6 +24,11 @@
     	width: 700;
 		line-height: 30px;
 	}
+	.logo{
+		position: fixed;
+		top : 20px;
+		left : 50px;
+	}
 	.writebtn {
 		text-align: center;
 		margin-left: 635px;
@@ -47,6 +52,78 @@
 		text-align: center;
 		line-height: 45px;
 	}
+	.menu_top{
+		position: fixed;
+		z-index : 99;
+		top : 0px;
+		left : 200px;
+		width: 90%;
+		height: 100px;
+		color : white;
+		overflow:hidden;
+		
+		padding-top : 20px;
+		
+		background-color : white;
+		
+		border: 1px solid;
+		border-color : rgb(255, 255, 255);
+	}	
+	.menu_top ul{
+		display : inline-block;
+		list-style: none;
+	}
+	
+	.menu_top li {
+		top : 50px;
+		width: 90PX;
+		float: left;
+		text-align: center;
+		line-height: 30px;
+	}
+	
+	.menu_top input {
+		top : 30px;
+		width: 350px;
+		height: 40px;
+		font-size: 13px;
+		color : Black;
+		outline: none;
+		padding-left: 17px;
+		
+		background-image: url('../98_Image/Search.jpg');
+		background-repeat: no-repeat;
+		background-size : 35px;
+		background-position: right;
+		
+		border-radius: 20px;
+		border : 2px solid;
+		border-color: rgb(255, 0, 0);
+	}
+	.menu_left{
+		position: fixed;
+		z-index : 99;
+		top: 100px;
+		width: 200px;
+		height: 100%;
+		overflow:hidden;
+		
+		padding-top: 30px;
+		
+		background-color : white;
+	}
+	.menu_left li {
+		height: 60PX;
+		text-align: left;
+		list-style: none;
+	}
+	
+	.board{
+		position: fixed;
+		top : 20%;
+		left : 30%;
+	}
+	
 	a{
 		color : Black;
 		font-size : 15px;
@@ -72,22 +149,20 @@
 <title>공지사항</title>
 </head>
 <body>
-<%
-	String id = null;
-	String admin = "QRCODE";
-	int check = 0;
-	if(session.getAttribute("user_id") != null) {
-	    id = (String)session.getAttribute("user_id");
-	    if(id.equals(admin))
-	    	check = 1;
-	    else
-	    	check = 0;
-	}
-	else if(session.getAttribute("user_id") == null)
-		id = null;	
-%>
-	<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg">
-	<h3 class="top">공지사항</h3>
+	<%
+		String id = null;
+		String admin = "QRCODE";
+		int check = 0;
+		if(session.getAttribute("user_id") != null) {
+		    id = (String)session.getAttribute("user_id");
+		    if(id.equals(admin))
+		    	check = 1;
+		    else
+		    	check = 0;
+		}
+		else if(session.getAttribute("user_id") == null)
+			id = null;	
+	%>
 	<%
 		if(check == 1) {
 	%>
@@ -95,7 +170,55 @@
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='writeNotice.jsp';">글쓰기</button>
 	</div>
 	<%} %>
-<div>
+	<div>
+	<div class="logo">
+		<a href="../00_Main/Main.jsp">
+			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
+		</a>
+	</div>
+		<div class="menu_top">
+      <div>
+	      <form>
+		      	<input type="text">
+	      </form>
+      </div>
+  		<ul>
+   			<li>
+   				<a href="../03_Notice/notice.jsp">공지사항</a>
+   			</li>
+   			<li>
+   				<a href="../04_Board/board.jsp">음악요청</a>
+   			</li>
+   		</ul>
+   		<hr>
+	</div>
+	<div class="menu_left">
+		<ul>
+			<li>
+			    <img src="../98_Image/MenuIcon_1.jpg">
+				<a href="Main.jsp">인기차트</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_2.JPG">
+				<a href="Main.jsp">최신음악</a>
+			</li>	
+			<li>
+				<img src="../98_Image/MenuIcon_3.JPG">
+				<a href="Main.jsp">장르</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_3.JPG">
+				<a href="Main.jsp">내 음악</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_1.jpg">
+				<a href="Main.jsp">테마</a>
+			</li>
+		</ul>
+	</div>
+	<div class ="board">
+	<h3 class="top">공지사항</h3>
+	<br>
 	<table>
 	 <thead>
 		<tr>
@@ -127,10 +250,11 @@
 	 	</tr>
 	 	<% } %>
 	 </tbody>
-	</table>	
-</div>
-<div class="sub">
+	</table>
+	<div class="sub">
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
+</div>
+	</div>	
 </div>
 </body>
 </html>
