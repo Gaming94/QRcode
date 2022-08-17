@@ -72,7 +72,12 @@
 		int notiID = 0;
 		String id = null;
 		String admin = "QRCODE";
-		id = (String)session.getAttribute("user_id");
+		if(session.getAttribute("user_id") != null) {
+			id = (String)session.getAttribute("user_id");
+		}
+		else {
+			id = "nonmember";
+		}
 		if(request.getParameter("notiID") != null) {
 			notiID = Integer.parseInt(request.getParameter("notiID"));
 		}

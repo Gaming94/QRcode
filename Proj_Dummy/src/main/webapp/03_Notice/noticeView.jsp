@@ -72,7 +72,12 @@
 		int notiID = 0;
 		String id = null;
 		String admin = "QRCODE";
-		id = (String)session.getAttribute("user_id");
+		if(session.getAttribute("user_id") != null) {
+			id = (String)session.getAttribute("user_id");
+		}
+		else {
+			id = "nonmember";
+		}
 		if(request.getParameter("notiID") != null) {
 			notiID = Integer.parseInt(request.getParameter("notiID"));
 		}
@@ -83,7 +88,7 @@
 			script.println("location.href = 'notice.jsp'");
 			script.println("</script>");
 		}
-		NoticeVO notice = new NoticeDAO().getNotice(notiID);		
+		NoticeVO notice = new NoticeDAO().getNotice(notiID);	
 	%>
 	<h2><%= notice.getTitle() %></h2>
 	<table>
