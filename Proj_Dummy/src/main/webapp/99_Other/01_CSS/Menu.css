@@ -69,4 +69,21 @@
 	height: 60PX;
 	text-align: left;
 	list-style: none;
+}	
+.menu_right{
+	position : fixed;
+	z-index : 99;
+	top : 10px;
+	right : 30px;
+	width : 200px;		
+}
+
+.menu_right li {
+	top : 0px;
+	width: 130PX;
+	float: left;
+	text-align: center;
+	line-height: 25px;
+	list-style : none;
+	font-size: 14px;
 }

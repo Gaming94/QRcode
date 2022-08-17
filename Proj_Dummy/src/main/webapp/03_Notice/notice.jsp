@@ -147,6 +147,37 @@
 			</li>
 		</ul>
 	</div>
+	<div class="menu_right">
+			<ul>
+			<% if ( id == null) {%>
+		    	<li>	    		
+		    		 <a data-toggle="modal" data-target="#exampleModal" style="cursor:hand;">로그인/회원가입</a>
+		    	</li>
+		    <%} else if (id != null) {
+		      if (check == 0) {
+		    %>
+		    	<li>
+				    <%=id %>님 환영합니다
+				</li>
+				<li>
+				    <a href="../01_Regist/userInfo.jsp">내 정보 관리</a>
+				</li>
+				<li>
+				    <a href="../01_Regist/logout.jsp">로그아웃</a>
+				</li>
+			<%} else if(check == 1) {%>
+				<li>
+				    관리자님 환영합니다
+				</li>
+				<li>
+				    <a href="../user/userInfo.do">회원정보</a>
+				</li>
+				<li>
+				    <a href="../01_Regist/logout.jsp">로그아웃</a>
+				</li>
+				<%}} %>
+			</ul>
+	</div>
 	<div class ="board">
 	<h3 class="top">공지사항</h3>
 	<br>
