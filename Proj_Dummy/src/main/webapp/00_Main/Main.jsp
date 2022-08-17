@@ -108,6 +108,9 @@
 				    <%=id %>님 환영합니다
 				</li>
 				<li>
+				    <a href="../01_Regist/userInfo.jsp">내 정보 관리</a>
+				</li>
+				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>
 				</li>
 			<%} else if(check == 1) {%>
