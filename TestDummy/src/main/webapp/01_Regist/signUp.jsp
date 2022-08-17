@@ -158,7 +158,7 @@ function check_pwd(){
 
        <h2>회원가입</h2>
       <div class="textForm">
-        <input name="loginId" type="text" class="id" placeholder="아이디">
+        <input name="id" type="text" class="id" placeholder="아이디">
       </div>
       <div class="textForm">
         <input name="pwd" type="password" class="pwd" id="pwd" placeholder="비밀번호" onchange="check_pwd()">
@@ -173,7 +173,7 @@ function check_pwd(){
         <input name="email" type="text" class="email" placeholder="이메일">
       </div>
       <div class="textForm">
-        <input name="cellphoneNo" type="tel" class="cellphoneNo" placeholder="전화번호">
+        <input name="tel" type="tel" class="cellphoneNo" placeholder="전화번호">
       </div>
       <input type="submit" class="btn" value="회원가입"/>
       <input type="submit" class="btn" value="취소하기" onclick="location.href='../00_Main/Main.jsp'"/>
