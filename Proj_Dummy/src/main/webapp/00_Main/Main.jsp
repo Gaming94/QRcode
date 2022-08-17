@@ -14,6 +14,7 @@
 <meta charset="UTF-8" content="no-cache"/>
 <title>QR Music</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="Main.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,277 +41,14 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="submit">로그인</button>
-	        <a href="../01_Regist/signUp.jsp"><button type="button">회원가입</button></a>	        
+	        <a href="../01_Regist/signUp.jsp">
+	        	<button type="button">회원가입</button>
+        	</a>	        
 	      </div>
 	      </form>
 	    </div>
 	  </div>
 	</div>	
-	
-	<style>
-	body {	
-	  padding: 0px;
-	  margin: 0px;
-	}
-	
-	.LPImg {
-		position:absolute;
-		top : 500px;
-		left : 550px;
-		width  : 100px;
-		height : 100px;
-	}
-	
-	.LPImg img:hover {
-		transition : transform 7s;
-		transform:rotate(360deg);
-	}
-	
-	.logo{
-		position: fixed;
-		top : 20px;
-		left : 50px;
-	}
-	
-	.menu_top{
-		position: fixed;
-		z-index : 99;
-		top : 0px;
-		left : 200px;
-		width: 90%;
-		height: 100px;
-		color : white;
-		overflow:hidden;
-		
-		padding-top : 20px;
-		
-		background-color : white;
-		
-		border: 1px solid;
-		border-color : rgb(255, 255, 255);
-	}
-	
-	li{list-style:none}
-	
-	.menu_top ul{
-		display : inline-block;
-	}
-	
-	.menu_top li {
-		top : 50px;
-		width: 90PX;
-		float: left;
-		text-align: center;
-		line-height: 30px;
-	}
-	
-	.menu_top input {
-		top : 30px;
-		width: 350px;
-		height: 40px;
-		font-size: 13px;
-		color : Black;
-		outline: none;
-		padding-left: 17px;
-		
-		background-image: url('../98_Image/Search.jpg');
-		background-repeat: no-repeat;
-		background-size : 35px;
-		background-position: right;
-		
-		border-radius: 20px;
-		border : 2px solid;
-		border-color: rgb(255, 0, 0);
-	}
-	
-	.menu_left{
-		position: fixed;
-		z-index : 99;
-		top: 100px;
-		width: 200px;
-		height: 100%;
-		overflow:hidden;
-		
-		padding-top: 30px;
-		
-		background-color : white;
-	}
-	
-	.menu_left li {
-		height: 60PX;
-		text-align: left;
-	}
-	
-	.menu_right{
-		position : fixed;
-		z-index : 99;
-		top : 10px;
-		right : 30px;
-		width : 200px;		
-	}
-	
-	.menu_right li {
-		top : 0px;
-		width: 130PX;
-		float: left;
-		text-align: center;
-		line-height: 25px;
-	}
-	
-	.Weekend_Music{
-		position: absolute;
-		z-index : 1;
-		top : 110px;
-		left : 198px;
-		width : 90%;
-		height : 600px;
-		background: rgb(223, 229, 232);
-	}
-	
-	.Weekend_Music li{
-		padding-left: 10px;
-		padding-right: 50px;
-		display: inline-block;
-	}
-	
-	.Weekend_Music button{
-		border : none;
-		outline: none;
-  		box-shadow: none;
-  		background-color: rgb(223, 229, 232);
-	}
-	
-	.Weekend_Music img:hover{
-		transform : scale(1.1);
-		z-index: 100;
-		transition: transform.1s
-	}
-	
-	.weekend_Music button:focus,
-	button:active {
-  		outline: none;
-  		box-shadow: none;
-	}
-	
-	.MusicChart{
-		position : absolute;
-		z-index : 1;
-		top : 720px;
-		left : 202px;
-		width : 40%;
-		height : 600px;
-		background: #fff;
-	}
-	
-	.MusicChart ul{
-		position: relative;
-		background: #fff;
-	}
-	
-	.MusicChart ul li{
-		list-style : none;
-		padding : 10px;
-		widows: 80%;
-		background: #fff;
-		box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
-		transition : transform 0.5s;
-	}
-	
-	.MusicChart ul li:hover{
-		transform : scale(1.07);
-		z-index: 100;
-		background: #25bcff;
-		box-shadow: 0 5px 25px rgba(0, 0, 0, .2); 
-		color : #fff;
-	}
-	
-	.MusicChart ul li span{
-		width : 20px;
-		height: 20px;
-		text-align: center;
-		line-height: 20px;
-		background: #25bcff;
-		color : #fff;
-		display : inline-block;
-		border-radius: 50%;
-		margin-right : 20px;
-		font-size: 12px;
-		font-weight: 600;
-	}
-	
-	.MusicVideo{
-		position : absolute;
-		z-index : 1;
-		top : 720px;
-		left : 1120px;
-		width : 40%;
-		height : 600px;
-		background : #fff;
-	}
-	
-	.text{
-		padding-top : 15px;
-		padding-left : 30px;
-	}
-	
-	h2{
-		display: inline-block;
-	}
-	
-	.text p{
-		display: inline-block;
-		padding-left: 20px;
-	}
-	
-	a{
-		color : Black;
-		font-size : 15px;
-		text-decoration:none;
-	}
-	
-	a:link {
-		color : Black;
-		text-decoration:none;
-	}
-	
-	a:visited {
-		color : Black;
-		text-decoration:none;
-	}
-	
-	a:hover{
-		color : Gray;
-		text-decoration:none;
-		cursor : pointer;
-	}
-	
-	#jstext {
-	  	font-size: 15px;
-	}
-	
-	#Kor{
-		display: none;
-	}
-	
-	#Os{
-		display: none;
-	}
-	
-	@font-face{
-		font-family: 'CookieRun';
-		src: url('../99_Other/00_Font/CookieRun-Regular.woff') format('woff');
-	}
-	
-	@font-face {
-	    font-family: 'CookieRun';
-	    src: url('../99_Other/00_Font/CookieRun-Regular.ttf') format('truetype');
-	}
-	
-	@font-face {
-	    font-family: 'CookieRun';
-	    src: url('../99_Other/00_Font/CookieRun-Regular.ttf') format('openetype');
-	}
-	</style>
 	
 	<script>
 	function WMFormLoad() {
@@ -370,9 +108,6 @@
 				    <%=id %>님 환영합니다
 				</li>
 				<li>
-				    <a href="../01_Regist/userInfo.jsp">내 정보 관리</a>
-				</li>
-				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>
 				</li>
 			<%} else if(check == 1) {%>
@@ -380,7 +115,7 @@
 				    관리자님 환영합니다
 				</li>
 				<li>
-				    <a href="../01_Regist/userInfo.jsp">회원정보</a>
+				    <a href="../user/userInfo.do">회원정보</a>
 				</li>
 				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>
