@@ -175,7 +175,6 @@
 			}
 
 			</script>
-			
 			<button id = "WMBtn_1" onclick="WMShow_All()">전체</button>
 			<button id = "WMBtn_2" onclick="WMShow_Kor()">국내</button>
 			<button id = "WMBtn_3" onclick="WMShow_Os()">해외</button>
