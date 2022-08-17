@@ -19,7 +19,7 @@
 </head>
 <body>
 <%
-	String id = null; 
+	String id = null;
 	PrintWriter script = response.getWriter();
 	if(session.getAttribute("user_id") != null) {
 	    id = (String)session.getAttribute("user_id");

@@ -40,9 +40,8 @@
 		text-align: center;
 		margin-left: 540px;
 	}
-	
 </style>
-<title>공지사항 수정</title>
+<title>음악요청 수정</title>
 </head>
 <body>
 <% 
@@ -86,6 +85,7 @@
 		</table>
 		<div style="line-height: 45px">
 			<input class="sub" type="submit" value="수정하기">
+			<button class="sub" type="button" onclick="location.href='board.jsp';">뒤로</button>
 		</div>
 	</form>
 </div>

@@ -67,7 +67,9 @@
 	    	script.println("alert('유효하지 않은 글입니다.')");
 	    	script.println("location.href = 'board.jsp'");
 	    	script.println("</script>");
-    }}	
+    	}
+	   
+	}	
 	BoardVO bvo = new BoardDAO().getReply(bID, bID2);
 %>
 <div>

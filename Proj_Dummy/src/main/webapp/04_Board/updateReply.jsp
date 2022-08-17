@@ -17,7 +17,7 @@
 </head>
 <body>
 <% 
-	String id = null; 
+	String id = null;
 	String admin = "QRCODE";
 	PrintWriter script = response.getWriter();
 	if(session.getAttribute("user_id") != null) {

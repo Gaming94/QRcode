@@ -4,7 +4,9 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"  />
+
+<c:set var ="WMBtnValue" value="${'All'}" />
+
 <!DOCTYPE html>
 
 <html>
@@ -286,6 +288,14 @@
 	  	font-size: 15px;
 	}
 	
+	#Kor{
+		display: none;
+	}
+	
+	#Os{
+		display: none;
+	}
+	
 	@font-face{
 		font-family: 'CookieRun';
 		src: url('../99_Other/00_Font/CookieRun-Regular.woff') format('woff');
@@ -300,10 +310,17 @@
 	    font-family: 'CookieRun';
 	    src: url('../99_Other/00_Font/CookieRun-Regular.ttf') format('openetype');
 	}
-		
 	</style>
+	
+	<script>
+	function WMFormLoad() {
+	    document.querySelector("#Kor").style.display="none";
+	    document.querySelector("#Os").style.display="none";
+	}
+	</script>
+	
 </head>
-<body>		
+<body onload="WMFormLoad()">		
 	<div class="logo">
 		<a href="Main.jsp">
 			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
@@ -353,9 +370,6 @@
 				    <%=id %>님 환영합니다
 				</li>
 				<li>
-				    <a href="../01_Regist/userInfo.jsp">내 정보 관리</a>
-				</li>
-				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>
 				</li>
 			<%} else if(check == 1) {%>
@@ -363,7 +377,7 @@
 				    관리자님 환영합니다
 				</li>
 				<li>
-				    <a href="../01_Regist/userInfo.jsp">회원정보</a>
+				    <a href="../user/userInfo.do">회원정보</a>
 				</li>
 				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>
@@ -399,60 +413,177 @@
 	<div class="Weekend_Music">
 		<div class="text">
 			<h2>최신 음악</h2>
-			<a>전체</a>
-			<a>해외</a>
-			<a>국내</a>
-		 
-		</div>
+			
+			<script>
+			function WMShow_All() {
+			    document.querySelector("#All").style.display="block";
+			    document.querySelector("#Kor").style.display="none";
+			    document.querySelector("#Os").style.display="none";
+			}
+			
+			function WMShow_Kor() {
+			    document.querySelector("#All").style.display="none";
+			    document.querySelector("#Kor").style.display="block";
+			    document.querySelector("#Os").style.display="none";
+			}
+			
+			function WMShow_Os() {			 
+			    document.querySelector("#All").style.display="none";
+			    document.querySelector("#Kor").style.display="none";
+			    document.querySelector("#Os").style.display="block";
+			}
 
-		<ul>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_4.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
-			</li>
-		</ul>
+			</script>
+			
+			<button id = "WMBtn_1" onclick="WMShow_All()">전체</button>
+			<button id = "WMBtn_2" onclick="WMShow_Kor()">국내</button>
+			<button id = "WMBtn_3" onclick="WMShow_Os()">해외</button>
+		</div>
 		
-		<ul>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_4.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
-			</li>
-			<li>
-				<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.jsp', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
-			</li>
-		</ul>
-		
+		<div id = "All">
+			<ul>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=750, height=800, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_1.jpg"></button>
+				</li>
+			</ul>
+		</div>
+		<div id ="Kor">
+			<ul>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_2.jpg"></button>
+				</li>
+			</ul>
+		</div>
+		<div id = "Os">
+			<ul>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+				<li>
+					<button type="button" id="img_btn" onclick="window.open('../02_MusicPlayer/MusicPlayer.html', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');"><img src="../98_Image/Music_3.jpg"></button>
+				</li>
+			</ul>
+		</div>
 	</div>
 	
 	<div class = "MusicChart">

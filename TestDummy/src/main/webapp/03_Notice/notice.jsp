@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <meta charset="UTF-8">
 <style>
 	body {	
@@ -46,6 +47,27 @@
 		text-align: center;
 		line-height: 45px;
 	}
+	a{
+		color : Black;
+		font-size : 15px;
+		text-decoration:none;
+	}
+	
+	a:link {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:visited {
+		color : Black;
+		text-decoration:none;
+	}
+	
+	a:hover{
+		color : Gray;
+		text-decoration:none;
+		cursor : pointer;
+	}
 </style>
 <title>공지사항</title>
 </head>
@@ -70,7 +92,7 @@
 		if(check == 1) {
 	%>
 	<div class="writebtn">
-		<a href="writeNotice.jsp"><button>글쓰기</button></a>
+		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='writeNotice.jsp';">글쓰기</button>
 	</div>
 	<%} %>
 <div>
@@ -108,7 +130,7 @@
 	</table>	
 </div>
 <div class="sub">
-		<button type="button" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
+		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
 </div>
 </body>
 </html>

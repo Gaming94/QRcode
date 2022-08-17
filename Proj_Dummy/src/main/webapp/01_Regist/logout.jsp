@@ -13,7 +13,7 @@
 	session.setMaxInactiveInterval(0);
 	out.println("<script>");
 	out.println("alert('로그아웃 되었습니다.')");
-	out.println("location.href='../user/Main.do'");
+	out.println("location.href='../00_Main/Main.jsp'");
 	out.println("</script>");
 %>
 </body>

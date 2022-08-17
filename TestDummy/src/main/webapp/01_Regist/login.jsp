@@ -35,9 +35,7 @@
 			pstmt.setString(1, id);
 			
 			rs = pstmt.executeQuery();			
-			
-			// OracleConnector.closeConnection();
-			
+						
 			if(rs.next())
 			{
 				String password;

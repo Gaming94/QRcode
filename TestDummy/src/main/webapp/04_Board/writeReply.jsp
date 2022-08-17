@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <meta charset="UTF-8">
 <style>
 	body {
@@ -39,6 +40,7 @@
 	.sub{
 		text-align: center;
 		margin-left: 540px;
+		line-height: 45px;
 	}
 </style>
 <title>음악요청 답변작성</title>
@@ -87,9 +89,9 @@
 			<td><input type="text" name="content" class="incont"></td>
 		</tr>
 	</table>
-	<div style="line-height: 45px">
-		<input class="sub" type="submit" value="글쓰기">
-		<button class="sub" type="button" onclick="location.href='board.jsp';">목록으로</button>
+	<div class="sub">
+		<input class="btn btn-outline-secondary btn-sm" type="submit" value="글쓰기">
+		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='board.jsp';">목록으로</button>
 	</div>
 	</form>
 </body>
