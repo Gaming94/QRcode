@@ -10,6 +10,7 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="../99_Other/01_CSS/Menu.css">
 <meta charset="UTF-8">
 <style>
 	body {	
@@ -37,20 +38,20 @@
 	.top {
 		text-align: center;
 	}
-	.mainLogo{
-		width: 70px;
-		text-align: center;
-	}
 	.sub{
 		text-align: center;
 		line-height: 45px;
+	}
+	.board{
+		position: fixed;
+		top : 20%;
+		left : 30%;
 	}
 	a{
 		color : Black;
 		font-size : 15px;
 		text-decoration:none;
 	}
-	
 	a:link {
 		color : Black;
 		text-decoration:none;
@@ -74,28 +75,27 @@
 <title>음악요청</title>
 </head>
 <body>
-<%
-	String id = null;
-	String admin = "QRCODE";
-	int check = 0;
-	if(session.getAttribute("user_id") != null) {
-	    id = (String)session.getAttribute("user_id");
-	    if(id.equals(admin))
-	    	check = 2;
-	    else
-	    	check = 1;
-	}
-	else if(session.getAttribute("user_id") == null) {
-		id = null;	
-		PrintWriter script = response.getWriter();
-    	script.println("<script>");
-    	script.println("alert('회원 권한이 필요합니다.')");
-    	script.println("location.href = '../00_Main/Main.jsp'");
-    	script.println("</script>");
-	}
-%>
-	<img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg">
-	<h3 class="top">음악요청</h3>
+	<%
+		String id = null;
+		String admin = "QRCODE";
+		int check = 0;
+		if(session.getAttribute("user_id") != null) {
+		    id = (String)session.getAttribute("user_id");
+		    if(id.equals(admin))
+		    	check = 2;
+		    else
+		    	check = 1;
+		}
+		else if(session.getAttribute("user_id") == null) {
+			id = null;	
+			PrintWriter script = response.getWriter();
+	    	script.println("<script>");
+	    	script.println("alert('회원 권한이 필요합니다.')");
+	    	script.println("location.href = '../00_Main/Main.jsp'");
+	    	script.println("</script>");
+		}
+	%>
+	
 	<%
 		if(check == 1 || check == 2) {
 	%>
@@ -103,7 +103,56 @@
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='writeBoard.jsp';">글쓰기</button>
 	</div>
 	<%} %>
-<div>
+	
+	<div class="logo">
+		<a href="../00_Main/Main.jsp">
+			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
+		</a>
+	</div>
+		<div class="menu_top">
+      <div>
+	      <form>
+		      	<input type="text">
+	      </form>
+      </div>
+  		<ul>
+   			<li>
+   				<a href="../03_Notice/notice.jsp">공지사항</a>
+   			</li>
+   			<li>
+   				<a href="../04_Board/board.jsp">음악요청</a>
+   			</li>
+   		</ul>
+   		<hr>
+	</div>
+	<div class="menu_left">
+		<ul>
+			<li>
+			    <img src="../98_Image/MenuIcon_1.jpg">
+				<a href="Main.jsp">인기차트</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_2.JPG">
+				<a href="Main.jsp">최신음악</a>
+			</li>	
+			<li>
+				<img src="../98_Image/MenuIcon_3.JPG">
+				<a href="Main.jsp">장르</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_3.JPG">
+				<a href="Main.jsp">내 음악</a>
+			</li>
+			<li>
+				<img src="../98_Image/MenuIcon_1.jpg">
+				<a href="Main.jsp">테마</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="board">
+	<h3 class="top">음악요청</h3>
+	<br>
 	<table>
 	 <thead>
 		<tr>
@@ -141,10 +190,10 @@
 	 	</tr>
 	 	<% } %>
 	 </tbody>
-	</table>	
-</div>
-<div class="sub">
+	</table>
+	<div class="sub">
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
+	</div>	
 </div>
 </body>
 </html>

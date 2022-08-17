@@ -12,6 +12,7 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="../99_Other/01_CSS/Menu.css">
 <meta charset="UTF-8">
 <style>
 	body {	
@@ -44,80 +45,10 @@
 	.top {
 		text-align: center;
 	}
-	.mainLogo{
-		width: 70px;
-		text-align: center;
-	}
 	.sub{
 		text-align: center;
 		line-height: 45px;
-	}
-	.menu_top{
-		position: fixed;
-		z-index : 99;
-		top : 0px;
-		left : 200px;
-		width: 90%;
-		height: 100px;
-		color : white;
-		overflow:hidden;
-		
-		padding-top : 20px;
-		
-		background-color : white;
-		
-		border: 1px solid;
-		border-color : rgb(255, 255, 255);
 	}	
-	.menu_top ul{
-		display : inline-block;
-		list-style: none;
-	}
-	
-	.menu_top li {
-		top : 50px;
-		width: 90PX;
-		float: left;
-		text-align: center;
-		line-height: 30px;
-	}
-	
-	.menu_top input {
-		top : 30px;
-		width: 350px;
-		height: 40px;
-		font-size: 13px;
-		color : Black;
-		outline: none;
-		padding-left: 17px;
-		
-		background-image: url('../98_Image/Search.jpg');
-		background-repeat: no-repeat;
-		background-size : 35px;
-		background-position: right;
-		
-		border-radius: 20px;
-		border : 2px solid;
-		border-color: rgb(255, 0, 0);
-	}
-	.menu_left{
-		position: fixed;
-		z-index : 99;
-		top: 100px;
-		width: 200px;
-		height: 100%;
-		overflow:hidden;
-		
-		padding-top: 30px;
-		
-		background-color : white;
-	}
-	.menu_left li {
-		height: 60PX;
-		text-align: left;
-		list-style: none;
-	}
-	
 	.board{
 		position: fixed;
 		top : 20%;
