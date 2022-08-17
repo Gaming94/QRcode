@@ -75,35 +75,6 @@
 <title>음악요청</title>
 </head>
 <body>
-	<%
-		String id = null;
-		String admin = "QRCODE";
-		int check = 0;
-		if(session.getAttribute("user_id") != null) {
-		    id = (String)session.getAttribute("user_id");
-		    if(id.equals(admin))
-		    	check = 2;
-		    else
-		    	check = 1;
-		}
-		else if(session.getAttribute("user_id") == null) {
-			id = null;	
-			PrintWriter script = response.getWriter();
-	    	script.println("<script>");
-	    	script.println("alert('회원 권한이 필요합니다.')");
-	    	script.println("location.href = '../00_Main/Main.jsp'");
-	    	script.println("</script>");
-		}
-	%>
-	
-	<%
-		if(check == 1 || check == 2) {
-	%>
-	<div class="writebtn">
-		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='writeBoard.jsp';">글쓰기</button>
-	</div>
-	<%} %>
-	
 	<div class="logo">
 		<a href="../00_Main/Main.jsp">
 			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
@@ -152,6 +123,35 @@
 	
 	<div class="board">
 	<h3 class="top">음악요청</h3>
+	<%
+		String id = null;
+		String admin = "QRCODE";
+		int check = 0;
+		if(session.getAttribute("user_id") != null) {
+		    id = (String)session.getAttribute("user_id");
+		    if(id.equals(admin))
+		    	check = 2;
+		    else
+		    	check = 1;
+		}
+		else if(session.getAttribute("user_id") == null) {
+			id = null;	
+			PrintWriter script = response.getWriter();
+	    	script.println("<script>");
+	    	script.println("alert('회원 권한이 필요합니다.')");
+	    	script.println("location.href = '../00_Main/Main.jsp'");
+	    	script.println("</script>");
+		}
+	%>
+	
+	<%
+		if(check == 1 || check == 2) {
+	%>
+	<div class="writebtn">
+		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='writeBoard.jsp';">글쓰기</button>
+	</div>
+	<%} %>
+	
 	<br>
 	<table>
 	 <thead>
