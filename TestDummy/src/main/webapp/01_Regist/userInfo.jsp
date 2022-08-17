@@ -24,7 +24,7 @@
 	.mainLogo {
 	  display : block;
 	  margin : auto;
-	  width: 10%;
+	  width: 5%;
 	  top : 150px;
 	  left : 50px;
 	}
