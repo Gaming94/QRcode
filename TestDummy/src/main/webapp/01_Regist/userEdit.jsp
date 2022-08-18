@@ -28,46 +28,11 @@
   body {
   background-image:#34495e;
   }
-
-  .joinForm {
-  position:absolute;
-  width:400px;
-  height:700px;
-  padding: 30px, 20px;
-  background-color:#FFFFFF;
-  text-align:center;
-  top:40%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  border-radius: 15px;
-  }
   
   div {
   width: 300px;
   }
-  
-/*
-  h2 {
-  text-align: center;
-  margin: 30px;
-  }
 
-.textForm {
-  border-bottom: 2px solid #adadad;
-  margin: 30px;
-  padding: 10px 10px;
-  }
-
-  .id .pwd .pwd2 .name .email .tel {
-  width: 100%;
-  border:none;
-  outline:none;
-  color: #636e72;
-  font-size:16px;
-  height:25px;
-  background: none;
-  }
-*/
 </style>
 </head>
 <body>
