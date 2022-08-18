@@ -8,8 +8,9 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="../99_Other/01_CSS/View.css">
 <meta charset="UTF-8">
-<style>
+<!-- <style>
 	body {
 		text-align: center;
 	}
@@ -26,9 +27,6 @@
 	.tit {
 		width: 20%;
 		height: 10%;
-	}
-	.cont{
-		
 	}
 	.intit{
 		width: 500px;
@@ -63,7 +61,7 @@
 		text-decoration:none;
 		cursor : pointer;
 	}
-</style>
+</style> -->
 
 <title>공지사항 보기</title>
 </head>
@@ -90,6 +88,15 @@
 		}
 		NoticeVO notice = new NoticeDAO().getNotice(notiID);	
 	%>
+	<div class="logo">
+		<a href="../00_Main/Main.jsp">
+			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
+		</a>
+	</div>
+	<div class="menu_top">
+	</div>
+	<div class="back">
+	<div class="board">
 	<h2><%= notice.getTitle() %></h2>
 	<table>
 		<tr>
@@ -108,8 +115,7 @@
 			<td>내용</td>
 			<td><%= notice.getContent() %></td>
 		</tr>
-	</table>
-	
+	</table>	
 	<div class="sub" style="line-height: 45px">
 		<%
 		if(id.equals(admin)) {
@@ -118,6 +124,8 @@
 		<a class="btn btn-outline-primary btn-sm" role="button"  href="modifyNotice.jsp?notiID=<%=notiID%>">수정</a>
 		<%} %>
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='notice.jsp';">목록</button>
+	</div>
+	</div>
 	</div>
 </body>
 </html>

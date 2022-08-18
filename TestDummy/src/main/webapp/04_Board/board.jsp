@@ -12,27 +12,46 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <meta charset="UTF-8">
 <style>
-	body {	
-		line-height: 40px;
+	.back {
+	  padding:1.5em;
+	  background: #f5f5f5;
 	}
+	
 	table {
-		border: 0.5px solid #E6E6E6;		
-		margin-left: auto;
-    	margin-right: auto;
-    	width: 700;
-		line-height: 30px;
+	  border: 1px #a39485 solid;
+	  font-size: .9em;
+	  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+	  width: 700;
+	  margin-left: auto;
+	  margin-right: auto;
+	  line-height: 30px;
+	  border-collapse: collapse;
+	  border-radius: 5px;
+	  overflow: hidden;
+	}
+	
+	th {
+	  text-align: center;
+	}
+	  
+	thead {
+	  font-weight: bold;
+	  color: black;
+	  background: #eeeeee;;
+	}
+	  
+	 td, th {
+	  padding: 1em .5em;
+	  vertical-align: middle;
+	}
+	  
+	 td {
+	  border-bottom: 1px solid rgba(0,0,0,.1);
+	  background: #fff;
 	}
 	.writebtn {
 		text-align: center;
-		margin-left: 635px;
-	}
-	thead {
-		background-color: #eeeeee;
-		text-align: center;
-	}
-	tbody {
-		background-color: white;
-		text-align: center;
+		margin-left: 785px;
 	}
 	.top {
 		text-align: center;
@@ -102,6 +121,7 @@
 	<div class="writebtn">
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='writeBoard.jsp';">글쓰기</button>
 	</div>
+	<br>
 	<%} %>
 <div>
 	<table>
@@ -143,6 +163,7 @@
 	 </tbody>
 	</table>	
 </div>
+<br>
 <div class="sub">
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
 </div>

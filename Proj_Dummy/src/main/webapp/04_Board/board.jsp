@@ -13,64 +13,7 @@
 <link rel="stylesheet" href="../99_Other/01_CSS/Menu.css">
 <meta charset="UTF-8">
 <style>
-	body {	
-		line-height: 40px;
-	}
-	table {
-		border: 0.5px solid #E6E6E6;		
-		margin-left: auto;
-    	margin-right: auto;
-    	width: 700;
-		line-height: 30px;
-	}
-	.writebtn {
-		text-align: center;
-		margin-left: 635px;
-	}
-	thead {
-		background-color: #eeeeee;
-		text-align: center;
-	}
-	tbody {
-		background-color: white;
-		text-align: center;
-	}
-	.top {
-		text-align: center;
-	}
-	.sub{
-		text-align: center;
-		line-height: 45px;
-	}
-	.board{
-		position: fixed;
-		top : 20%;
-		left : 30%;
-	}
-	a{
-		color : Black;
-		font-size : 15px;
-		text-decoration:none;
-	}
-	a:link {
-		color : Black;
-		text-decoration:none;
-	}
-	
-	a:visited {
-		color : Black;
-		text-decoration:none;
-	}
-	
-	a:hover{
-		color : Gray;
-		text-decoration:none;
-		cursor : pointer;
-	}
-	.title{
-		float : left;
-		margin-left : 20%;
-	}
+
 </style>
 <title>음악요청</title>
 </head>
@@ -120,7 +63,7 @@
 			</li>
 		</ul>
 	</div>
-	
+<div class="back">	
 	<div class="board">
 	<h3 class="top">음악요청</h3>
 	<%
@@ -194,6 +137,7 @@
 	<div class="sub">
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
 	</div>	
+</div>
 </div>
 </body>
 </html>

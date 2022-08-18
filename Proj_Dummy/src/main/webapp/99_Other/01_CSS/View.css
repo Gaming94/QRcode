@@ -1,7 +1,5 @@
 @charset "UTF-8";
-body{
-	
-}
+
 .logo{
 		position: fixed;
 		top : 20px;
@@ -55,7 +53,7 @@ body{
 	border : 2px solid;
 	border-color: rgb(255, 0, 0);
 }
-.menu_left{
+/*.menu_left{
 	position: fixed;
 	z-index : 98;
 	top: 99px;
@@ -92,10 +90,10 @@ body{
 	line-height: 25px;
 	list-style : none;
 	font-size: 14px;
-}
+} */
 .back {
 	position : fixed;
-	top : 99px;
+	top : 40px;
 	left : 199px;
 	
 	width: 100%;
@@ -107,7 +105,8 @@ table {
 	border: 1px #a39485 solid;
 	font-size: .9em;
 	box-shadow: 0 2px 5px rgba(0,0,0,.25);
-	width: 700;
+	width: 600px;
+	height: 700px;
 	margin-left: auto;
 	margin-right: auto;
 	line-height: 30px;
@@ -117,8 +116,7 @@ table {
 }
 th {
 	text-align: center;
-}
-  
+}  
 thead {
 	font-weight: bold;
 	color: black;
@@ -144,6 +142,14 @@ td {
 	width: 70px;
 	text-align: center;
 }
+.intit{
+	width: 500px;
+	height: 25px;
+}
+.incont{
+	width: 500px;
+	height: 600px;
+}
 .sub{
 	text-align: center;
 	line-height: 45px;
@@ -166,12 +172,16 @@ a:hover{
 	text-decoration:none;
 	cursor : pointer;
 }
+.tit {
+	width: 20%;
+	height: 10%;
+}
 .title{
 	float : left;
 	margin-left : 20%;
 }
 .board{
 	position: fixed;
-	top : 20%;
+	top : 10%;
 	left : 30%;
 }
