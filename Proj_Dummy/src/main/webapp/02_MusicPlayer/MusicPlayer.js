@@ -519,7 +519,7 @@ var Framer = {
 
         tracks: [
             {
-                artist: "Kavinsky",
+                artist: "리쌍",
                 song: "Odd Look ft. The Weeknd",
                 url: "../97_Music/belfast.mp3"
             }

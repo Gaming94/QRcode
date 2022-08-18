@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body{
-	
+	overflow:scroll; 
 }
 .logo{
 		position: fixed;
@@ -91,7 +91,7 @@ body{
 	text-align: center;
 	line-height: 25px;
 	list-style : none;
-	font-size: 14px;
+	font-size: 13px;
 }
 .back {
 	position : fixed;
@@ -105,8 +105,8 @@ body{
 }	
 table {
 	border: 1px #a39485 solid;
-	font-size: .9em;
 	box-shadow: 0 2px 5px rgba(0,0,0,.25);
+	font-size: .9em;
 	width: 700;
 	margin-left: auto;
 	margin-right: auto;
@@ -174,4 +174,5 @@ a:hover{
 	position: fixed;
 	top : 20%;
 	left : 30%;
+	height: 100%;
 }
