@@ -52,7 +52,7 @@
 	}
 	
 	tr:nth-child(even) {
-	  background-color: #eeffff;
+	  background-color: rgb(246, 246, 246);
 	}
 	
 	.board{
@@ -102,7 +102,7 @@
           <td><%= uvos.get(i).getEmail() %></td>    
           <td><%= uvos.get(i).getTel() %></td>    
           <td><%= uvos.get(i).getRegdate() %></td>
-          <td><button type="button" class="btn btn-primary btn-sm"  onclick="location.href='userEdit.hsp?id=<%= uvos.get(i).getId() %>';">수정</button></td>
+          <td><button type="button" class="btn btn-primary btn-sm"  onclick="location.href='userEdit.jsp?id=<%= uvos.get(i).getId() %>';">수정</button></td>
 		  <td><a class="btn btn-danger btn-sm" role="button"  onclick="return confirm('정말 삭제하시겠습니까?')" href="dropUser.jsp?id=<%= uvos.get(i).getId() %>">삭제</a></td>               
        </tr>
        <%}} else { %>
