@@ -40,9 +40,9 @@
 	       	</table>	       	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="submit">로그인</button>
+	        <button class="logbtn" type="submit">로그인</button>
 	        <a href="../01_Regist/signUp.jsp">
-	        	<button type="button">회원가입</button>
+	        	<button class="logbtn" type="button">회원가입</button>
         	</a>	        
 	      </div>
 	      </form>

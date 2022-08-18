@@ -1,23 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="notice.NoticeDAO" %>
 <%@ page import="notice.NoticeVO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.io.PrintWriter" %>
-<% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="noti" class="notice.NoticeVO" scope="page" />
 <jsp:setProperty name="noti" property="title" />
 <jsp:setProperty name="noti" property="content" />
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="../99_Other/01_CSS/Menu.css">
-<meta charset="UTF-8">
-
+<meta charset="UTF-8">	
 <title>공지사항</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../99_Other/01_CSS/Menu.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">로그인 창</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <form action="../01_Regist/login.jsp" method="post">
+	      <div class="modal-body">	       
+	        <table>
+	    		<tr>
+	       			<td><p>아이디</td>
+	       			<td><input type="text" name="id"></td>
+	    		</tr>
+	    		<tr>
+	       			<td><p>비밀번호</td>
+	       			<td><input type="password" name="pwd"></td>
+	       		</tr>
+	       	</table>	       	
+	      </div>
+	      <div class="modal-footer">
+	        <button class="btn btn-outline-secondary btn-sm" type="submit">로그인</button>
+	        <a href="../01_Regist/signUp.jsp">
+	        	<button class="btn btn-outline-secondary btn-sm" type="button">회원가입</button>
+        	</a>	        
+	      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>
 	<%
 		String id = null;
 		String admin = "QRCODE";
@@ -31,8 +66,6 @@
 		}
 		else if(session.getAttribute("user_id") == null)
 			id = null;	
-	%>
-	<%
 		if(check == 1) {
 	%>
 	<div class="writebtn">
@@ -120,7 +153,7 @@
 	<div class ="board">
 	<h3 class="top">공지사항</h3>
 	<br>
-	<table>
+	<table class="tb">
 	 <thead>
 		<tr>
 			<th style="width:5%">번호</th>

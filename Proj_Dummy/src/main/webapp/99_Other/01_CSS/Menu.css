@@ -1,11 +1,29 @@
 @charset "UTF-8";
-body{
-	overflow:scroll; 
-}
 .logo{
 		position: fixed;
 		top : 20px;
 		left : 50px;
+}
+.logbtn{
+	color:#6c757d;
+	border-color:#989ea3;
+	position:relative;
+	z-index:2;
+	border:1px solid #ced4da;
+	border-radius:.25rem
+}
+.logbtn:hover{
+	color:#fff;
+	background-color:#6c757d;
+	border-color:#6c757d;
+}
+.logbtn:focus{
+	box-shadow:0 0 0 .25rem rgba(108,117,125,.5);
+}
+.logbtn:active{
+	color:#fff;
+	background-color:#6c757d;
+	border-color:#6c757d
 }
 .menu_top{
 	position: fixed;
@@ -91,7 +109,7 @@ body{
 	text-align: center;
 	line-height: 25px;
 	list-style : none;
-	font-size: 13px;
+	font-size: 14px;
 }
 .back {
 	position : fixed;
@@ -103,10 +121,10 @@ body{
 	
 	background-color : #f5f5f5;
 }	
-table {
+.tb {
 	border: 1px #a39485 solid;
-	box-shadow: 0 2px 5px rgba(0,0,0,.25);
 	font-size: .9em;
+	box-shadow: 0 2px 5px rgba(0,0,0,.25);
 	width: 700;
 	margin-left: auto;
 	margin-right: auto;
@@ -115,20 +133,20 @@ table {
 	border-radius: 5px;
 	overflow: hidden;
 }
-th {
+.tb th {
 	text-align: center;
 }
   
-thead {
+.tb thead {
 	font-weight: bold;
 	color: black;
 	background: #eeeeee;;
 }  
-td, th {
+.tb td, th {
 	padding: 1em .5em;
 	vertical-align: middle;
 }  
-td {
+.tb td {
 	text-align : center;
 	border-bottom: 1px solid rgba(0,0,0,.1);
 	background: #fff;
@@ -174,5 +192,4 @@ a:hover{
 	position: fixed;
 	top : 20%;
 	left : 30%;
-	height: 100%;
 }

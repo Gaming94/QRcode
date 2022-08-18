@@ -4,7 +4,27 @@
 	  padding: 0px;
 	  margin: 0px;
 	}
-	
+	.logbtn{
+		color:#6c757d;
+		border-color:#989ea3;
+		position:relative;
+		z-index:2;
+		border:1px solid #ced4da;
+		border-radius:.25rem
+	}
+	.logbtn:hover{
+		color:#fff;
+		background-color:#6c757d;
+		border-color:#6c757d;
+	}
+	.logbtn:focus{
+		box-shadow:0 0 0 .25rem rgba(108,117,125,.5);
+	}
+	.logbtn:active{
+		color:#fff;
+		background-color:#6c757d;
+		border-color:#6c757d
+	}
 	.LPImg {
 		position:absolute;
 		top : 500px;

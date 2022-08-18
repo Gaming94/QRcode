@@ -8,61 +8,8 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="../99_Other/01_CSS/View.css">
 <meta charset="UTF-8">
-<style>
-	body {
-		text-align: center;
-	}
-	table {
-		border: 0.5px solid #E6E6E6;
-		width: 600px;
-		height: 700px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	td{
-		border: 0.5px solid #E6E6E6;
-	}
-	.tit {
-		width: 20%;
-		height: 10%;
-	}
-	.intit{
-		width: 500px;
-		height: 25px;
-	}
-	.incont{
-		width: 500px;
-		height: 600px;
-	}
-	.sub{
-		text-align: center;
-		margin-left: 540px;
-		line-height: 45px
-	}
-	a{
-		color : Black;
-		font-size : 15px;
-		text-decoration:none;
-	}
-	
-	a:link {
-		color : Black;
-		text-decoration:none;
-	}
-	
-	a:visited {
-		color : Black;
-		text-decoration:none;
-	}
-	
-	a:hover{
-		color : Gray;
-		text-decoration:none;
-		cursor : pointer;
-	}
-</style>
-
 <title>음악요청 보기</title>
 </head>
 <body>
@@ -93,6 +40,15 @@
 		}
 		BoardVO board = new BoardDAO().getReply(bID, bID2);		
 	%>
+	<div class="logo">
+		<a href="../00_Main/Main.jsp">
+			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
+		</a>
+	</div>
+	<div class="menu_top">
+	</div>
+	<div class="back">
+	<div class="board">
 	<h2><%= board.getTitle() %></h2>
 	<table>
 		<tr>
@@ -127,6 +83,8 @@
 		<a class="btn btn-outline-primary btn-sm" role="button" href="modifyReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">수정</a>
 		<%} %>
 		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='board.jsp';">목록</button>
+	</div>
+	</div>
 	</div>
 </body>
 </html>
