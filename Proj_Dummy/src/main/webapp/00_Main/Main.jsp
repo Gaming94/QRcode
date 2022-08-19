@@ -37,7 +37,7 @@
 	       			<td><p>비밀번호&nbsp;</td>
 	       			<td><input type="password" name="pwd"></td>
 	       		</tr>
-	       	</table>	       	
+	       	</table>
 	      </div>
 	      <div class="modal-footer">
 	        	<button class="logbtn" type="submit">로그인</button>

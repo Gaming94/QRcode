@@ -75,6 +75,7 @@
    <table align="center" border="1" >
     <thead>
       <tr align="center">
+         <td width="7%" ><b>번호</b></td>
          <td width="7%" ><b>아이디</b></td>
          <td width="7%" ><b>비밀번호</b></td>
          <td width="7%" ><b>이름</b></td>
@@ -93,9 +94,10 @@
    	ArrayList<UserVO> uvos = dao.loadUser();
    	UserVO uvo = dao.loadUserinfo(id);
    	if (id.equals(admin)) {
-   		for(int i=0; i < uvos.size(); i++) {
+   		for(int i=0, n=1; i < uvos.size(); i++, n++) {
    	%>
         <tr align="center">
+          <td><%= n %></td>
           <td><%= uvos.get(i).getId() %></td>
           <td><%= uvos.get(i).getPwd() %></td>
           <td><%= uvos.get(i).getName() %></td>     

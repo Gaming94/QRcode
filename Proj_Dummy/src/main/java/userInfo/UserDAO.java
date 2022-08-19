@@ -104,7 +104,7 @@ public class UserDAO {
 		ArrayList<UserVO> listUser = new ArrayList<UserVO>();		
 		ResultSet rs = null;		
 		try {
-			String sql = "select * from qrmember order by id";	
+			String sql = "select * from qrmember";	
 			conn = OracleConnector.getConnection();			
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
