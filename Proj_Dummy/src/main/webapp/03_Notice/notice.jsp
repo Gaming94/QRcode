@@ -149,7 +149,6 @@
 	<%	
 		if(check == 1) {
 	%>
-	<br>
 	<div class="writebtn">
 		<button type="button" class="logbtn" onclick="location.href='writeNotice.jsp';">글쓰기</button>
 	</div>
