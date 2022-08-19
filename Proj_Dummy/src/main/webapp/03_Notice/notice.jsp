@@ -151,9 +151,9 @@
 	%>
 	<div class="writebtn">
 		<button type="button" class="logbtn" onclick="location.href='writeNotice.jsp';">글쓰기</button>
-	</div>
-	<br>
+	</div>	
 	<%} %>
+	<br>
 	<table class="tb">
 	 <thead>
 		<tr>
