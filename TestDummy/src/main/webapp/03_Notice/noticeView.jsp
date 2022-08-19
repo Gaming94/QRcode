@@ -27,9 +27,6 @@
 		width: 20%;
 		height: 10%;
 	}
-	.cont{
-		
-	}
 	.intit{
 		width: 500px;
 		height: 25px;

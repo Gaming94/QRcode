@@ -14,7 +14,6 @@
 <head>
 <meta charset="UTF-8">	
 <title>공지사항</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="../99_Other/01_CSS/Menu.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -44,9 +43,9 @@
 	       	</table>	       	
 	      </div>
 	      <div class="modal-footer">
-	        <button class="btn btn-outline-secondary btn-sm" type="submit">로그인</button>
+	        <button class="logbtn" type="submit">로그인</button>
 	        <a href="../01_Regist/signUp.jsp">
-	        	<button class="btn btn-outline-secondary btn-sm" type="button">회원가입</button>
+	        	<button class="logbtn" type="button">회원가입</button>
         	</a>	        
 	      </div>
 	      </form>
@@ -66,12 +65,7 @@
 		}
 		else if(session.getAttribute("user_id") == null)
 			id = null;	
-		if(check == 1) {
-	%>
-	<div class="writebtn">
-		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='writeNotice.jsp';">글쓰기</button>
-	</div>
-	<%} %>
+		%>	
 	<div class="logo">
 		<a href="../00_Main/Main.jsp">
 			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
@@ -141,7 +135,7 @@
 				    관리자님 환영합니다
 				</li>
 				<li>
-				    <a href="../user/userInfo.do">회원정보</a>
+				    <a href="../01_Regist/userInfo.jsp">회원정보</a>
 				</li>
 				<li>
 				    <a href="../01_Regist/logout.jsp">로그아웃</a>
@@ -150,9 +144,17 @@
 			</ul>
 	</div>
 	<div class="back">
-	<div class ="board">
-	<h3 class="top">공지사항</h3>
+	<div class ="board">	
+	<h3 class="top">공지사항</h3>	
+	<%	
+		if(check == 1) {
+	%>
 	<br>
+	<div class="writebtn">
+		<button type="button" class="logbtn" onclick="location.href='writeNotice.jsp';">글쓰기</button>
+	</div>
+	<br>
+	<%} %>
 	<table class="tb">
 	 <thead>
 		<tr>
@@ -186,7 +188,8 @@
 	 </tbody>
 	</table>
 	<div class="sub">
-		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
+		<br>
+		<button type="button" class="logbtn" onclick="location.href='../00_Main/Main.jsp';">뒤로가기</button>
 </div>
 	</div>	
 </div>

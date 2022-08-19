@@ -9,6 +9,7 @@
 		border-color:#989ea3;
 		position:relative;
 		z-index:2;
+		background-color:#eeeeee;
 		border:1px solid #ced4da;
 		border-radius:.25rem
 	}
