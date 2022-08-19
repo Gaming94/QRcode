@@ -30,17 +30,17 @@
 	      <div class="modal-body">	       
 	        <table>
 	    		<tr>
-	       			<td><p>아이디</td>
+	       			<td><p>아이디&nbsp;</td>
 	       			<td><input type="text" name="id"></td>
 	    		</tr>
 	    		<tr>
-	       			<td><p>비밀번호</td>
+	       			<td><p>비밀번호&nbsp;</td>
 	       			<td><input type="password" name="pwd"></td>
 	       		</tr>
 	       	</table>	       	
 	      </div>
 	      <div class="modal-footer">
-	        <button class="logbtn" type="submit">로그인</button>
+	        	<button class="logbtn" type="submit">로그인</button>
 	        <a href="../01_Regist/signUp.jsp">
 	        	<button class="logbtn" type="button">회원가입</button>
         	</a>	        
