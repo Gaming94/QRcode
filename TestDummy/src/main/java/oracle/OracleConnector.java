@@ -78,7 +78,7 @@ public class OracleConnector {
 				sqlAdm += "'QRCODE@naver.com', '010-1111-1111', SYSDATE)";
 			
 			String sqlSeq = "CREATE SEQUENCE noseq INCREMENT BY 1 START WITH 1";
-				sqlSeq += "MINVALUE 1 NOCYCLE ORDER";
+				sqlSeq += "MINVALUE 1 NOCYCLE NOCACHE ORDER";
 			
 			String sqlNotice = "CREATE TABLE QRNOTICE (";
 			sqlNotice += "no number(5) CONSTRAINT no_no_pk PRIMARY KEY,";
@@ -89,7 +89,7 @@ public class OracleConnector {
 			// String sqlAddNotice = "INSERT INTO QRNOTICE VALUES(noseq.nextval,'가나다라', '마바사아', sysdate)";
 			
 			String sqlSeq2 = "CREATE SEQUENCE boseq INCREMENT BY 1 START WITH 1";
-			sqlSeq2 += "MINVALUE 1 NOCYCLE ORDER";
+			sqlSeq2 += "MINVALUE 1 NOCYCLE NOCACHE ORDER";
 			
 			String sqlBoard = "CREATE TABLE QRBOARD (";
 				sqlBoard += "no number(5),";

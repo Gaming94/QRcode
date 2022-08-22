@@ -59,13 +59,13 @@
 		    else
 		    	check = 0;
 		}
-		else if(session.getAttribute("user_id") == null)
-			id = null;	
-			
+		else if(session.getAttribute("user_id") == null) {
+			id = null;				
 	    	script.println("<script>");
 	    	script.println("alert('회원 권한이 필요합니다.')");
 	    	script.println("location.href = '../00_Main/Main.jsp'");
 	    	script.println("</script>");
+		}
 		%>	
 	<div class="logo">
 		<a href="../00_Main/Main.jsp">
@@ -182,6 +182,7 @@
 			<td><%= board.getContent() %></td>
 		</tr>
 	</table>
+	<br>
 	<div class="sub">
 	<% if((id.equals(admin)) || (id.equals(board.getId()))) {%>
 		<a class="logbtn" role="button" href="writeReply.jsp?bID=<%=bID%>&bID2=<%=bID2%>">답글&nbsp;</a>

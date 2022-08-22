@@ -7,43 +7,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <meta charset="UTF-8">
-<style>
-	body {
-		text-align: center;
-	}
-	table {
-		border: 0.5px solid #E6E6E6;
-		width: 600px;
-		height: 700px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	td{
-		border: 0.5px solid #E6E6E6;
-	}
-	.tit {
-		height: 10%;
-	}
-	.cont{
-		
-	}
-	.intit{
-		width: 500px;
-		height: 25px;
-	}
-	.incont{
-		width: 500px;
-		height: 600px;
-	}
-	.sub{
-		text-align: center;
-		margin-left: 540px;
-		line-height: 45px;
-	}
-</style>
 <title>음악요청 답변작성</title>
+<link rel="stylesheet" href="../99_Other/01_CSS/Write.css">
 </head>
 <body>
 <% 
@@ -69,30 +35,40 @@
 	int pno = bvo.getPno() + 1;
 	
 %>
-	<h2>음악요청 작성</h2>
+	<div class="logo">
+		<a href="../00_Main/Main.jsp">
+			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
+		</a>
+	</div>
+	<div class="back">	
+	<div class="board">
+	<h2 class="top">음악요청 답변 작성</h2>
 	<form action="rWrite.jsp" method="post">
-	<table>
+	<table class="tb">
 		<tr class="tit">
-			<td style="width:10%">글번호</td>
+			<td style="height:10%">글번호</td>
 			<td><input type="text" name="no" class="intit" value="<%=no %>" readonly></td>
 		</tr>
 		<tr class="tit">
-			<td style="width:10%">답변번호</td>
+			<td style="height:10%">답변번호</td>
 			<td><input type="text" name="pno" class="intit" value="<%=pno %>" readonly></td>
 		</tr>
 		<tr class="tit">
-			<td style="width:10%">제목</td>
+			<td style="height:10%">제목</td>
 			<td><input type="text" name="title" class="intit"></td>
 		</tr>
-		<tr class="cont">
+		<tr>
 			<td>내용</td>
-			<td><input type="text" name="content" class="incont"></td>
+			<td><input type="text" name="content" class="incont-reply"></td>
 		</tr>
 	</table>
+	<br>
 	<div class="sub">
-		<input class="btn btn-outline-secondary btn-sm" type="submit" value="글쓰기">
-		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='board.jsp';">목록으로</button>
+		<input class="logbtn" type="submit" value="글쓰기">
+		<button type="button" class="logbtn" onclick="location.href='board.jsp';">목록으로</button>
 	</div>
 	</form>
+	</div>
+	</div>
 </body>
 </html>

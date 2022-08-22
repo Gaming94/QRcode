@@ -52,7 +52,7 @@
 	}
 	
 	tr:nth-child(even) {
-	  background-color: #eeffff;
+	  background-color: rgb(246, 246, 246);
 	}
 	
 	.board{
@@ -75,6 +75,7 @@
    <table align="center" border="1" >
     <thead>
       <tr align="center">
+         <td width="7%" ><b>번호</b></td>
          <td width="7%" ><b>아이디</b></td>
          <td width="7%" ><b>비밀번호</b></td>
          <td width="7%" ><b>이름</b></td>
@@ -93,16 +94,17 @@
    	ArrayList<UserVO> uvos = dao.loadUser();
    	UserVO uvo = dao.loadUserinfo(id);
    	if (id.equals(admin)) {
-   		for(int i=0; i < uvos.size(); i++) {
+   		for(int i=0, n=1; i < uvos.size(); i++, n++) {
    	%>
         <tr align="center">
+          <td><%= n %></td>
           <td><%= uvos.get(i).getId() %></td>
           <td><%= uvos.get(i).getPwd() %></td>
           <td><%= uvos.get(i).getName() %></td>     
           <td><%= uvos.get(i).getEmail() %></td>    
           <td><%= uvos.get(i).getTel() %></td>    
           <td><%= uvos.get(i).getRegdate() %></td>
-          <td><button type="button" class="btn btn-primary btn-sm"  onclick="location.href='userEdit.hsp?id=<%= uvos.get(i).getId() %>';">수정</button></td>
+          <td><button type="button" class="btn btn-primary btn-sm"  onclick="location.href='userEdit.jsp?id=<%= uvos.get(i).getId() %>';">수정</button></td>
 		  <td><a class="btn btn-danger btn-sm" role="button"  onclick="return confirm('정말 삭제하시겠습니까?')" href="dropUser.jsp?id=<%= uvos.get(i).getId() %>">삭제</a></td>               
        </tr>
        <%}} else { %>
