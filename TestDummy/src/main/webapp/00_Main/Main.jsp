@@ -21,29 +21,23 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">로그인 창</h5>
+	        <div class="modal-title" id="exampleModalLabel" align="center" style= "font-size: 20px" >로그인 
+	        </div>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      <form action="../01_Regist/login.jsp" method="post">
-	      <div class="modal-body">	       
-	        <table>
-	    		<tr>
-	       			<td><p>아이디&nbsp;</td>
-	       			<td><input type="text" name="id"></td>
-	    		</tr>
-	    		<tr>
-	       			<td><p>비밀번호&nbsp;</td>
-	       			<td><input type="password" name="pwd"></td>
-	       		</tr>
-	       	</table>
+	      <div class="modal-body" align="center">	       
+		       <input type="text" class="id" name="id" placeholder="QR Music ID" >
 	      </div>
-	      <div class="modal-footer">
-	        	<button class="logbtn" type="submit">로그인</button>
-	        <a href="../01_Regist/signUp.jsp">
-	        	<button class="logbtn" type="button">회원가입</button>
-        	</a>	        
+	      <div class="modal-body" align="center">
+	           <input type="password"  class="pw" name="pwd" placeholder="QR Music Passrword">
+	      </div>
+	      <div class="modal-body" align="center">
+	          <input type="submit" class="logbtn" id="btn-login" value="로그인">
+
+               <input type="button" class="logbtn" value="회원가입" onclick="location.href='../01_Regist/signUp.jsp'">     
 	      </div>
 	      </form>
 	    </div>
