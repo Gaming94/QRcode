@@ -28,13 +28,13 @@
 	        </button>
 	      </div>
 	      <form action="../01_Regist/login.jsp" method="post">
-	      <div class="modal-body" align="center">	       
+	      <div class="modal-body" align="center" style="background-color: #f5f5f5">	       
 		       <input type="text" class="id" name="id" placeholder="QR Music ID" >
 	      </div>
-	      <div class="modal-body" align="center">
+	      <div class="modal-body" align="center" style="background-color: #f5f5f5">
 	           <input type="password"  class="pw" name="pwd" placeholder="QR Music Passrword">
 	      </div>
-	      <div class="modal-body" align="center">
+	      <div class="modal-body" align="center" style="background-color: #f5f5f5">
 	          <input type="submit" class="logbtn" id="btn-login" value="로그인">
 
                <input type="button" class="logbtn" value="회원가입" onclick="location.href='../01_Regist/signUp.jsp'">     
