@@ -110,6 +110,7 @@
        <%}} else { %>
      <tbody> 
      <tr align="center">
+     	  <td><%= 1 %></td>
      	  <td><%=uvo.getId() %></td>
           <td><%=uvo.getPwd() %></td>
           <td><%=uvo.getName() %></td>     
