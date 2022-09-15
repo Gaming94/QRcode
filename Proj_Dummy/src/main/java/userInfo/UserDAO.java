@@ -205,5 +205,27 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return joined;
-	}	
+	}
+	
+	public int joinIdCheck(String id){
+		int result = -1;
+		String sql = "select id from qrmember where id=?";
+		try {
+			conn = OracleConnector.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()){	
+				result = 0;
+			} else {
+				result = 1;
+			}
+			ps.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

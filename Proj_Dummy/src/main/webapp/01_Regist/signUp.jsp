@@ -41,7 +41,7 @@
 }
 
 .id {
-  width: 100%;
+  width: 80%;
   border:none;
   outline:none;
   color: #636e72;
@@ -100,6 +100,8 @@
   background: none;
 }
 
+.button { font-size:13px; height: 28px; width: 58px; }
+
 .btn {
   position:relative;
   left:40px;
@@ -135,6 +137,10 @@
    <title>회원 가입창</title>
 </head>
 <script>
+function winopen(){
+	window.open("joinIdCheck.jsp?id="+document.fr.id.value,"","width=340, height=220");
+}
+
 function check_pwd(){ 
 	var pwd = document.getElementById('pwd').value;
 	var pwd2 = document.getElementById('pwd2').value;
@@ -153,12 +159,13 @@ function check_pwd(){
 }
 </script>
 <body>
-<form method="post" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;" action="userJoin.jsp">
+<form method="post" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;" action="userJoin.jsp" name="fr">
 <img class="mainLogo" src="../98_Image/QRMusic_MainLogo.jpg" >
 
        <h2>회원가입</h2>
       <div class="textForm">
         <input name="id" type="text" class="id" placeholder="아이디">
+        <input type="button" value="중복확인" class="button" onclick="winopen()">
       </div>
       <div class="textForm">
         <input name="pwd" type="password" class="pwd" id="pwd" placeholder="비밀번호" onchange="check_pwd()">
