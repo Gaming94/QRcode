@@ -8,42 +8,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
-	body {
-		text-align: center;
-	}
-	table {
-		border: 0.5px solid #E6E6E6;
-		width: 600px;
-		height: 700px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	td{
-		border: 0.5px solid #E6E6E6;
-	}
-	.tit {
-		height: 10%;
-	}
-	.cont{
-		
-	}
-	.intit{
-		width: 500px;
-		height: 25px;
-	}
-	.incont{
-		width: 500px;
-		height: 600px;
-	}
-	.sub{
-		text-align: center;
-		margin-left: 540px;
-	}
-</style>
+<link rel="stylesheet" href="../99_Other/01_CSS/Write.css">
 <title>음악요청 수정</title>
 </head>
 <body>
+<div class="logo">
+		<a href="../00_Main/Main.jsp">
+			<img src="../98_Image/QRMusic_MainLogo.jpg" width="70">
+		</a>
+	</div>
 <% 
 	String id = null;
 	String admin = "QRCODE";
@@ -72,9 +45,11 @@
 	}	
 	BoardVO bvo = new BoardDAO().getReply(bID, bID2);
 %>
-<div>
+<div class="back">	
+	<div class="board">
+	<h2 class="top">음악요청 댓글 수정</h2>
 	<form method="post" action="updateReply.jsp?bID=<%=bID %>">
-		<table>
+		<table class="tb">
 			<tr class="tit">
 				<td style="width:10%">글번호</td>
 				<td><input type="text" name="no" class="intit" value="<%=bvo.getNo() %>" readonly></td>
@@ -87,16 +62,17 @@
 				<td style="width:10%">제목</td>
 				<td><input type="text" name="title" class="intit" value="<%=bvo.getTitle()%>"></td>
 			</tr>
-			<tr class="cont">
+			<tr>
 				<td>내용</td>
-				<td><input type="text" name="content" class="incont" value="<%=bvo.getContent()%>"></td>
+				<td><input type="text" name="content" style="width: 500px; height: 400px;" value="<%=bvo.getContent()%>"></td>
 			</tr>
 		</table>
-		<div style="line-height: 45px">
-			<input class="sub" type="submit" value="수정하기">
-			<button class="sub" type="button" onclick="location.href='board.jsp';">뒤로</button>
+		<div class="sub">
+			<input type="submit" value="수정하기">
+			<button class="logbtn" type="button" onclick="location.href='board.jsp';">뒤로</button>
 		</div>
 	</form>
+	</div>
 </div>
 </body>
 </html>
