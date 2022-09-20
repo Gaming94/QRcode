@@ -11,17 +11,16 @@ public class UserVO {
 	private String pwd;
 	private String email;
 	private String tel;
-
+	private Date regdate;
+	
+	public UserVO() {}
+	
 	public String getTel() {
 		return tel;
 	}
-
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	private Date regdate;
-
-	public UserVO() {}
 	
 	public UserVO(String id,String pwd) {
 		this.id = id;

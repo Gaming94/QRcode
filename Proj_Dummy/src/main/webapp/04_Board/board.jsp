@@ -182,8 +182,8 @@
 	 		<td><a href="boardView.jsp?bID=<%= bvos.get(i).getNo()%>" class="title">
 	 			<%= bvos.get(i).getTitle()%></a></td>
 	 		<%} else if((bvos.get(i).getPno() != 0)){ %>
-	 		<td>└<%= bvos.get(i).getPno() %></td>	 
-	 		<td><a href="replyView.jsp?bID=<%= bvos.get(i).getNo()%>&bID2=<%= bvos.get(i).getPno()%>" class="title">└
+	 		<td>&nbsp;&nbsp;&nbsp;&nbsp;└<%= bvos.get(i).getPno() %></td>	 
+	 		<td><a href="replyView.jsp?bID=<%= bvos.get(i).getNo()%>&bID2=<%= bvos.get(i).getPno()%>" class="title">&nbsp;&nbsp;&nbsp;&nbsp;└
 	 			<%= bvos.get(i).getTitle()%></a></td>
 	 		<% } %>
 	 		<td><%= bvos.get(i).getId()%></td>
