@@ -38,7 +38,6 @@ public class OracleConnector {
 		catch(Exception e) {
 			System.out.println("[main] Exception: " + e.toString());
 		}
-		
 		return _stconn;
 	}
 	
@@ -152,19 +151,19 @@ public class OracleConnector {
 			Statement stmt = conn.createStatement();
 			
 			boolean resultset1 = stmt.execute(sql1);
-			System.out.println("return 성공1? = " + resultset1);
+			System.out.println("return 성공1 = " + resultset1);
 			
 			boolean resultset2 = stmt.execute(sql2);
-			System.out.println("return 성공2? = " + resultset2);
+			System.out.println("return 성공2 = " + resultset2);
 			
 			boolean resultset3 = stmt.execute(sql3);
-			System.out.println("return 성공3? = " + resultset3);
+			System.out.println("return 성공3 = " + resultset3);
 			
 			boolean resultset4 = stmt.execute(sql4);
-			System.out.println("return 성공4? = " + resultset4);
+			System.out.println("return 성공4 = " + resultset4);
 			
 			boolean resultset5 = stmt.execute(sql5);
-			System.out.println("return 성공5? = " + resultset5);
+			System.out.println("return 성공5 = " + resultset5);
 			
 			boolean dbclosed = conn.isClosed();
 			System.out.println("[main] isClosed: " + dbclosed);
